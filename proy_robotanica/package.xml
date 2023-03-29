@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+    <name>proy_robotanica</name>
+    <version>2.1.4</version>
+    <description>
+    ROS 2 packages for Robotanica Project
+    </description>
+    <maintainer email="dabebel@epsg.upv.es">Daniel</maintainer>
+    <license>Apache 2.0</license>
+    <url type="website">http://XXXXXXX</url>
+    <url type="repository">https://github.com/DanielBBHub/RobotanicaROS</url>
+    <url type="bugtracker">https://github.com/XXXXXX</url>
+    <author email="dabebel@epsg.upv.es">Daniel Benavides Belmonte</author>
+    <buildtool_depend>ament_cmake</buildtool_depend>
+    <exec_depend>proy_robotanica_custom_interface</exec_depend>
+    <exec_depend>proy_robotanica_nav2_system</exec_depend>
+    <exec_depend>proy_robotanica_nav2_system</exec_depend>
+    <exec_depend>proy_robotanica_services</exec_depend>
+    <exec_depend>proy_robotanica_slam</exec_depend>
+    <exec_depend>ros_tcp_endpoint</exec_depend>
+    <exec_depend>turtlebot3_simulations</exec_depend>
+    <exec_depend>turtlebot3_fake_node</exec_depend>
+    <exec_depend>turtlebot3_gazebo</exec_depend>
+    <exec_depend>turtlebot3_simulations</exec_depend>
+    <exec_depend>unity_robotics_demo_msgs</exec_depend>
+    <exec_depend>unity_robotics_demo</exec_depend>
+    <export>
+    <build_type>ament_cmake</build_type>
+    </export>
+</package>
