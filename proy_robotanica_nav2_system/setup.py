@@ -16,7 +16,10 @@ setup(
         (os.path.join('share', package_name, 'launch'), glob('launch/*.launch.py')),
         (os.path.join('share', package_name, 'config'), glob('config/*.yaml')),
         (os.path.join('share', package_name, 'config'), glob('config/*.rviz')),
-        (os.path.join('share', package_name, 'config'), glob('config/*.pgm'))
+        (os.path.join('share', package_name, 'config'), glob('config/*.pgm')),
+        (os.path.join('share', package_name, 'config'), glob('config/*.lua')),
+        (os.path.join('share', package_name, 'config'), glob('config/*.yaml')), 
+        (os.path.join('share', package_name, 'config'), glob('config/*.xml')) 
 
     ],
     install_requires=['setuptools'],
@@ -28,6 +31,7 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
+            'initial_pose_pub = my_nav2_system.initial_pose_pub:main' #añadir
         ],
     },
 )
