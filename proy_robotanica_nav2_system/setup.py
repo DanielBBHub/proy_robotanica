@@ -18,7 +18,6 @@ setup(
         (os.path.join('share', package_name, 'config'), glob('config/*.rviz')),
         (os.path.join('share', package_name, 'config'), glob('config/*.pgm')),
         (os.path.join('share', package_name, 'config'), glob('config/*.lua')),
-        (os.path.join('share', package_name, 'config'), glob('config/*.yaml')), 
         (os.path.join('share', package_name, 'config'), glob('config/*.xml')) 
 
     ],

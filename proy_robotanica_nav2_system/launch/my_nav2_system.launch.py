@@ -11,7 +11,7 @@ def generate_launch_description():
 
     nav2_yaml = os.path.join(get_package_share_directory('proy_robotanica_nav2_system'), 'config', 'my_nav2_params.yaml')
     map_file = os.path.join(get_package_share_directory('proy_robotanica_nav2_system'), 'config', 'my_map.yaml')
-    rviz_config_dir = os.path.join(get_package_share_directory('proy_robotanica_nav2_system'), 'config', 'my_slam.rviz')
+    rviz_config_dir = os.path.join(get_package_share_directory('proy_robotanica_nav2_system'), 'config', 'config_proyecto.rviz')
 
     return LaunchDescription([
         Node(
