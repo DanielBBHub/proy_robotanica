@@ -83,7 +83,7 @@ def generate_launch_description():
             executable='lifecycle_manager',
             name='lifecycle_manager_pathplanner',
             output='screen',
-            parameters=[{'use_sim_time': True},
+            parameters=[nav2_yaml,{'use_sim_time': True},
                         {'autostart': True},
                         {'node_names':['map_server', 'amcl', 'planner_server', 'controller_server', 'recoveries_server', 'bt_navigator', 'waypoint_follower']}]
         ),
