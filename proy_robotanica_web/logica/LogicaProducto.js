@@ -50,8 +50,6 @@ module.exports = class LogicaUsuario {
 					rechazar(err)
 				} else if(res.length > 1){
 					rechazar("ERROR")
-				} else if(res.length == 0){
-					rechazar(404)
 				} else {
 					resolver(res[0])
 				}

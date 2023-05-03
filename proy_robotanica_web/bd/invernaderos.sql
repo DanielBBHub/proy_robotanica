@@ -5,8 +5,7 @@ create table Invernaderos(
     direccion    varchar(50)    not null,
     area    INTEGER    not null,
     tipo    varchar(50)    not null,
-    idInvernadero    varchar(52)    not null,
-    foreign key (idInvernadero) references Productos(idInvernadero)
+    idInvernadero    varchar(52)    not null
 );
 
 

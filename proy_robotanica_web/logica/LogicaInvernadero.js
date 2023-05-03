@@ -61,7 +61,6 @@ module.exports = class LogicaUsuario {
 	// pass
 	// -----------------------------------------------------------------
 	_insertarInvernadero( data ){
-		console.log(data)
 		let textoSQL = "insert into Invernaderos values($dniUser, $nombre, $direccion,$area, $tipo, $idInvernadero)";
 		let valoresParaSQL = { $dniUser: data.dniUser, $nombre: data.nombre, $direccion: data.direccion, $area: data.area, $tipo: data.tipo, $idInvernadero: data.idInvernadero}
 		return new Promise( (resolver, rechazar) => {
