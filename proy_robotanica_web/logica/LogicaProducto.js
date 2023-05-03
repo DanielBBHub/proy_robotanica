@@ -1,12 +1,12 @@
 /** ---------------------------------------------------------------------
- * Logica.js
+ * LogicaProducto.js
  *
- * 10/11/21
+ * 03/05/23
  *
- * Javier Solís
+ * Daniel Benavides
  *
  * Este fichero contiene todas las funciones que operan con sql y se
- * conectan a la bd
+ * conectan a la bd para los productos
  *
  *
  * ------------------------------------------------------------------- */
@@ -40,16 +40,16 @@ module.exports = class LogicaUsuario {
 	// _getUsuarioConcorreo() -->
 	//  nombreApellidos, correo, pass, dni
 	// -----------------------------------------------------------------
-	_getUsuarioConCorreo( correo ){
-		let textoSQL = "select * from Usuarios where correo=$correo";
-		let valoresParaSQL = { $correo: correo }
+	_getProductoPorId( id ){
+		let textoSQL = "select * from Productos where id=$id";
+		let valoresParaSQL = { $id: id }
 		return new Promise( (resolver, rechazar) => {
 			this.laConexion.all( textoSQL, valoresParaSQL,
 			( err, res ) => {
 				if(err){
 					rechazar(err)
 				} else if(res.length > 1){
-					rechazar("ERROR: mas de 1 usuario comparte correo")
+					rechazar("ERROR: mas de 1 usuario comparte idx")
 				} else if(res.length == 0){
 					rechazar(404)
 				} else {

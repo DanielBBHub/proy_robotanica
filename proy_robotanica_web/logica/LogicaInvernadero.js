@@ -1,12 +1,12 @@
 /** ---------------------------------------------------------------------
- * Logica.js
+ * LogicaInvernaderos.js
  *
- * 10/11/21
+ * 03/05/23
  *
- * Javier Solís
+ * Daniel Benavides
  *
  * Este fichero contiene todas las funciones que operan con sql y se
- * conectan a la bd
+ * conectan a la bd para los invernaderos
  *
  *
  * ------------------------------------------------------------------- */

@@ -1,12 +1,12 @@
 /** ---------------------------------------------------------------------
- * Logica.js
+ * LogicaUsuario.js
  *
- * 10/11/21
+ * 03/05/23
  *
- * Javier Solís
+ * Daniel Benavides
  *
  * Este fichero contiene todas las funciones que operan con sql y se
- * conectan a la bd
+ * conectan a la bd para los usuarios
  *
  *
  * ------------------------------------------------------------------- */
@@ -40,7 +40,7 @@ module.exports = class LogicaUsuario {
 	// _getUsuarioConcorreo() -->
 	//  nombreApellidos, correo, pass, dni
 	// -----------------------------------------------------------------
-	_getUsuarioConCorreo( correo ){
+	async _getUsuarioConCorreo( correo ){
 		let textoSQL = "select * from Usuarios where correo=$correo";
 		let valoresParaSQL = { $correo: correo }
 		return new Promise( (resolver, rechazar) => {
@@ -48,10 +48,6 @@ module.exports = class LogicaUsuario {
 			( err, res ) => {
 				if(err){
 					rechazar(err)
-				} else if(res.length > 1){
-					rechazar("ERROR: mas de 1 usuario comparte correo")
-				} else if(res.length == 0){
-					rechazar(404)
 				} else {
 					resolver(res[0])
 				}
@@ -64,7 +60,7 @@ module.exports = class LogicaUsuario {
 	// _comprobarpassConcorreoYPass() -->
 	// pass
 	// -----------------------------------------------------------------
-	_comprobarpassConCorreoYPass( correo, pass ){
+	async _comprobarpassConCorreoYPass( correo, pass ){
 		let textoSQL = "select pass from Usuario where correo=$correo and pass=$pass";
 		let valoresParaSQL = { $correo: correo, $pass: pass }
 		return new Promise( (resolver, rechazar) => {
@@ -74,8 +70,6 @@ module.exports = class LogicaUsuario {
 					rechazar(err)
 				} else if(res.length > 1){
 					rechazar("ERROR: mas de 1 usuario comparte correo")
-				} else if(res.length == 0){
-					rechazar(404)
 				} else {
 					resolver(res[0])
 				}
@@ -88,7 +82,7 @@ module.exports = class LogicaUsuario {
 	// _cambiarpass() -->
 	// 
 	// -----------------------------------------------------------------
-	_cambiarpass( pass, correo ){
+	async _cambiarpass( pass, correo ){
 		let textoSQL = "UPDATE Usuario SET pass=$pass where correo=$correo";
 		let valoresParaSQL = { $correo: correo, $pass: pass }
 		return new Promise( (resolver, rechazar) => {
@@ -113,7 +107,7 @@ module.exports = class LogicaUsuario {
 	// correo, nombre, id_invernadero, id_rol, pass
 	// -----------------------------------------------------------------
 
-	_getUsuarioConcorreoYPass( correo, pass ){
+	async _getUsuarioConcorreoYPass( correo, pass ){
 		let textoSQL = "select * from Usuario where correo=$correo and pass=$pass";
 		let valoresParaSQL = { $correo: correo, $pass: pass }
 		return new Promise( (resolver, rechazar) => {
@@ -131,6 +125,24 @@ module.exports = class LogicaUsuario {
 			})
 		})
 	}
+
+	async _insertarUsuario( data ){
+		console.log(data.nombreApellidos)
+		let textoSQL = "insert into Usuarios values($nombreApellidos, $correo, $pass,$dni)";
+		let valoresParaSQL = { $nombreApellidos: data.nombreApellidos, $correo: data.correo, $pass: data.pass,$dni: data.dni }
+		
+		return new Promise( (resolver, rechazar) => {
+			this.laConexion.all( textoSQL, valoresParaSQL,
+			( err, res ) => {
+				if(err!=null){
+					rechazar("ERROR: mas de 1 usuario comparte correo")
+				} else {
+					resolver()
+				}
+			})
+		})
+	}
+
 
 	// -----------------------------------------------------------------
 	// cerrar() -->
