@@ -1,4 +1,5 @@
-create table invernaderos(
+DROP TABLE Invernaderos;
+create table Invernaderos(
     dniUser    varchar(9)    primary key not null,
     nombre    varchar(50)    not null,
     direccion    varchar(50)    not null,
@@ -9,5 +10,5 @@ create table invernaderos(
 );
 
 
-insert into invernaderos values('12345678A', 'Invernadero1', 'Calle Falsa 123', 100, 'Hidroponico','78AInvernadero1');
-insert into invernaderos values('12345672A', 'Invernadero2', 'Calle Falsa 125', 52, 'Hidroponico','72AInvernadero2');
+insert into Invernaderos values('12345678A', 'Invernadero1', 'Calle Falsa 123', 100, 'Hidroponico','78AInvernadero1');
+insert into Invernaderos values('12345672A', 'Invernadero2', 'Calle Falsa 125', 52, 'Hidroponico','72AInvernadero2');

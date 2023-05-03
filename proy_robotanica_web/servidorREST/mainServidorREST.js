@@ -6,17 +6,17 @@
 const cors = require('cors')
 const express = require( 'express' )
 const bodyParser = require( 'body-parser' )
-const Logica = require( "../logica/Logica.js" )
+const LogicaUsuario = require( "../Logica/LogicaUsuario.js" )
 //----------------------------------------------------------------------
 //----------------------------------------------------------------------
-function cargarLogica( fichero ) {
+function cargarLogicaUsuario( fichero ) {
 	return new Promise( (resolver, rechazar) => {
-		var laLogica = new Logica( fichero,
+		var laLogicaUsuario = new LogicaUsuario( fichero,
 		function( err ) {
 			if ( err ) {
 				rechazar( err )
 			} else {
-				resolver( laLogica )
+				resolver( laLogicaUsuario )
 			}
 		}) // new
 	}) // Promise
@@ -25,7 +25,7 @@ function cargarLogica( fichero ) {
 // main()
 //----------------------------------------------------------------------
 async function main() {	
-	var laLogica = await cargarLogica( "../bd/robotanica.bd" )
+	var laLogicaUsuario = await cargarLogicaUsuario( "../bd/robotanica.bd" )
 	// creo el servidor
 	var servidorExpress = express()
 	// CORS
@@ -35,7 +35,7 @@ async function main() {
 	servidorExpress.use ( bodyParser.text({type: 'application/json'}) )
 	// cargo las reglas REST
 	var reglas = require( "./ReglasREST.js")
-	reglas.cargar( servidorExpress, laLogica )
+	reglas.cargar( servidorExpress, laLogicaUsuario )
 	// arranco el servidor
 	var servicio = servidorExpress.listen( 8080, function() {
 		console.log( "servidor REST escuchando en el puerto 8080 ")

@@ -14,7 +14,7 @@
 const sqlite3 = require( "sqlite3")
 // ---------------------------------------------------------------------
 // ---------------------------------------------------------------------
-module.exports = class Logica {
+module.exports = class LogicaUsuario {
 	
 	// -----------------------------------------------------------------
 	// nombreBD: Texto
@@ -36,20 +36,20 @@ module.exports = class Logica {
 	} // ()
 
 	// -----------------------------------------------------------------
-	//	email, contrasenya: Texto
-	// _getUsuarioConEmailYContrasenya() -->
-	// email, nombre, id_invernadero, id_rol, contrasenya
+	//	correo: Texto
+	// _getUsuarioConcorreo() -->
+	//  nombreApellidos, correo, pass, dni
 	// -----------------------------------------------------------------
-	_getUsuarioConEmail( email ){
-		let textoSQL = "select * from Usuario where email=$email";
-		let valoresParaSQL = { $email: email }
+	_getUsuarioConCorreo( correo ){
+		let textoSQL = "select * from Usuarios where correo=$correo";
+		let valoresParaSQL = { $correo: correo }
 		return new Promise( (resolver, rechazar) => {
 			this.laConexion.all( textoSQL, valoresParaSQL,
 			( err, res ) => {
 				if(err){
 					rechazar(err)
 				} else if(res.length > 1){
-					rechazar("ERROR: mas de 1 usuario comparte email")
+					rechazar("ERROR: mas de 1 usuario comparte correo")
 				} else if(res.length == 0){
 					rechazar(404)
 				} else {
@@ -60,20 +60,20 @@ module.exports = class Logica {
 	}
 	
 	// -----------------------------------------------------------------
-	//	email: Texto
-	// _getUsuarioConEmailYContrasenya() -->
-	// contrasenya
+	//	correo, pass: Texto
+	// _comprobarpassConcorreoYPass() -->
+	// pass
 	// -----------------------------------------------------------------
-	_comprobarContrasenyaConEmailYContrasenya( email, contrasenya ){
-		let textoSQL = "select Contrasenya from Usuario where email=$email and contrasenya=$contrasenya";
-		let valoresParaSQL = { $email: email, $contrasenya: contrasenya }
+	_comprobarpassConCorreoYPass( correo, pass ){
+		let textoSQL = "select pass from Usuario where correo=$correo and pass=$pass";
+		let valoresParaSQL = { $correo: correo, $pass: pass }
 		return new Promise( (resolver, rechazar) => {
 			this.laConexion.all( textoSQL, valoresParaSQL,
 			( err, res ) => {
 				if(err){
 					rechazar(err)
 				} else if(res.length > 1){
-					rechazar("ERROR: mas de 1 usuario comparte email")
+					rechazar("ERROR: mas de 1 usuario comparte correo")
 				} else if(res.length == 0){
 					rechazar(404)
 				} else {
@@ -84,20 +84,20 @@ module.exports = class Logica {
 	}
 
 	// -----------------------------------------------------------------
-	//	email: Texto
-	// _getUsuarioConEmailYContrasenya() -->
-	// contrasenya
+	//	correo: Texto
+	// _cambiarpass() -->
+	// 
 	// -----------------------------------------------------------------
-	_cambiarContrasenya( contrasenya, email ){
-		let textoSQL = "UPDATE Usuario SET contrasenya = $contrasenya where email=$email";
-		let valoresParaSQL = { $email: email, $contrasenya: contrasenya }
+	_cambiarpass( pass, correo ){
+		let textoSQL = "UPDATE Usuario SET pass=$pass where correo=$correo";
+		let valoresParaSQL = { $correo: correo, $pass: pass }
 		return new Promise( (resolver, rechazar) => {
 			this.laConexion.all( textoSQL, valoresParaSQL,
 			( err, res ) => {
 				if(err){
 					rechazar(err)
 				} else if(res.length > 1){
-					rechazar("ERROR: mas de 1 usuario comparte email")
+					rechazar("ERROR: mas de 1 usuario comparte correo")
 				} else if(res.length == 0){
 					rechazar(404)
 				} else {
@@ -108,21 +108,21 @@ module.exports = class Logica {
 	}
 
 	// -----------------------------------------------------------------
-	//	email: Texto
-	// _getUsuarioConEmail() -->
-	// email, nombre, id_invernadero, id_rol, contrasenya
+	//	correo, pass: Texto
+	// _getUsuarioConcorreoYPass() -->
+	// correo, nombre, id_invernadero, id_rol, pass
 	// -----------------------------------------------------------------
 
-	_getUsuarioConEmailYContrasenya( email, contrasenya ){
-		let textoSQL = "select * from Usuario where email=$email and contrasenya=$contrasenya";
-		let valoresParaSQL = { $email: email, $contrasenya: contrasenya }
+	_getUsuarioConcorreoYPass( correo, pass ){
+		let textoSQL = "select * from Usuario where correo=$correo and pass=$pass";
+		let valoresParaSQL = { $correo: correo, $pass: pass }
 		return new Promise( (resolver, rechazar) => {
 			this.laConexion.all( textoSQL, valoresParaSQL,
 			( err, res ) => {
 				if(err){
 					rechazar(err)
 				} else if(res.length > 1){
-					rechazar("ERROR: mas de 1 usuario comparte email")
+					rechazar("ERROR: mas de 1 usuario comparte correo")
 				} else if(res.length == 0){
 					rechazar(404)
 				} else {
@@ -130,33 +130,6 @@ module.exports = class Logica {
 				}
 			})
 		})
-	}
-	
-	// -----------------------------------------------------------------
-	//	Dado un email, devuelve todas las fotos que le pertenezcan
-	//	a esa persona
-	//
-	//	email: Texto
-	// 		--> _getColeccionConEmail()
-	// 	[Coleccion] <--
-	// -----------------------------------------------------------------
-	async _getColeccionConEmail( email ){
-		
-		let usuario = await this._getUsuarioConEmail( email );
-		var textoSQL =
-			'select * from Coleccion where Coleccion.id_invernadero=$id_invernadero;'
-		var valoresParaSQL = { $id_invernadero: usuario.id_invernadero }
-		return new Promise( (resolver, rechazar) => {
-			this.laConexion.all( textoSQL, valoresParaSQL,
-			( err, res ) => {
-				if(err){
-					rechazar(err)
-				} else {
-					resolver(res)
-				}
-			})
-		})
-		
 	}
 
 	// -----------------------------------------------------------------
