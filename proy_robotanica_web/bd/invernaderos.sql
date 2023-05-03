@@ -1,6 +1,3 @@
-
-drop table invernaderos;
-
 create table invernaderos(
     dniUser    varchar(9)    primary key not null,
     nombre    varchar(50)    not null,
