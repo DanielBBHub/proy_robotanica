@@ -71,9 +71,9 @@ module.exports = class LogicaUsuario {
 			$idInvernadero: data.idInvernadero,
 			$productos: data.productos,
 			$madurez: data.madurez,
-			$fechaplantacion: data.fechaplantacion,
-			$coords: data.coords
-		}
+			$fechaplantacion: data.fechaPlantacion,
+			$coords: data.coords}
+			
 		return new Promise( (resolver, rechazar) => {
 			this.laConexion.run( textoSQL, valoresParaSQL,
 			( err ) => {

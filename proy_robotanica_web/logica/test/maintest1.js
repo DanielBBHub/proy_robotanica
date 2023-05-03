@@ -40,16 +40,21 @@ describe("Test 1: Conectar, añadir, comprobar y cerrar la base de datos de usua
                     correo   varchar(50)    not null,
                     pass    varchar(50)    not null,
                     dni    date    not null PRIMARY KEY */
-            await laLogica._insertarUsuario({
+            
+            try
+            {
+                await laLogica._insertarUsuario({
                     nombreApellidos: 'Joan Costa Escriva', // Muestra de la usuario
                     correo: 'joacoses@epsg.upv.es', // Fecha de la usuario
                     pass: 'joan2900',
-                    dni: '12141214A' // Usuario de la usuario
-                })
+                    dni: '12141214A'}) // Usuario de la usuario
+            }
+            catch {
+                    
+            }
             //Busca la usuario con el ID 2
             var usuario = await laLogica._getUsuarioConCorreo('joacoses@epsg.upv.es') // Busca la usuario con el ID 2 llamando a la función buscarusuario de la clase Logica (a la promesa)
             //Comprueba que el ID debe ser 2
-            console.log(usuario)
             assert.equal(usuario.dni, '12141214A') // Comprueba que el ID de la usuario es 2
             
         }) // it

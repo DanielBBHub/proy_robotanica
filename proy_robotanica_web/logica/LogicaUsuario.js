@@ -127,7 +127,6 @@ module.exports = class LogicaUsuario {
 	}
 
 	async _insertarUsuario( data ){
-		console.log(data.nombreApellidos)
 		let textoSQL = "insert into Usuarios values($nombreApellidos, $correo, $pass,$dni)";
 		let valoresParaSQL = { $nombreApellidos: data.nombreApellidos, $correo: data.correo, $pass: data.pass,$dni: data.dni }
 		
