@@ -71,6 +71,7 @@
 
 .botonCTA {
     margin-top: 15.5em;
+    margin-bottom: 2em;
     background: var(--verdeOscuro);
 }
 
@@ -152,6 +153,12 @@
 
 .white{
     color: #c8c8c8;
+}
+
+.img_transicion{
+    margin-top: 3em ;
+    width: 100%;
+    height: 20em;
 }
 
 .footer{
