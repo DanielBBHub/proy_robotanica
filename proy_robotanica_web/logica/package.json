@@ -1,0 +1,17 @@
+{
+	"//": "npm run test",
+	"name": "logica",
+	"description": "2021",
+	"license": "LGPL-3.0",
+	"version": "0.0.1",
+	"repository": "https://github.com/DanielBBHub/proy_robotanica",
+	"scripts": {
+		"test": "node ./node_modules/mocha/bin/mocha"
+	},
+	"dependencies": {
+		"sqlite3": "^5.0.6"
+	},
+	"devDependencies": {
+		"mocha": "*"
+	}
+}
