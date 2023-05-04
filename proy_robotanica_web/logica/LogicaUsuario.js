@@ -107,9 +107,28 @@ module.exports = class LogicaUsuario {
 	// correo, nombre, id_invernadero, id_rol, pass
 	// -----------------------------------------------------------------
 
-	async _getUsuarioConcorreoYPass( correo, pass ){
-		let textoSQL = "select * from Usuario where correo=$correo and pass=$pass";
-		let valoresParaSQL = { $correo: correo, $pass: pass }
+	async _getUsuarioConcorreoYPass( data ){
+		let textoSQL = "select * from Usuarios where correo=$correo and pass=$pass";
+		let valoresParaSQL = { $correo: data.correo, $pass: data.pass }
+		return new Promise( (resolver, rechazar) => {
+			this.laConexion.all( textoSQL, valoresParaSQL,
+			( err, res ) => {
+				if(err){
+					rechazar(err)
+				} else if(res.length > 1){
+					rechazar("ERROR: mas de 1 usuario comparte correo")
+				} else if(res.length == 0){
+					rechazar(404)
+				} else {
+					resolver(res[0])
+				}
+			})
+		})
+	}
+
+	async _getUsuarioConDni( dni ){
+		let textoSQL = "select * from Usuarios where dni=$dni";
+		let valoresParaSQL = { $dni: dni}
 		return new Promise( (resolver, rechazar) => {
 			this.laConexion.all( textoSQL, valoresParaSQL,
 			( err, res ) => {
@@ -127,14 +146,13 @@ module.exports = class LogicaUsuario {
 	}
 
 	async _insertarUsuario( data ){
-		console.log(data.nombreApellidos)
 		let textoSQL = "insert into Usuarios values($nombreApellidos, $correo, $pass,$dni)";
 		let valoresParaSQL = { $nombreApellidos: data.nombreApellidos, $correo: data.correo, $pass: data.pass,$dni: data.dni }
 		
 		return new Promise( (resolver, rechazar) => {
 			this.laConexion.all( textoSQL, valoresParaSQL,
 			( err, res ) => {
-				if(err!=null){
+				if(err){
 					rechazar("ERROR: mas de 1 usuario comparte correo")
 				} else {
 					resolver()

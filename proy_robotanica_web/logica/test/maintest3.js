@@ -1,12 +1,12 @@
 // ........................................................
 // mainTest1.js 
 // ........................................................
-const Logica = require("../LogicaUsuario.js") // Añadimos la clase Logica 
+const Logica = require("../LogicaInvernadero.js") // Añadimos la clase Logica 
 var assert = require("assert") // Añadimos assert para hacer pruebas
 // ........................................................
 // main ()
 // ........................................................
-describe("Test 1: Conectar, añadir, comprobar y cerrar la base de datos de usuarios", function () { // Test 1 
+describe("Test 3: Conectar, añadir, comprobar y cerrar la base de datos de invernaderos", function () { // Test 1 
     // ....................................................
     // ....................................................
     var laLogica = null // La clase Logica vale null para poder asignarle un valor
@@ -24,38 +24,42 @@ describe("Test 1: Conectar, añadir, comprobar y cerrar la base de datos de usua
     }) // it
      // ....................................................
     // ....................................................
-    it("puedo buscar un usuario", // Puedo buscar la ultimausuario en la base de datos
+    it("puedo buscar un invernadero", // Puedo buscar la ultimausuario en la base de datos
         async function () { // Función asíncrona para insertar valores y comprobar que se han insertado con callback
-            var usuario = await laLogica._getUsuarioConCorreo('dabebel@epsg.upv.es') // Busca la usuario con el ID 2 llamando a la función buscarusuario de la clase Logica (a la promesa)
+            var invernadero = await laLogica._getInvernaderoConDni('12345678A') // Busca la usuario con el ID 2 llamando a la función buscarusuario de la clase Logica (a la promesa)
             //Comprueba que el ID debe ser 2
-            assert.equal(usuario.dni, '87654321A') // Comprueba que el ID de la usuario es 2
+            assert.equal(invernadero.idInvernadero, '78AInvernadero1') // Comprueba que el ID de la usuario es 2
             
         }) // it
     // ....................................................
     // ....................................................
-    it("puedo insertar un usuario", // Puedo insertar una NUEVA usuario en la base de datos
+    it("puedo insertar un invernadero", // Puedo insertar una NUEVA usuario en la base de datos
         async function () { // Función asíncrona para insertar valores y comprobar que se han insertado con callback
-            // Valores de la usuario a insertar
-                 /* nombreApellidos    varchar(255),
-                    correo   varchar(50)    not null,
-                    pass    varchar(50)    not null,
-                    dni    date    not null PRIMARY KEY */
-            
-            try
-            {
-                await laLogica._insertarUsuario({
-                    nombreApellidos: 'Joan Costa Escriva', // Muestra de la usuario
-                    correo: 'joacoses@epsg.upv.es', // Fecha de la usuario
-                    pass: 'joan2900',
-                    dni: '12141214A'}) // Usuario de la usuario
-            }
+            // Valores de invernadero a insertar
+                 /* dniUser    varchar(9)    primary key not null,
+                    nombre    varchar(50)    not null,
+                    direccion    varchar(50)    not null,
+                    area    INTEGER    not null,
+                    tipo    varchar(50)    not null,
+                    idInvernadero    varchar(52)    not null, */
+             try
+            { 
+                res = await laLogica._insertarInvernadero({
+                    dniUser: '12141214A',
+                    nombre: 'Invernadero3',
+                    direccion: 'Calle Falsa 23',
+                    area: 100,
+                    tipo: 'Hidroponico',
+                    idInvernadero: '14AInvernadero3'
+                    })
+             }
             catch {
-                    
-            }
+                
+            } 
             //Busca la usuario con el ID 2
-            var usuario = await laLogica._getUsuarioConCorreo('joacoses@epsg.upv.es') // Busca la usuario con el ID 2 llamando a la función buscarusuario de la clase Logica (a la promesa)
+            var invernadero = await laLogica._getInvernaderoConDni('12141214A') // Busca la usuario con el ID 2 llamando a la función buscarusuario de la clase Logica (a la promesa)
             //Comprueba que el ID debe ser 2
-            assert.equal(usuario.dni, '12141214A') // Comprueba que el ID de la usuario es 2
+            assert.equal(invernadero.nombre, 'Invernadero3') // Comprueba que el ID de la usuario es 2
             
         }) // it
     // ....................................................
