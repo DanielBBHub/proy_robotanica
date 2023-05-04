@@ -30,7 +30,9 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
-            'initial_pose_pub = my_nav2_system.initial_pose_pub:main' #añadir
+            'initial_pose_pub = proy_robotanica_nav2_system.initial_pose_pub:main', #añadir
+            'waypoint_follower = proy_robotanica_nav2_system.waypoint_follower:main', #añadir
+            'nav_to_pose = proy_robotanica_nav2_system.nav_to_pose:main'
         ],
     },
 )

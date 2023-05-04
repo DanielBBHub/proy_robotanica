@@ -1,3 +1,9 @@
 {
-    "type": "module"
+    "type": "module",
+    "devDependencies": {
+        "tailwindcss": "^3.3.2"
+    },
+    "dependencies": {
+        "daisyui": "^2.51.6"
+    }
 }
