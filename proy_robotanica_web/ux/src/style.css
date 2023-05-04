@@ -1,0 +1,34 @@
+:root{
+    --negro: #141414;
+    --grisNegro: #2d2d2d;
+    --verdeOscuro: #475D39;
+    --verde: #7C9969;
+    --blanco: #ffffff;
+}
+
+.landing{
+    background: url("./img/principal.jpg") no-repeat center top;
+    background-size: cover;
+    height: 100vh; /*Para hacer que ocupe toda la pantalla*/
+}
+
+.negro{
+    background: var(--negro);
+}
+
+.menu1{
+    background: var(--grisNegro);
+}
+
+.menu2:hover{
+    background: var(--grisNegro);
+}
+
+.texto-encabezado{
+    flex: 1 1 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin-top: 8rem;
+}
