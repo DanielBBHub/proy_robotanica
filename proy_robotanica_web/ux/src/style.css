@@ -6,14 +6,22 @@
     --blanco: #ffffff;
 }
 
+.negro{
+    background: var(--negro);
+}
+
+.verdeOscuro{
+    background: var(--verdeOscuro);
+}
+
+.verde{
+    background: var(--verde);
+}
+
 .landing{
     background: url("./img/principal.jpg") no-repeat center top;
     background-size: cover;
     height: 100vh; /*Para hacer que ocupe toda la pantalla*/
-}
-
-.negro{
-    background: var(--negro);
 }
 
 .menu1{
