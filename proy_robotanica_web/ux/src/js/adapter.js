@@ -1,16 +1,4 @@
-import LogicaFake from "./logica_fake.js"
-document.onreadystatechange = function() {
-
-    
-    if( document.readyState === "complete"){
-        let logica = new LogicaFake()
-        let boton=document.getElementById("prueba")
-        boton.addEventListener("click" , async function(){
-            await logica.metodoPrueba()
-            }) 
-    }
-
-    
+document.addEventListener('DOMContentLoaded', event => {
     // Navegacion por control manual
     document.getElementById("moverDelante").addEventListener("click", () => {
         call_delante_service("delante")
@@ -19,31 +7,22 @@ document.onreadystatechange = function() {
     document.getElementById("moverAtras").addEventListener("click", reverse)
 
     // Navegacion a un punto
-    document.getElementById("nav_tomates").addEventListener("click", () => {
+    document.getElementById("navTomates").addEventListener("click", () => {
         call_nav_service("tomate")
     })
-    document.getElementById("nav_berenjenas").addEventListener("click", () => {
+    document.getElementById("navBerenjenas").addEventListener("click", () => {
         call_nav_service("berenjena")
     })
 
-    // Servicio de la camara
-    document.getElementById("nav_tomates").addEventListener("click", () => {
-        call_capture_image("")
-    })
-    // Servicio de la camara
-    document.getElementById("nav_berenjenas").addEventListener("click", () => {
-        call_capture_image("")
-    })
-
+    /*
     // Navegacion por ruta
     document.getElementById("nav_ruta").addEventListener("click", () => {
         call_nav_waypoints_service("activate")
     })
+    */
 
-
-    var conexion = ""
     //Atributos para representar la info de la conexion
-    data = {
+    var data = {
         // ros connection
         ros: null,
         rosbridge_address: 'ws://127.0.0.1:9090/',
@@ -271,4 +250,4 @@ document.onreadystatechange = function() {
             console.error(error)
         })	
     }
-}
+});
