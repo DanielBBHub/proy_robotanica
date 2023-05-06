@@ -25,7 +25,7 @@
             <div class="flex h-16 items-center justify-center items-center " >
                 <div class="ml-10 flex items-baseline space-x-4">
                     <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
-                    <a href="#" class="menu1 text-white rounded-md px-3 py-2 text-sm font-medium" aria-current="page">Inicio</a>
+                    <a href="index.html" class="menu1 text-white rounded-md px-3 py-2 text-sm font-medium" aria-current="page">Inicio</a>
                     <a href="#" class="menu2 text-gray-300 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Servicios</a>
                     <a href="#" class="menu2 text-gray-300 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Robot</a>
                 </div>
@@ -33,57 +33,57 @@
         </div>
 
         <div class="login_header">
-            <img src="./src/img/persona.png" />
+            <a href="login.html"><img src="./src/img/persona.png" /></a>
         </div>
     </nav>
 </header>
 
 
 <div class="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
-    <div class="form-control cambio">
+    <div class="form-control centrar">
         <div  class="cambio2">
-            <div class="camio3"><p>Registro</p></div>
-            <div class="camio3"><p>Iniciar sesión</p></div>
+            <div id="res" class="cambio3"><p>Registro</p></div>
+            <div id="ini" class="cambio3"><p>Iniciar sesión</p></div>
         </div>
     </div>
     <div class="sm:mx-auto sm:w-full sm:max-w-sm">
-        <div class="form-control cambio" id="container">
+        <div class="form-control centrar" id="container">
             <label class="cursor-pointer label">
-                <input type="checkbox" class="toggle toggle-primary" checked/>
+                <input type="checkbox" class="toggle" checked/>
             </label>
         </div>
     </div>
 
     <!--------------------------------- INICIO DE SESIÓN ------------------------------------->
 
-    <div class="borde" id="aa">
+    <div class="centrar" id="aa">
     <div class="sm:mx-auto sm:w-full sm:max-w-sm">
-        <h2 class="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">INICIA SESIÓN CON TU CUENTA</h2>
+        <h2 class="mt-5 text-center leading-9 tracking-tight registro">INICIA SESIÓN CON TU CUENTA</h2>
     </div>
 
-    <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
+    <div class="mt-5 sm:mx-auto sm:max-w-sm">
         <form class="space-y-6" action="#" method="POST">
             <div>
-                <label for="DNI" class="block text-sm font-medium leading-6 text-gray-900">DNI:</label>
+                <label for="DNI" class="textos block leading-6">DNI:</label>
                 <div class="mt-2">
-                    <input id="DNI" name="DNI" type="text" required class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                    <input id="DNI" name="DNI" type="text" required class="textos_imput block w-full rounded-md border-0 py-1.5 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:leading-6">
                 </div>
             </div>
 
             <div>
                 <div class="flex items-center justify-between">
-                    <label for="password" class="block text-sm font-medium leading-6 text-gray-900">Contraseña</label>
+                    <label for="password" class="textos block leading-6">Contraseña:</label>
                     <div class="text-sm">
-                        <label for="my-modal-3" class="font-semibold text-indigo-600 hover:text-indigo-500">¿Has olvidado tu contraseña?</label>
+                        <label for="my-modal-3" class="textos font-semibold hover:drop-shadow-xl cursor">¿Has olvidado tu contraseña?</label>
                     </div>
                 </div>
                 <div class="mt-2">
-                    <input id="password" name="password" type="password" autocomplete="current-password" required class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                    <input id="password" name="password" type="password" autocomplete="current-password" required class="textos_imput block w-full rounded-md border-0 py-1.5 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:leading-6">
                 </div>
             </div>
 
             <div>
-                <button type="submit" class=" flex w-4em rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">INICIAR</button>
+              <button type="submit" class="botones bg-lime-800 hover:bg-lime-900 hover:drop-shadow-xl w-4em rounded-md px-3 py-1.5 leading-6 shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2">  <a href="perfil.html">ENVIAR</a></button>
             </div>
         </form>
 
@@ -103,33 +103,69 @@
     <!----------------------------------------- REGISTRO ------------------------------------->
     <div id="ff">
         <div class="sm:mx-auto sm:w-full sm:max-w-sm">
-            <h2 class="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">CREA UNA NUEVA CUENTA</h2>
+            <h2 class="registro mt-5 text-center leading-9 tracking-tight">CREA UNA NUEVA CUENTA</h2>
         </div>
 
-        <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-            <form class="space-y-6" action="#" method="POST">
+        <div class="borde">
+            <form class="space-y-8" action="#" method="POST">
+                <div class="flex justify-between">
                 <div>
-                    <label for="email" class="block text-sm font-medium leading-6 text-gray-900">Email address</label>
-                    <div class="mt-2">
-                        <input id="email" name="email" type="email" autocomplete="email" required class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
-                    </div>
-                </div>
-
-                <div>
-                    <div class="flex items-center justify-between">
-                        <label for="password" class="block text-sm font-medium leading-6 text-gray-900">Password</label>
-                        <div class="text-sm">
-                            <a href="#" class="font-semibold text-indigo-600 hover:text-indigo-500">Forgot password?</a>
+                    <h4 class="subregistro">Datos personales</h4>
+                    <div>
+                        <label for="nombre" class="block textos leading-6">Nombre:</label>
+                        <div class="mt-2">
+                            <input id="nombre" name="nombre" type="text" required class="textos_imput block w-full rounded-md border-0 py-1.5 shadow-sm ring-1 ring-inset ring-gray-300  focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:leading-6">
                         </div>
                     </div>
-                    <div class="mt-2">
-                        <input id="password" name="password" type="password" autocomplete="current-password" required class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                    <div>
+                        <label for="apellidos" class="block textos leading-6">Apellidos:</label>
+                        <div class="mt-2">
+                            <input id="apellidos" name="apellidos" type="text" required class="textos_imput block w-full rounded-md border-0 py-1.5 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:leading-6">
+                        </div>
+                    </div>
+                    <div>
+                        <label for="DNI" class="block textos leading-6 ">DNI:</label>
+                        <div class="mt-2">
+                            <input id="DNI" name="DNI" type="text" required class="textos_imput block w-full rounded-md border-0 py-1.5 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:leading-6">
+                        </div>
+                    </div>
+                    <div>
+                        <label for="telefono" class="block textos leading-6 ">Teléfono:</label>
+                        <div class="mt-2">
+                            <input id="telefono" name="telefono" type="text" required class="textos_imput block w-full rounded-md border-0 py-1.5 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:leading-6">
+                        </div>
                     </div>
                 </div>
-
                 <div>
-                    <button type="submit" class="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Sign in</button>
+                    <h4 class="subregistro">Detalles de la cuenta</h4>
+                    <div>
+                        <label for="correo" class="block textos leading-6">Teléfono:</label>
+                        <div class="mt-2">
+                            <input id="correo" name="correo" type="email" required class="textos_imput block w-full rounded-md border-0 py-1.5 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:leading-6">
+                        </div>
+                    </div>
+                    <div class="flex items-center justify-between">
+                        <label for="password" class="block textos leading-6">Contraseña:</label>
+                    </div>
+                    <div class="mt-2">
+                        <input id="password" name="password" type="password" autocomplete="current-password" required class="textos_imput block w-full rounded-md border-0 py-1.5 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:leading-6">
+                    </div>
+
+                    <div class="flex items-center justify-between">
+                        <label for="password" class="block textos leading-6">Repite la contraseña:</label>
+                    </div>
+                    <div class="mt-2">
+                        <input id="password" name="password" type="password" autocomplete="current-password" required class="textos_imput block w-full rounded-md border-0 py-1.5 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:leading-6">
+                    </div>
+                    <br>
+                    <div class="items-center">
+                        <button type="submit" class="botones bg-lime-800 hover:bg-lime-900 hover:drop-shadow-xl flex justify-center rounded-md px-3 py-1.5 leading-6 shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">ENVIAR</button>
+                    </div>
+
                 </div>
+                </div>
+
+
             </form>
         </div>
     </div>
