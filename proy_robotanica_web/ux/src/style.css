@@ -135,10 +135,6 @@
     height: 20em;
 }
 
-.footer{
-    background: var(--negro);
-}
-
 /*Animaciones*/
 
 @keyframes flecha-bajar-animacion {
