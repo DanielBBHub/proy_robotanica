@@ -6,12 +6,16 @@
     --negro: #141414;
     --grisNegro: #2d2d2d;
     --verdeOscuro: #475d39;
-    --verde: #7C9969;
+    --verde: #7c9969;
     --blanco: #ffffff;
 }
 
+body{
+    background: #fffff0;
+}
+
 .titulo{
-    padding-top: 3em;
+    padding-top: 2em;
     font-family: 'Comfortaa', cursive;
     color: var(--verde);
     font-weight: bold;
@@ -21,7 +25,7 @@
 .informacion_usuario{
     display: flex;
     justify-content: space-around;
-    padding-bottom: 1rem;
+    padding-bottom: 3em;
     border-radius: 50px;
 }
 
@@ -47,6 +51,7 @@
     flex: 1 1 auto;
     display: flex;
     justify-content: space-evenly;
+    align-self: center;
 }
 
 .izquierda{
@@ -66,4 +71,17 @@
 
 .texto{
     color: var(--verdeOscuro);
+}
+
+
+.botonCTA{
+    margin-top: 1rem;
+    border-radius: 15px;
+
+}
+
+
+.botonCTA:hover{
+    background: var(--verde);
+    box-shadow: 0 0 6px #363636
 }

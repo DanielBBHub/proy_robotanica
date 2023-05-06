@@ -15,10 +15,8 @@
     background: var(--negro);
 }
 
-.landing{
-    background: url("./img/principal.jpg") no-repeat center top;
-    background-size: cover;
-    height: 100vh; /*Para hacer que ocupe toda la pantalla*/
+.white{
+    color: white;
 }
 
 .menu1{

@@ -20,7 +20,7 @@
 </head>
 
 <body>
-<section class="landing" style="background:#FFFFF0;  height: 92.2vh">
+
     <header style="position: fixed; width: 100%; z-index: 1"> <!-- style="position: fixed; width: 100%" -->
         <nav class="negro flex h-16">
             <div class="imagen_header">
@@ -31,20 +31,20 @@
                 <div class="flex h-16 items-center justify-center items-center " >
                     <div class="ml-10 flex items-baseline space-x-4">
                         <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
-                        <a href="#" class="menu1 text-white rounded-md px-3 py-2 text-sm font-medium" aria-current="page">Inicio</a>
-                        <a href="#" class="menu2 text-gray-300 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Servicios</a>
-                        <a href="#" class="menu2 text-gray-300 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Robot</a>
+                        <a href="index.html" class="menu2 text-gray-300 hover:text-white rounded-md px-3 py-2 text-sm font-medium" aria-current="page">Inicio</a>
+                        <a href="contactanos.html" class="menu1 text-white rounded-md px-3 py-2 text-sm font-medium">Contacto</a>
+                        <a href="acercade.html" class="menu2 text-gray-300 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Acerca de</a>
                     </div>
                 </div>
             </div>
     
             <div class="login_header">
-                <a href="perfil.html"><img src="./src/img/persona.png" /></a>
+                <a href="login.html"><img src="./src/img/persona.png" /></a>
             </div>
         </nav>
     </header>
 
-
+    <section class="items-center">
     <div class="titulo centro">
         <h2>Contáctanos</h2>
     </div>
@@ -75,15 +75,13 @@
                   <textarea class="form-control" name="message" rows="5" placeholder="Mensaje"></textarea>
                 </div>
                 <div style="margin-left: 23rem;">
-                    <button class="btn-contactanos btn btn-primary" style="margin-top: 1rem; background-color: var(--verdeOscuro);" type="submit" name="" style="border-radius: 5px">
-                        <i class="fa fa-paper-plane-o " aria-hidden="true"></i> Enviar
-                    </button>
+                    <button class="botonCTA btn" style="background-color: var(--verdeOscuro); color: white; border-radius: 15px;" type="submit">Enviar</button>
                 </div>  
               </form>
         </div>
     </div>
+    </section>
 
-</section>
 
 
 <footer class="white footer px-10 py-4 border-t bg-base-100 text-base-content border-base-300">

@@ -10,6 +10,12 @@
     --blanco: #ffffff;
 }
 
+.landing{
+    background: url("./img/principal.jpg") no-repeat center top;
+    background-size: cover;
+    height: 100vh; /*Para hacer que ocupe toda la pantalla*/
+}
+
 .negro{
     background: var(--negro);
 }
@@ -86,9 +92,6 @@
     margin: 20px auto 0 auto;
 }
 
-.ff{
-    border: 1px solid red;
-}
 
 /*TARJETTAS*/
 .tarjeta {

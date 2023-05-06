@@ -15,15 +15,15 @@
 .titulo{
     font-size: 56px;
     text-align: center;
-    color: var(--verdeOscuro);
-    padding-top: 7rem;
+    color: var(--verde);
+    padding-top: 2em;
     font-family: 'Comfortaa', cursive;
     font-weight: bold;
 }
 
 .subtirulo{
-    font-family: var(--fuentePrincipal);
-    font-size: var(--tamSubTitulos);
+    font-family: 'Comfortaa', cursive;
+    font-size: 20px;
     text-align: center;
     padding-top: 1rem ;
     margin-bottom: -1rem;
@@ -32,8 +32,7 @@
 }
 
 .imagenes {
-    width: 100px;
-    height: 100px;
+    width: 25%;
     border-radius: 10%;
 }
 
@@ -48,19 +47,23 @@
 }
 
 .texto{
-    font-size: var(--tamTexto);
-    margin: 2rem;
-    font-family: var(--fuentePrincipal);
+    font-size: 16px;
+    margin: 1.5em;
+    font-family: 'Inconsolata', monospace;
     color: white;
 }
 
 .contenedor{
-    background: var(--verde);
+    background: rgba(71,93,57,0.7);
     width: 80%;
-    margin: 2rem auto;
+    margin: 2em auto;
     border-radius: 30px;
 }
 
 body{
-    background:#FFFFF0;
+    background: #ffffff;
+}
+
+.white{
+    color: white;
 }
