@@ -14,32 +14,6 @@
     background: var(--negro);
 }
 
-.landing{
-    background: url("./img/principal.jpg") no-repeat center top;
-    background-size: cover;
-    height: 100vh; /*Para hacer que ocupe toda la pantalla*/
-}
-
-.menu1{
-    background: var(--grisNegro);
-}
-
-.menu2:hover{
-    background: var(--grisNegro);
-}
-
-.imagen_header{
-    width: 4.5rem;
-    margin-top: -4px;
-    margin-left: 3rem;
-}
-
-.login_header{
-    width: 3rem;
-    margin-top: 7px;
-    margin-right: 3rem;
-}
-
 .titulo{
     padding-top: 3em;
     font-family: 'Comfortaa', cursive;
