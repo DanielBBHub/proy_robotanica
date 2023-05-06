@@ -1,0 +1,69 @@
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@300;400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300&display=swap');
+
+:root{
+    --negro: #141414;
+    --grisNegro: #2d2d2d;
+    --verdeOscuro: #475d39;
+    --verde: #7C9969;
+    --blanco: #ffffff;
+}
+
+.titulo{
+    padding-top: 3em;
+    font-family: 'Comfortaa', cursive;
+    color: var(--verde);
+    font-weight: bold;
+    font-size: 56px;
+}
+
+.informacion_usuario{
+    display: flex;
+    justify-content: space-around;
+    padding-bottom: 1rem;
+    border-radius: 50px;
+}
+
+.contenedor{
+    margin-top: 5rem;
+    
+}
+
+.imgUsuario{
+    width: 100px;
+    height: 100px;
+}
+
+.camposPerfil{
+    font-family: 'Inconsolata', monospace;
+    color: var(--verde);
+    margin-right: 6em;
+    font-weight: bold;
+    font-size:x-large;
+}
+
+.centro{
+    flex: 1 1 auto;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.izquierda{
+    flex: 1 1 auto;
+    display: flex;
+    justify-content: left;
+    margin-left: 20em;
+}
+
+.derecha{
+    flex: 1 1 auto;
+    display: flex;
+    justify-content: left;
+    margin-right: 20em;
+}
+
+
+.texto{
+    color: var(--verdeOscuro);
+}
