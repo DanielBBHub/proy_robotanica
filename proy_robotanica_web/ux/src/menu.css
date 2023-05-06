@@ -34,10 +34,12 @@
     margin-left: 3rem;
 }
 
-
-
 .login_header{
     width: 3rem;
     margin-top: 7px;
     margin-right: 3rem;
+}
+
+.footer{
+    background: var(--negro);
 }
