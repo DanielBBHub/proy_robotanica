@@ -11,8 +11,12 @@
 
     <script type="module" src="src/js/adapter.js"></script>
     <link href="/dist/output.css" rel="stylesheet">
-    <link rel="stylesheet" href="./src/perfil.css">
+    <link rel="stylesheet" href="./src/contactanos.css">
     <link rel="stylesheet" href="./src/menu.css">
+
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
 </head>
 
 <body>
@@ -22,37 +26,60 @@
             <div class="imagen_header">
                 <a href="index.html"><img src="./src/img/Logo.png" /></a>
             </div>
-
+    
             <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8" >
+                <div class="flex h-16 items-center justify-center items-center " >
+                    <div class="ml-10 flex items-baseline space-x-4">
+                        <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
+                        <a href="#" class="menu1 text-white rounded-md px-3 py-2 text-sm font-medium" aria-current="page">Inicio</a>
+                        <a href="#" class="menu2 text-gray-300 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Servicios</a>
+                        <a href="#" class="menu2 text-gray-300 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Robot</a>
+                    </div>
+                </div>
             </div>
-
-            <div class="cerrar_sesion_header" style="width: 2rem; margin-top: 1rem; margin-right: 3rem;">
-                <img src="./src/img/cerrar-sesionblanco.png" />
+    
+            <div class="login_header">
+                <a href="perfil.html"><img src="./src/img/persona.png" /></a>
             </div>
         </nav>
     </header>
 
 
     <div class="titulo centro">
-        <h2>Perfil</h2>
+        <h2>Contáctanos</h2>
     </div>
 
     <div class="informacion_usuario centro">
-        <div class="contenedor" style="margin-left: 10rem;">
-            <img id="imgUsuario" class="imgUsuario" style="margin: auto;" src="src/img/usuario.png" >
-            <br>
-            <br>
-            <h4 class="camposPerfil" style="margin: auto;">Nombre completo: </h4>
-            <h4 id="nombreUsuarioTxt" class="texto"></h4>
+        <div class="contenedor">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3100.8475289961248!2d-0.16831398799828082!3d38.99597604076291!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd61c2a3069621fd%3A0xdb8ad87b84df4b24!2sUPV%20Campus%20de%20Gand%C3%ADa%20-%20Escuela%20Polit%C3%A9cnica%20Superior!5e0!3m2!1ses!2ses!4v1683372393480!5m2!1ses!2ses" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
-        <div class="contenedor" style="margin-right: 10rem;">
-            <h3 class="camposPerfil" style="margin: auto;">Correo electrónico: </h3>
-            <h4 id="correoUsuarioTxt" class="texto"></h4>
-            <br>
-            <br>
-            <h3 class="camposPerfil" style="margin: auto;">Fecha de creación: </h3>
-            <h4 id="fechaUsuarioTxt" class="texto"></h4>
-            <button class="btn botonCTA" href="editar_perfil.html">EDITAR PERFIL</button>
+        <div class="contenedor" style="margin-right: 10rem; width: 28rem;">
+            <h3 style="font-size: large; font-weight: bold;">Horario</h3>
+            <p style="margin-left: 2rem;">
+                08:00 - 14:00 de lunes a viernes
+                <br>
+                09:00 - 11:00 el sábado
+            </p>
+            <h3 style="font-size: large; font-weight: bold; margin-top: 1rem;">Teléfono</h3>
+            <p style="margin-left: 2rem;">
+                +34 664 537 070
+            </p>
+            <h3 style="font-size: large; font-weight: bold; margin-top: 1rem;">Envíanos un correo:</h3>
+            <form action="https://formsubmit.co/correuinutil02@gmail.com" method="POST">
+                
+                <div class="form-group" style="margin-top: 1rem;">
+                  <input type="email" class="form-control" name="email" value="" placeholder="E-mail" required>
+                </div>
+                
+                <div class="form-group" style="margin-top: 1rem;">
+                  <textarea class="form-control" name="message" rows="5" placeholder="Mensaje"></textarea>
+                </div>
+                <div style="margin-left: 23rem;">
+                    <button class="btn-contactanos btn btn-primary" style="margin-top: 1rem; background-color: var(--verdeOscuro);" type="submit" name="" style="border-radius: 5px">
+                        <i class="fa fa-paper-plane-o " aria-hidden="true"></i> Enviar
+                    </button>
+                </div>  
+              </form>
         </div>
     </div>
 
