@@ -1,0 +1,40 @@
+body{
+    background: white;
+}
+
+.borde{
+    border: red 1px solid;
+}
+
+#aa{
+    background: #00bbff;
+    width: 100%;
+    height: 30em;
+}
+
+#ff{
+    position: relative;
+    background: red;
+    width: 100%;
+    height: 30em;
+    display: none;
+
+}
+
+.cambio{
+    align-items: center;
+}
+
+.cambio2{
+    margin-left: 2em;
+    display: flex;
+    border: 1px solid blue;
+}
+
+.camio3{
+    padding: 0 1em ;
+    border: 1px solid green;
+}
+
+
+
