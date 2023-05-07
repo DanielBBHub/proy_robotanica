@@ -14,6 +14,10 @@ document.addEventListener('DOMContentLoaded', event => {
         call_nav_service("berenjena")
     })
 
+    document.getElementById("waypoint_tomate").addEventListener("click", () => {
+        call_nav_waypoints_service("waypoints")
+    })
+
     /*
     // Navegacion por ruta
     document.getElementById("nav_ruta").addEventListener("click", () => {
@@ -208,12 +212,12 @@ document.addEventListener('DOMContentLoaded', event => {
         //definimos los datos del servicio
         let service = new ROSLIB.Service({
             ros: data.ros,
-            name: '/service_nav_through_waypoints',
-            serviceType: 'proy_robotanica_custom_interface/srv/Waypoints'
+            name: '/waypoint_server',
+            serviceType: 'proy_robotanica_custom_interface/srv/MyMoveMsg'
         })
     
         let request = new ROSLIB.ServiceRequest({
-            type: valor
+            move: valor
         })
     
         service.callService(request, (result) => {
