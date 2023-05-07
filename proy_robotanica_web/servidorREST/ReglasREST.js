@@ -1,7 +1,7 @@
 //----------------------------------------------------------------------
 // ReglasREST.js
 //----------------------------------------------------------------------
-module.exports.cargar = function( servidorExpress, laLogica ) {
+module.exports.cargar = function( servidorExpress, laLogicaUsuario ) {
 	//--------------------------------------------------------
 	// GET /prueba
 	//--------------------------------------------------------
@@ -16,21 +16,20 @@ module.exports.cargar = function( servidorExpress, laLogica ) {
 //////////////////////////////////////////////////////////////
 	
 	//--------------------------------------------------------
-	// Peticion GET /usuario/:email/:contrasenya
+	// Peticion GET /usuario
 	//--------------------------------------------------------
-	servidorExpress.get(
-		'/usuario/:email/:contrasenya',
+	servidorExpress.post(
+		'/usuarioxdni',
 		async function(peticion, respuesta) {
-			console.log(" * GET /usuario ")
-				// averiguo el email y la contrasenya
-			var email = peticion.params.email
-			var contrasenya = peticion.params.contrasenya
-				// llamo a la función adecuada de la lógica
+			console.log(" * GET /usuarioxdni ")
+			var data = JSON.parse(peticion.body)
+			
 			var res = null
 			var error = null
 
 			try {
-				res = await laLogica._getUsuarioConEmailYContrasenya(email, contrasenya)
+				// llamo a la función adecuada de la lógica
+				res = await laLogicaUsuario._getUsuarioConDni(data.dni)
 			} catch (e) {
 				error = e
 			}
@@ -49,19 +48,18 @@ module.exports.cargar = function( servidorExpress, laLogica ) {
 			}
 		}) // get /usuario
 
-		servidorExpress.get(
-			'/contrasenya/:email/:contrasenya',
+		servidorExpress.post(
+			'/usuarioxcorreo',
 			async function(peticion, respuesta) {
-				console.log(" * GET /contrasenya ")
-					// averiguo el email y la contrasenya
-				var email = peticion.params.email
-				var contrasenya = peticion.params.contrasenya
-					// llamo a la función adecuada de la lógica
+				console.log(" * GET /usuarioxcorreo ")
+				// averiguo el email y la contrasenya
+				var data = JSON.parse(peticion.body)
+				// llamo a la función adecuada de la lógica
 				var res = null
 				var error = null
-	
+
 				try {
-					res = await laLogica._comprobarContrasenyaConEmailYContrasenya(email,contrasenya)
+					res = await laLogicaUsuario._getUsuarioConcorreoYPass(data)
 				} catch (e) {
 					error = e
 				}
@@ -81,19 +79,17 @@ module.exports.cargar = function( servidorExpress, laLogica ) {
 			}) // get /contrasenya
 
 			servidorExpress.post(
-				'/nueva_contrasenya/:email/:contrasenya',
+				'/insertarU',
 				async function(peticion, respuesta) {
-					console.log(" * POST /contrasenya ")
-						// averiguo el email y la contrasenya
-					var email = peticion.params.email
-					var contrasenya = peticion.params.contrasenya
-
-						// llamo a la función adecuada de la lógica
+					console.log(" * POST /insertarU ")
+						
+					var data = JSON.parse(peticion.body)
+						
 					var res = null
 					var error = null
 		
 					try {
-						res = await laLogica._cambiarContrasenya(email,contrasenya)
+						res = await laLogicaUsuario._insertarUsuario(data)
 					} catch (e) {
 						error = e
 					}
@@ -112,36 +108,6 @@ module.exports.cargar = function( servidorExpress, laLogica ) {
 					}
 				}) // get /usuario
 				
-			servidorExpress.get(
-			'/galeria/:email',
-			async function(peticion, respuesta) {
-				console.log(" * GET /galeria ")
-				// averiguo el email
-				var email = peticion.params.email
-				// llamo a la función adecuada de la lógica
-				var res = null
-				var error = null
-	
-				try {
-					res = await laLogica._getColeccionConEmail(email)
-				} catch (e) {
-					error = e
-				}
-				// si el array de resultados no tiene una casilla ...
-				if (error != null) {
-					if (error == 404) {
-						respuesta.status(404).send("No encontré galerías para usuario con email " + email)
-						console.log(404)
-					} else {
-						//500: internal server error
-						console.log(error)
-						respuesta.status(500).send("Error interno del servidor")
-					}
-					return
-				} else {
-					respuesta.send(JSON.stringify(res))
-				}
-			}) // get /galeria
 	
 }
 //----------------------------------------------------------------------

@@ -4,6 +4,8 @@ string move # Define el tipo de movimiento
             # "izquierda"
             # "derecha"
             # "parar"
+            # "waypoints"
+
             
 ---
 bool success #respuesta

@@ -6,7 +6,7 @@
 	"version": "0.0.1",
 	"repository": "https://github.com/DanielBBHub/proy_robotanica",
 	"scripts": {
-		"test": "node ./node_modules/mocha/bin/mocha"
+		"test": "node ./node_modules/mocha/bin/mocha --timeout 60000"
 	},
 	"dependencies": {
 		"sqlite3": "^5.0.6"

@@ -6,7 +6,9 @@
 const cors = require('cors')
 const express = require( 'express' )
 const bodyParser = require( 'body-parser' )
-const LogicaUsuario = require( "../Logica/LogicaUsuario.js" )
+const LogicaUsuario = require( "../logica/LogicaUsuario.js" )
+const LogicaInvernaderos = require( "../logica/LogicaInvernadero.js" )
+const LogicaProducto = require( "../logica/LogicaProducto.js" )
 //----------------------------------------------------------------------
 //----------------------------------------------------------------------
 function cargarLogicaUsuario( fichero ) {
@@ -21,12 +23,39 @@ function cargarLogicaUsuario( fichero ) {
 		}) // new
 	}) // Promise
 } // ()
+function cargarLogicaInvernaderos( fichero ) {
+	return new Promise( (resolver, rechazar) => {
+		var laLogicaInvernaderos = new LogicaInvernaderos( fichero,
+		function( err ) {
+			if ( err ) {
+				rechazar( err )
+			} else {
+				resolver( laLogicaInvernaderos )
+			}
+		}) // new
+	}) // Promise
+} // ()
+function cargarLogicaProducto( fichero ) {
+	return new Promise( (resolver, rechazar) => {
+		var laLogicaProducto = new LogicaProducto( fichero,
+		function( err ) {
+			if ( err ) {
+				rechazar( err )
+			} else {
+				resolver( laLogicaProducto )
+			}
+		}) // new
+	}) // Promise
+} // ()
 //----------------------------------------------------------------------
 // main()
 //----------------------------------------------------------------------
 async function main() {	
+	// instancias de las diferentes logicas
 	var laLogicaUsuario = await cargarLogicaUsuario( "../bd/robotanica.bd" )
-	// creo el servidor
+	var laLogicaInvernaderos = await cargarLogicaInvernaderos( "../bd/robotanica.bd" )
+	var laLogicaProducto = await cargarLogicaProducto( "../bd/robotanica.bd" )
+	
 	var servidorExpress = express()
 	// CORS
 	servidorExpress.use(cors())
@@ -35,7 +64,7 @@ async function main() {
 	servidorExpress.use ( bodyParser.text({type: 'application/json'}) )
 	// cargo las reglas REST
 	var reglas = require( "./ReglasREST.js")
-	reglas.cargar( servidorExpress, laLogicaUsuario )
+	reglas.cargar( servidorExpress, laLogicaUsuario, laLogicaInvernaderos, laLogicaProducto)
 	// arranco el servidor
 	var servicio = servidorExpress.listen( 8080, function() {
 		console.log( "servidor REST escuchando en el puerto 8080 ")

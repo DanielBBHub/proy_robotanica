@@ -1,12 +1,12 @@
 /** ---------------------------------------------------------------------
- * Logica.js
+ * LogicaProducto.js
  *
- * 10/11/21
+ * 03/05/23
  *
- * Javier Solís
+ * Daniel Benavides
  *
  * Este fichero contiene todas las funciones que operan con sql y se
- * conectan a la bd
+ * conectan a la bd para los productos
  *
  *
  * ------------------------------------------------------------------- */
@@ -40,18 +40,16 @@ module.exports = class LogicaUsuario {
 	// _getUsuarioConcorreo() -->
 	//  nombreApellidos, correo, pass, dni
 	// -----------------------------------------------------------------
-	_getUsuarioConCorreo( correo ){
-		let textoSQL = "select * from Usuarios where correo=$correo";
-		let valoresParaSQL = { $correo: correo }
+	_getProductoPorInvernadero( idInvernadero ){
+		let textoSQL = "select * from Productos where idInvernadero=$idInvernadero";
+		let valoresParaSQL = { $idInvernadero: idInvernadero }
 		return new Promise( (resolver, rechazar) => {
 			this.laConexion.all( textoSQL, valoresParaSQL,
 			( err, res ) => {
 				if(err){
 					rechazar(err)
 				} else if(res.length > 1){
-					rechazar("ERROR: mas de 1 usuario comparte correo")
-				} else if(res.length == 0){
-					rechazar(404)
+					rechazar("ERROR")
 				} else {
 					resolver(res[0])
 				}
@@ -60,73 +58,27 @@ module.exports = class LogicaUsuario {
 	}
 	
 	// -----------------------------------------------------------------
-	//	correo, pass: Texto
-	// _comprobarpassConcorreoYPass() -->
-	// pass
-	// -----------------------------------------------------------------
-	_comprobarpassConCorreoYPass( correo, pass ){
-		let textoSQL = "select pass from Usuario where correo=$correo and pass=$pass";
-		let valoresParaSQL = { $correo: correo, $pass: pass }
-		return new Promise( (resolver, rechazar) => {
-			this.laConexion.all( textoSQL, valoresParaSQL,
-			( err, res ) => {
-				if(err){
-					rechazar(err)
-				} else if(res.length > 1){
-					rechazar("ERROR: mas de 1 usuario comparte correo")
-				} else if(res.length == 0){
-					rechazar(404)
-				} else {
-					resolver(res[0])
-				}
-			})
-		})
-	}
-
-	// -----------------------------------------------------------------
 	//	correo: Texto
 	// _cambiarpass() -->
 	// 
 	// -----------------------------------------------------------------
-	_cambiarpass( pass, correo ){
-		let textoSQL = "UPDATE Usuario SET pass=$pass where correo=$correo";
-		let valoresParaSQL = { $correo: correo, $pass: pass }
+	
+	async _insertarProducto(data){
+		let textoSQL = "insert into Productos values ($idInvernadero, $productos, $madurez, $fechaplantacion, $coords)";
+		let valoresParaSQL = {
+			$idInvernadero: data.idInvernadero,
+			$productos: data.productos,
+			$madurez: data.madurez,
+			$fechaplantacion: data.fechaPlantacion,
+			$coords: data.coords}
+			
 		return new Promise( (resolver, rechazar) => {
-			this.laConexion.all( textoSQL, valoresParaSQL,
-			( err, res ) => {
+			this.laConexion.run( textoSQL, valoresParaSQL,
+			( err ) => {
 				if(err){
 					rechazar(err)
-				} else if(res.length > 1){
-					rechazar("ERROR: mas de 1 usuario comparte correo")
-				} else if(res.length == 0){
-					rechazar(404)
 				} else {
-					resolver(res[0])
-				}
-			})
-		})
-	}
-
-	// -----------------------------------------------------------------
-	//	correo, pass: Texto
-	// _getUsuarioConcorreoYPass() -->
-	// correo, nombre, id_invernadero, id_rol, pass
-	// -----------------------------------------------------------------
-
-	_getUsuarioConcorreoYPass( correo, pass ){
-		let textoSQL = "select * from Usuario where correo=$correo and pass=$pass";
-		let valoresParaSQL = { $correo: correo, $pass: pass }
-		return new Promise( (resolver, rechazar) => {
-			this.laConexion.all( textoSQL, valoresParaSQL,
-			( err, res ) => {
-				if(err){
-					rechazar(err)
-				} else if(res.length > 1){
-					rechazar("ERROR: mas de 1 usuario comparte correo")
-				} else if(res.length == 0){
-					rechazar(404)
-				} else {
-					resolver(res[0])
+					resolver(200)
 				}
 			})
 		})
