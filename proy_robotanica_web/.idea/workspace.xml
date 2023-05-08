@@ -2,15 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2c7eb457-3974-4f55-9b00-6857b4f8a88b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/ux/src/img/camara.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ux/src/img/escaner.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ux/src/img/maduracion.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ux/src/img/nav.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ux/src/img/plantaciones.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ux/src/img/recogida.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ux/src/img/secores.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ux/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/ux/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ux/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/ux/login.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ux/src/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/ux/src/style.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
