@@ -128,16 +128,14 @@ module.exports = class LogicaUsuario {
 	}
 
 	async _getUsuarioConDni( dni ){
-		console.log("LogicaUsuario res:" + dni)
 		let textoSQL = "select * from Usuarios where dni=$dni";
-		let valoresParaSQL = { $dni: dni}
+		let valoresParaSQL = {$dni: dni}
 		return new Promise( (resolver, rechazar) => {
 			this.laConexion.all( textoSQL, valoresParaSQL,
 			( err, res ) => {
 				if(err){
 					rechazar(err)
 				} else {
-					console.log("LogicaUsuario res:" + res[0].toString())
 					resolver(res[0])
 				}
 			})

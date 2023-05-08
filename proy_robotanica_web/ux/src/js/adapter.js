@@ -3,8 +3,8 @@ document.addEventListener('DOMContentLoaded', event => {
     // Navegacion por control manual
     let logica = new LogicaFake()
     document.getElementById("login").addEventListener("click", () => {
-        var correo =   "87654321A" 
-        var pass =  "25432184"
+        var correo =   document.getElementById("dniUsuario").value 
+        var pass =  document.getElementById("passUsuario").value
         logica.login(correo, pass)
     })
     document.getElementById("parar").addEventListener("click", stop)
