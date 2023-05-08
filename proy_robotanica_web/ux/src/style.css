@@ -50,7 +50,7 @@
 }
 
 .botonCTA {
-    margin-top: 15.5em;
+    margin-top: 17em;
     margin-bottom: 2em;
     background: var(--verdeOscuro);
 }
@@ -74,7 +74,16 @@
 }
 
 .tamaño{
-    width: 50%;
+    width: 35%;
+
+}
+
+.tamaño2{
+    width: 30%;
+}
+
+.tamaño3{
+    width: 30%;
 }
 
 .seccion{
@@ -155,6 +164,7 @@
     font-family: 'Inconsolata', monospace;
     font-size: 16px;
     padding-top: 5px;
+    text-align: justify;
 
 }
 
