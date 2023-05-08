@@ -96,7 +96,6 @@
 /*TARJETTAS*/
 .tarjeta {
     position: relative;
-    width: 10em;
     height: 20em;
 }
 
@@ -137,6 +136,28 @@
     width: 100%;
     height: 20em;
 }
+
+.titulo_card_atras{
+    font-family: 'Inconsolata', monospace;
+    font-size: 20px;
+    font-weight: bold;
+    padding-bottom: 15px;
+}
+
+.titulo_card{
+    font-family: 'Inconsolata', monospace;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+
+.texto_card{
+    font-family: 'Inconsolata', monospace;
+    font-size: 16px;
+    padding-top: 5px;
+
+}
+
 
 /*Animaciones*/
 
