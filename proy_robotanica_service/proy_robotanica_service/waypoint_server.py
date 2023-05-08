@@ -56,7 +56,7 @@ class Service(Node):
 
         goal_pose.pose.header.frame_id = 'map'
         goal_pose.pose.pose.position.x = 2.0
-        goal_pose.pose.pose.position.y = 0.0
+        goal_pose.pose.pose.position.y = 0.5
         goal_pose.pose.pose.position.z = 0.0
         goal_pose.pose.pose.orientation.x = 0.0
         goal_pose.pose.pose.orientation.y = 0.0
@@ -68,8 +68,8 @@ class Service(Node):
         goal_pose2 = NavigateToPose.Goal()
 
         goal_pose2.pose.header.frame_id = 'map'
-        goal_pose2.pose.pose.position.x = 4.0
-        goal_pose2.pose.pose.position.y = 0.0
+        goal_pose2.pose.pose.position.x = 2.5
+        goal_pose2.pose.pose.position.y = 1.0
         goal_pose2.pose.pose.position.z = 0.0
         goal_pose2.pose.pose.orientation.x = 0.0
         goal_pose2.pose.pose.orientation.y = 1.0
@@ -82,7 +82,7 @@ class Service(Node):
 
         goal_pose3.pose.header.frame_id = 'map'
         goal_pose3.pose.pose.position.x = 1.0
-        goal_pose3.pose.pose.position.y = 0.0
+        goal_pose3.pose.pose.position.y = 0.5
         goal_pose3.pose.pose.position.z = 0.0
         goal_pose3.pose.pose.orientation.x = 0.0
         goal_pose3.pose.pose.orientation.y = 1.0
