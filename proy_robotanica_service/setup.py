@@ -23,8 +23,8 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
-            'movement_server = my_first_service.movement_server:main', #incluir
-            'movement_client = my_first_service.movement_client:main',
+            'movement_server = proy_robotanica_service.movement_server:main', #incluir
+            'movement_client = proy_robotanica_service.movement_client:main',
             'circular_movement_client = my_first_service.circle_movement:main', #incluir
             'waypoint_server = proy_robotanica_service.waypoint_server:main'
         ],
