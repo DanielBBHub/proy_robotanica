@@ -49,6 +49,7 @@ module.exports = class LogicaUsuario {
 				if(err){
 					rechazar(err)
 				} else {
+					console.log(res)
 					resolver(res[0])
 				}
 			})
