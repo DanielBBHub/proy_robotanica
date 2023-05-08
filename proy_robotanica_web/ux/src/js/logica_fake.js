@@ -47,17 +47,12 @@ export default class LogicaFake {
 
         }) 
         //Se recoge el JSON de la cabecera de la respuesta 
-        .then(response =>  res = response.json())
-        if(res.pass == passUsuario){
-            window.location.replace("./perfil.html");
-        }
-        else{
-
-        }
+        .then(response =>  this.comprobarUsuario(response.json(), passUsuario))
 		
     }
 
-    async comrprobarUsuario(data,passUsuario) {
+    comprobarUsuario(data,passUsuario) {
+        console.log(data[0])
         if(data.pass == passUsuario){
             window.location.replace("./perfil.html");
         }

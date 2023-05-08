@@ -128,6 +128,7 @@ module.exports = class LogicaUsuario {
 	}
 
 	async _getUsuarioConDni( dni ){
+		console.log("LogicaUsuario res:" + dni)
 		let textoSQL = "select * from Usuarios where dni=$dni";
 		let valoresParaSQL = { $dni: dni}
 		return new Promise( (resolver, rechazar) => {
@@ -135,11 +136,8 @@ module.exports = class LogicaUsuario {
 			( err, res ) => {
 				if(err){
 					rechazar(err)
-				} else if(res.length > 1){
-					rechazar("ERROR: mas de 1 usuario comparte correo")
-				} else if(res.length == 0){
-					rechazar(404)
 				} else {
+					console.log("LogicaUsuario res:" + res[0].toString())
 					resolver(res[0])
 				}
 			})
