@@ -26,6 +26,43 @@ export default class LogicaFake {
         }
         
     }
+
+    async login(dniUsuario, passUsuario) {
+       
+        var metodo = this;
+        var data = { dni: dniUsuario, pass: passUsuario}
+        console.log(data)
+        var res 
+        let peticion = await fetch(IP_PUERTO + '/usuarioxdni', {
+            method: 'POST',
+            headers: new Headers(
+            //Partes del header que se han añadido para 
+            //posibilitar la comunicacion con el servidor REST
+            { 'Users-Agent' : 'Daniel',
+            'Access-Control-Allow-Origin': '*',
+            'Content-type': 'application/json'}),
+            mode: "cors",
+            body: JSON.stringify(data),
+            
+
+        }) 
+        //Se recoge el JSON de la cabecera de la respuesta 
+        .then(response =>  response.json())
+        .then(data => this.comprobarUsuario(data, passUsuario) )
+		
+    }
+
+    async comprobarUsuario(data,passUsuario) {
+        console.log(data.pass)
+        console.log(passUsuario)
+
+        if(data.pass.toString() == passUsuario){
+            window.location.replace("./perfil.html");
+        }
+        else{
+
+        }
+    }
 }
 // ---------------------------------------------------------------------
 // ---------------------------------------------------------------------

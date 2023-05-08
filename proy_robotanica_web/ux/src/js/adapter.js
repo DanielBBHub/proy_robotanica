@@ -1,7 +1,11 @@
+import LogicaFake from "./logica_fake.js";
 document.addEventListener('DOMContentLoaded', event => {
     // Navegacion por control manual
-    document.getElementById("moverDelante").addEventListener("click", () => {
-        call_delante_service("delante")
+    let logica = new LogicaFake()
+    document.getElementById("login").addEventListener("click", () => {
+        var correo =   document.getElementById("dniUsuario").value 
+        var pass =  document.getElementById("passUsuario").value
+        logica.login(correo, pass)
     })
     document.getElementById("parar").addEventListener("click", stop)
     document.getElementById("moverAtras").addEventListener("click", reverse)

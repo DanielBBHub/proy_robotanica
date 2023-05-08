@@ -7,7 +7,7 @@
     <link href="https://cdn.jsdelivr.net/npm/daisyui@2.51.6/dist/full.css" rel="stylesheet" type="text/css"/>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="/dist/output.css" rel="stylesheet">
-
+    <script type="module" src="./src/js/adapter.js"></script> 
     <link rel="stylesheet" href="./src/login.css">
     <link rel="stylesheet" href="./src/menu.css">
     <script type="module" src="src/js/toggler.js"></script>
@@ -25,9 +25,9 @@
             <div class="flex h-16 items-center justify-center items-center " >
                 <div class="ml-10 flex items-baseline space-x-4">
                     <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
-                    <a href="index.html" class="menu1 text-white rounded-md px-3 py-2 text-sm font-medium" aria-current="page">Inicio</a>
-                    <a href="#" class="menu2 text-gray-300 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Servicios</a>
-                    <a href="#" class="menu2 text-gray-300 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Robot</a>
+                    <a href="index.html" class="menu2 text-gray-300 hover:text-white rounded-md px-3 py-2 text-sm font-medium" aria-current="page">Inicio</a>
+                    <a href="contactanos.html" class="menu2 text-gray-300 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Contacto</a>
+                    <a href="acercade.html" class="menu2 text-gray-300 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Acerca de</a>
                 </div>
             </div>
         </div>
@@ -62,37 +62,44 @@
     </div>
 
     <div class="mt-5 sm:mx-auto sm:max-w-sm">
-        <form class="space-y-6" action="#" method="POST">
+        <form class="space-y-6">
             <div>
-                <label for="DNI" class="textos block leading-6">DNI:</label>
+                <label for="dniUsuario" class="textos block leading-6">DNI:</label>
                 <div class="mt-2">
-                    <input id="DNI" name="DNI" type="text" required class="textos_imput block w-full rounded-md border-0 py-1.5 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:leading-6">
+                    <input id="dniUsuario" name="DNI" type="text" required class="textos_imput block w-full rounded-md border-0 py-1.5 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset sm:leading-6">
                 </div>
             </div>
 
             <div>
                 <div class="flex items-center justify-between">
-                    <label for="password" class="textos block leading-6">Contraseña:</label>
+                    <label for="passUsuario" class="textos block leading-6">Contraseña:</label>
                     <div class="text-sm">
                         <label for="my-modal-3" class="textos font-semibold hover:drop-shadow-xl cursor">¿Has olvidado tu contraseña?</label>
                     </div>
                 </div>
                 <div class="mt-2">
-                    <input id="password" name="password" type="password" autocomplete="current-password" required class="textos_imput block w-full rounded-md border-0 py-1.5 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:leading-6">
+                    <input id="passUsuario" name="password" type="password" autocomplete="current-password" required class="textos_imput block w-full rounded-md border-0 py-1.5 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset sm:leading-6">
                 </div>
             </div>
 
             <div>
-              <button type="submit" class="botones bg-lime-800 hover:bg-lime-900 hover:drop-shadow-xl w-4em rounded-md px-3 py-1.5 leading-6 shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2">  <a href="perfil.html">ENVIAR</a></button>
+              <button id="login" class="botones bg-lime-800 hover:bg-lime-900 hover:drop-shadow-xl w-4em rounded-md px-3 py-1.5 leading-6 shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2">ENVIAR</button>
             </div>
         </form>
 
+
+        <!-- Poner un input para el correo -->
         <input type="checkbox" id="my-modal-3" class="modal-toggle" />
         <div class="modal">
             <div class="modal-box relative">
-                <label for="my-modal-3" class="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
+                <label for="my-modal-3" style="cursor: pointer" class="btn-sm absolute right-2 top-2">✕</label>
                 <h3 class="text-lg font-bold">Cambio de contraseña</h3>
-                <p class="py-4">Le hemos enviado un correo para que puedas modificar su contraseña</p>
+                <p class="py-4">Introduce tu correo electrónico y te enviaremos un mensaje de confirmación.</p>
+                <input name="password" type="password" autocomplete="current-password" required class="textos_imput block w-full rounded-md border-0 py-1.5 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset sm:leading-6">
+                <div>
+                    <br>
+                    <button class="botones bg-lime-800 hover:bg-lime-900 hover:drop-shadow-xl w-4em rounded-md px-3 py-1.5 leading-6 shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2">ENVIAR</button>
+                </div>
             </div>
         </div>
 
@@ -107,32 +114,32 @@
         </div>
 
         <div class="borde">
-            <form class="space-y-8" action="#" method="POST">
+            <form class="space-y-8">
                 <div class="flex justify-between">
                 <div>
                     <h4 class="subregistro">Datos personales</h4>
                     <div>
                         <label for="nombre" class="block textos leading-6">Nombre:</label>
                         <div class="mt-2">
-                            <input id="nombre" name="nombre" type="text" required class="textos_imput block w-full rounded-md border-0 py-1.5 shadow-sm ring-1 ring-inset ring-gray-300  focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:leading-6">
+                            <input id="nombre" name="nombre" type="text" required class="textos_imput block w-full rounded-md border-0 py-1.5 shadow-sm ring-1 ring-inset ring-gray-300  focus:ring-2 focus:ring-inset sm:leading-6">
                         </div>
                     </div>
                     <div>
                         <label for="apellidos" class="block textos leading-6">Apellidos:</label>
                         <div class="mt-2">
-                            <input id="apellidos" name="apellidos" type="text" required class="textos_imput block w-full rounded-md border-0 py-1.5 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:leading-6">
+                            <input id="apellidos" name="apellidos" type="text" required class="textos_imput block w-full rounded-md border-0 py-1.5 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset sm:leading-6">
                         </div>
                     </div>
                     <div>
                         <label for="DNI" class="block textos leading-6 ">DNI:</label>
                         <div class="mt-2">
-                            <input id="DNI" name="DNI" type="text" required class="textos_imput block w-full rounded-md border-0 py-1.5 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:leading-6">
+                            <input id="DNI" name="DNI" type="text" required class="textos_imput block w-full rounded-md border-0 py-1.5 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset sm:leading-6">
                         </div>
                     </div>
                     <div>
                         <label for="telefono" class="block textos leading-6 ">Teléfono:</label>
                         <div class="mt-2">
-                            <input id="telefono" name="telefono" type="text" required class="textos_imput block w-full rounded-md border-0 py-1.5 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:leading-6">
+                            <input id="telefono" name="telefono" type="text" required class="textos_imput block w-full rounded-md border-0 py-1.5 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset sm:leading-6">
                         </div>
                     </div>
                 </div>
@@ -141,25 +148,25 @@
                     <div>
                         <label for="correo" class="block textos leading-6">Teléfono:</label>
                         <div class="mt-2">
-                            <input id="correo" name="correo" type="email" required class="textos_imput block w-full rounded-md border-0 py-1.5 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:leading-6">
+                            <input id="correo" name="correo" type="email" required class="textos_imput block w-full rounded-md border-0 py-1.5 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset sm:leading-6">
                         </div>
                     </div>
                     <div class="flex items-center justify-between">
                         <label for="password" class="block textos leading-6">Contraseña:</label>
                     </div>
                     <div class="mt-2">
-                        <input id="password" name="password" type="password" autocomplete="current-password" required class="textos_imput block w-full rounded-md border-0 py-1.5 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:leading-6">
+                        <input id="password" name="password" type="password" autocomplete="current-password" required class="textos_imput block w-full rounded-md border-0 py-1.5 shadow-sm ring-1 ring-inset focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:leading-6">
                     </div>
 
                     <div class="flex items-center justify-between">
                         <label for="password" class="block textos leading-6">Repite la contraseña:</label>
                     </div>
                     <div class="mt-2">
-                        <input id="password" name="password" type="password" autocomplete="current-password" required class="textos_imput block w-full rounded-md border-0 py-1.5 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:leading-6">
+                        <input id="password" name="password" type="password" autocomplete="current-password" required class="textos_imput block w-full rounded-md border-0 py-1.5 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset sm:leading-6">
                     </div>
                     <br>
                     <div class="items-center">
-                        <button type="submit" class="botones bg-lime-800 hover:bg-lime-900 hover:drop-shadow-xl flex justify-center rounded-md px-3 py-1.5 leading-6 shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">ENVIAR</button>
+                        <button class="botones bg-lime-800 hover:bg-lime-900 hover:drop-shadow-xl flex justify-center rounded-md px-3 py-1.5 leading-6 shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">ENVIAR</button>
                     </div>
 
                 </div>
