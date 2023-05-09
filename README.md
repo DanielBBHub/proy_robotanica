@@ -33,3 +33,6 @@ Una vez esten los paquetes instalados abrimos los puertos para los servicios:
 >Nos situamos en la carpeta servidorREST para abrir el servidor de acceso a la pagina web
 <pre><code>cd servidorREST/</code>  
 <code>npm run servidor</code></pre>   
+  
+## DOCUMENTACION API  
+La documentacion de la api REST se puede encontrar [aqui](https://app.swaggerhub.com/apis-docs/RUXZFLY_1/Robotanica/1.0.0-oas3.1#/)
