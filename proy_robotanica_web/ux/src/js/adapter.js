@@ -10,8 +10,8 @@ document.addEventListener('DOMContentLoaded', event => {
     document.getElementById("navTomates").addEventListener("click", () => {
         call_nav_service("tomate")
     })
-    document.getElementById("navBerenjenas").addEventListener("click", () => {
-        call_nav_service("berenjena")
+    document.getElementById("waypoint_berenjena").addEventListener("click", () => {
+        call_nav_waypoints_service("waypoints_sim")
     })
 
     document.getElementById("waypoint_tomate").addEventListener("click", () => {

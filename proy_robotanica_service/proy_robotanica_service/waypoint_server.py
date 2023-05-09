@@ -39,6 +39,14 @@ class Service(Node):
             rclpy.spin(action_client)
             # devuelve la respuesta
             response.success = True
+        elif request.move == "waypoints_sim":
+            # imprime mensaje informando del movimiento
+            self.get_logger().info('Ejecutando waypoints en simulacion...')
+            action_client_sim = Service()
+            action_client_sim.send_goal_sim(0)
+            rclpy.spin(action_client_sim)
+            # devuelve la respuesta
+            response.success = True
         
         else:
             # estado de la respuesta
@@ -83,6 +91,60 @@ class Service(Node):
         goal_pose3.pose.header.frame_id = 'map'
         goal_pose3.pose.pose.position.x = 1.0
         goal_pose3.pose.pose.position.y = 0.5
+        goal_pose3.pose.pose.position.z = 0.0
+        goal_pose3.pose.pose.orientation.x = 0.0
+        goal_pose3.pose.pose.orientation.y = 1.0
+        goal_pose3.pose.pose.orientation.z = 0.0
+        goal_pose3.pose.pose.orientation.w = 1.0
+
+        goal_poses.append(goal_pose3)
+
+        self.get_logger().info('Goal creado')
+
+        self._action_client.wait_for_server()
+
+        self.get_logger().info('Acción activa')
+
+        self._send_goal_future = self._action_client.send_goal_async(goal_poses[punto],feedback_callback=self.feedback_callback)
+
+        self._send_goal_future.add_done_callback(self.goal_response_callback)
+        self.get_logger().info('Goal lanzado')
+
+    def send_goal_sim(self,punto):
+        
+        goal_poses = []
+
+        goal_pose = NavigateToPose.Goal()
+
+        goal_pose.pose.header.frame_id = 'map'
+        goal_pose.pose.pose.position.x = 0.65
+        goal_pose.pose.pose.position.y = -2.0
+        goal_pose.pose.pose.position.z = 0.0
+        goal_pose.pose.pose.orientation.x = 0.0
+        goal_pose.pose.pose.orientation.y = 0.0
+        goal_pose.pose.pose.orientation.z = 0.0
+        goal_pose.pose.pose.orientation.w = 1.0
+
+        goal_poses.append(goal_pose)
+
+        goal_pose2 = NavigateToPose.Goal()
+
+        goal_pose2.pose.header.frame_id = 'map'
+        goal_pose2.pose.pose.position.x = -1.0
+        goal_pose2.pose.pose.position.y = -2.0
+        goal_pose2.pose.pose.position.z = 0.0
+        goal_pose2.pose.pose.orientation.x = 0.0
+        goal_pose2.pose.pose.orientation.y = 1.0
+        goal_pose2.pose.pose.orientation.z = 0.0
+        goal_pose2.pose.pose.orientation.w = 1.0
+
+        goal_poses.append(goal_pose2)
+
+        goal_pose3 = NavigateToPose.Goal()
+
+        goal_pose3.pose.header.frame_id = 'map'
+        goal_pose3.pose.pose.position.x = 0.65
+        goal_pose3.pose.pose.position.y = 1.0
         goal_pose3.pose.pose.position.z = 0.0
         goal_pose3.pose.pose.orientation.x = 0.0
         goal_pose3.pose.pose.orientation.y = 1.0
