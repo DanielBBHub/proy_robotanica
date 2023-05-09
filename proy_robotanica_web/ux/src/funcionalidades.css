@@ -28,7 +28,7 @@
     padding-top: 1rem ;
     margin-bottom: -1rem;
     font-weight: bold;
-    color: white;
+    color: var(--verde);
 }
 
 .informacion_usuario{
@@ -42,22 +42,23 @@
 }
 
 .contenedor_izq{
-    background: rgba(71,93,57,0.7);
+    background: rgba(174, 174, 174, 0.3);
     width: 80%;
-    margin: 15px;
     border-radius: 30px;
     min-height: 100%;
     display: block;
+    margin-left: 1em;
+    margin-right: 1em;
 
 }
 
 .contenedor_der{
     width: 80%;
-    margin: 15px;
     border-radius: 30px;
     min-height: 100%;
     display: block;
-
+    margin-left: 1em;
+    margin-right: 1em;
 }
 
 .subcontenedor_izquierda{
@@ -68,8 +69,6 @@
 }
 
 .subcontenedor_derecha{
-    background: rgba(71,93,57,0.7);
-    border-radius: 30px;
     display: flex;
     justify-content: center;
 }
@@ -137,3 +136,19 @@
     background: var(--verde);
     box-shadow: 0 0 6px #363636
 }
+
+.waypoints{
+    padding-left: 1em;
+    padding-right: 1em;
+}
+
+.contenedor_escaneo{
+    background: rgba(174, 174, 174, 0.3);
+    border-radius: 30px;
+}
+
+.contenedor_foto{
+    background: rgba(174, 174, 174, 0.3);
+    border-radius: 30px;
+}
+

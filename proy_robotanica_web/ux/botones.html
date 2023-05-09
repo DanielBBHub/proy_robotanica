@@ -20,22 +20,29 @@
 
 <body>
 
-    <section class="landing" style="background:#FFFFF0;  height: 100vh">
+    <section class="landing" style="background:#FFFFFF;  height: 100vh">
         <header style="position: fixed; width: 100%; z-index: 1"> <!-- style="position: fixed; width: 100%" -->
             <nav class="negro flex h-16">
                 <div class="imagen_header">
                     <a href="index.html"><img src="./src/img/Logo.png" /></a>
                 </div>
-
-                <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        
+                <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8" >
+                    <div class="flex h-16 items-center justify-center items-center " >
+                        <div class="ml-10 flex items-baseline space-x-4">
+                            <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
+                            <a href="index.html" class="menu1 text-white rounded-md px-3 py-2 text-sm font-medium" aria-current="page">Inicio</a>
+                            <a href="contactanos.html" class="menu2 text-gray-300 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Contacto</a>
+                            <a href="acercade.html" class="menu2 text-gray-300 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Acerca de</a>
+                        </div>
+                    </div>
                 </div>
-
-                <div class="cerrar_sesion_header" style="width: 2rem; margin-top: 1rem; margin-right: 3rem;">
-                    <img src="./src/img/cerrar-sesionblanco.png" />
+        
+                <div class="login_header">
+                    <a href="login.html"><img src="./src/img/persona.png" /></a>
                 </div>
             </nav>
         </header>
-
 
 
 
@@ -44,8 +51,8 @@
             <div class="contenedor_izq">
 
                 <div class="subcontenedor_izquierda">
-                    <h2>Movimiento manual</h2>
-
+                    <h2 class="subtirulo" style="padding-bottom: 2em;">Movimiento manual</h2>
+                    
                     <div class="fila_1">
                         <button class="btn botones_mover" id="moverDelante">
                             <img src="src/img/flecha.png" alt="Delante" class="flecha_arriba">
@@ -66,33 +73,49 @@
                         </button>
                     </div>
                     <div class="fila_4"> 
-                        <button class="btn" id="parar">Parar</button>
+                        <button class="btn botonCTA" id="parar" style="width: 10em;">Parar</button>
                     </div>
                     
                 </div>
-                <div>
-                    <h2>Punto de referencia</h2>
-                    <button class="btn" id="navTomates">Tomate</button>
-                    <button class="btn" id="navBerenjenas">Berenjena</button>
-                    <button class="btn" id="waypoint_tomate">Tomates</button>
+                <div class="h56 content-center">
+                    <h2 class="subtirulo" style="padding-top: 5em;">Puntos de referencia</h2>
+                    <div class="h-56 grid grid-cols-3 gap-4 content-evenly waypoints">
+                        <button class="btn" id="navTomates">Tomate</button>
+                        <button class="btn" id="navBerenjenas">Berenjena</button>
+                        <button class="btn" id="waypoint_tomate">Tomates</button>
+                    </div>
                 </div>
+                
 
             </div> <!--Fin contenedor izq-->
 
-            <div class="contenedor_der" >
-                <h2>Escaneo del entorno</h2>
-                <div class="subcontenedor_derecha">
-                    <div class="escaneo">
-                        
+            <div class="contenedor_der h-56 grid grid-cols-1 gap-4 content-stretch" >
+
+                <div class="contenedor_escaneo">
+
+                    <h2 class="subtirulo">Escaneo del entorno</h2>
+
+                    <div class="subcontenedor_derecha flex items-center flex justify-around">
+
+                        <div class="escaneo">
+                        </div>
+                        <button class="btn botonCTA" id="btn_escaneo">Escanear</button>
                     </div>
-                    <button class="btn botonCTA" id="btn_escaneo">Escanear</button>
                 </div>
-                <h2>Cámara</h2>
-                <div class="subcontenedor_derecha">
-                    <div class="camara">
-                        
+
+                
+
+                <div class="contenedor_foto">
+
+                    <h2 class="subtirulo">Cámara</h2>
+
+                    <div class="subcontenedor_derecha flex items-center flex justify-around">
+
+                        <div class="camara">
+                        </div>
+                        <button class="btn botonCTA" id="btn_foto">Tomar foto</button>
                     </div>
-                    <button class="btn botonCTA" id="btn_foto">Tomar foto</button>
+                    
                 </div>
 
             </div><!--Fin contenedor der-->
