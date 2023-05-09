@@ -49,8 +49,14 @@
     justify-content: right;
 }
 
+.paragraph span {
+    display: block;
+    opacity: 0;
+    animation: reveal 2s forwards var(--d);
+}
+
 .botonCTA {
-    margin-top: 17em;
+    margin-top: 13em;
     margin-bottom: 2em;
     background: var(--verdeOscuro);
 }
@@ -204,4 +210,14 @@
     to{
         transform: translateY(0);
     }
+}
+
+@keyframes reveal {
+    from{
+        transform: translateY(20px);
+    }
+    to{
+        opacity: 1;
+        transform: none;
+    }   
 }
