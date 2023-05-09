@@ -22,6 +22,7 @@ Los archivos desarrollados para la pagina web cumplen los siguientes propositos:
 ## INSTALACION  
 Para el uso del servidor implementado se han de instalar los paquetes previamente:
 >Este comando instala las dependencias necesarias. Si se prefiere se pueden descargar manualmente
+>Nos situamos en la carpeta logica y servidorREST y ejecutamos el comando dentro de cada una
 <pre><code>npm install</code></pre>  
   
 Una vez esten los paquetes instalados abrimos los puertos para los servicios:
