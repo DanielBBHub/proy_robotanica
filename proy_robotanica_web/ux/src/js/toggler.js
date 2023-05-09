@@ -11,11 +11,13 @@ toggle.onclick = function (){
         document.getElementById("ff").style.display = "block";
         document.getElementById("aa").style.display = "none";
         login.disabled = true;
+        registro.disabled = false;
     }
     else{
         document.getElementById("aa").style.display = "block";
         document.getElementById("ff").style.display = "none";
-        login.disabled = true;
+        registro.disabled = true;
+        login.disabled = false;
     }
 
 }

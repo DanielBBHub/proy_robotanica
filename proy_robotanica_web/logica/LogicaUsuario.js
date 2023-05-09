@@ -143,14 +143,14 @@ module.exports = class LogicaUsuario {
 	}
 
 	async _insertarUsuario( data ){
-		let textoSQL = "insert into Usuarios values($nombreApellidos, $correo, $pass,$dni)";
-		let valoresParaSQL = { $nombreApellidos: data.nombreApellidos, $correo: data.correo, $pass: data.pass,$dni: data.dni }
+		let textoSQL = "insert into Usuarios values($nombreApellidos, $correo, $telefono, $pass,$dni)";
+		let valoresParaSQL = { $nombreApellidos: data.nombre, $correo: data.correo, $telefono: data.telefono, $pass: data.pass,$dni: data.dni }
 		
 		return new Promise( (resolver, rechazar) => {
 			this.laConexion.all( textoSQL, valoresParaSQL,
 			( err, res ) => {
 				if(err){
-					rechazar("ERROR: mas de 1 usuario comparte correo")
+					rechazar(err)
 				} else {
 					resolver()
 				}

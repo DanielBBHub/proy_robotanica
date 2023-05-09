@@ -4,12 +4,14 @@ document.addEventListener('DOMContentLoaded', event => {
     let logica = new LogicaFake()
     //Callback para el inicio de sesion 
     document.getElementById("login").addEventListener("click", () => {
-        var correo =   document.getElementById("dniUsuario").value 
+        console.log('login')
+        var correo =   document.getElementById("dniUsuarioL").value 
         var pass =  document.getElementById("passUsuario").value
         logica.login(correo, pass)
     })
     //Callback para el registro
     document.getElementById("registro").addEventListener("click", () => {
+        console.log('registro')
         var correo =   document.getElementById("correoUsuario").value 
         var pass =  document.getElementById("passwordUsuario").value
         var passRe =  document.getElementById("passwordUsuario").value
@@ -18,7 +20,7 @@ document.addEventListener('DOMContentLoaded', event => {
         var nombreApellidos =  document.getElementById("nombreUsuario").value + ' ' + document.getElementById("apellidosUsuario").value
         
         //Hacer comprobacion antes de loggear al usuario
-        logica.login(dni, pass, nombreApellidos, tlf, correo)
+        logica.registro(dni, pass, nombreApellidos, tlf, correo)
     })
 
 

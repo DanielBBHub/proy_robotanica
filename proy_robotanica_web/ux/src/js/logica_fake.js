@@ -55,8 +55,8 @@ export default class LogicaFake {
     async registro(dniUsuario, passUsuario, nombre, telefono, correo) {
        
         var metodo = this;
-        console.log(':' + dniUsuario + ' ' + nombre + ':')
-        /* var data = { nombre:nombre, correo:correo ,dni: dniUsuario, telefono: telefono,pass: passUsuario}
+        
+        var data = { nombre:nombre, correo:correo ,dni: dniUsuario, telefono: telefono,pass: passUsuario}
         console.log(data)
         var res 
         let peticion = await fetch(IP_PUERTO + '/insertarU', {
@@ -74,7 +74,7 @@ export default class LogicaFake {
         }) 
         //Se recoge el JSON de la cabecera de la respuesta 
         .then(response =>  response.json())
-        .then(data => this.comprobarUsuario(data, passUsuario) ) */
+        .then(data => this.comprobarUsuario(data, passUsuario) ) 
 		
     }
 
