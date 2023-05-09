@@ -2,11 +2,26 @@ import LogicaFake from "./logica_fake.js";
 document.addEventListener('DOMContentLoaded', event => {
     // Navegacion por control manual
     let logica = new LogicaFake()
+    //Callback para el inicio de sesion 
     document.getElementById("login").addEventListener("click", () => {
         var correo =   document.getElementById("dniUsuario").value 
         var pass =  document.getElementById("passUsuario").value
         logica.login(correo, pass)
     })
+    //Callback para el registro
+    document.getElementById("registro").addEventListener("click", () => {
+        var correo =   document.getElementById("correoUsuario").value 
+        var pass =  document.getElementById("passwordUsuario").value
+        var passRe =  document.getElementById("passwordUsuario").value
+        var tlf =   document.getElementById("telefonoUsuario").value 
+        var dni =  document.getElementById("dniUsuario").value
+        var nombreApellidos =  document.getElementById("nombreUsuario").value + ' ' + document.getElementById("apellidosUsuario").value
+        
+        //Hacer comprobacion antes de loggear al usuario
+        logica.login(dni, pass, nombreApellidos, tlf, correo)
+    })
+
+
     document.getElementById("parar").addEventListener("click", stop)
     document.getElementById("moverAtras").addEventListener("click", reverse)
 

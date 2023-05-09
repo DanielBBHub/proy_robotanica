@@ -52,6 +52,32 @@ export default class LogicaFake {
 		
     }
 
+    async registro(dniUsuario, passUsuario, nombre, telefono, correo) {
+       
+        var metodo = this;
+        console.log(':' + dniUsuario + ' ' + nombre + ':')
+        /* var data = { nombre:nombre, correo:correo ,dni: dniUsuario, telefono: telefono,pass: passUsuario}
+        console.log(data)
+        var res 
+        let peticion = await fetch(IP_PUERTO + '/insertarU', {
+            method: 'POST',
+            headers: new Headers(
+            //Partes del header que se han añadido para 
+            //posibilitar la comunicacion con el servidor REST
+            { 'Users-Agent' : 'Daniel',
+            'Access-Control-Allow-Origin': '*',
+            'Content-type': 'application/json'}),
+            mode: "cors",
+            body: JSON.stringify(data),
+            
+
+        }) 
+        //Se recoge el JSON de la cabecera de la respuesta 
+        .then(response =>  response.json())
+        .then(data => this.comprobarUsuario(data, passUsuario) ) */
+		
+    }
+
     async comprobarUsuario(data,passUsuario) {
         console.log(data.pass)
         console.log(passUsuario)
