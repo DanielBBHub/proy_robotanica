@@ -49,6 +49,7 @@ module.exports = class LogicaUsuario {
 				if(err){
 					rechazar(err)
 				} else {
+					console.log(res)
 					resolver(res[0])
 				}
 			})
@@ -128,16 +129,12 @@ module.exports = class LogicaUsuario {
 
 	async _getUsuarioConDni( dni ){
 		let textoSQL = "select * from Usuarios where dni=$dni";
-		let valoresParaSQL = { $dni: dni}
+		let valoresParaSQL = {$dni: dni}
 		return new Promise( (resolver, rechazar) => {
 			this.laConexion.all( textoSQL, valoresParaSQL,
 			( err, res ) => {
 				if(err){
 					rechazar(err)
-				} else if(res.length > 1){
-					rechazar("ERROR: mas de 1 usuario comparte correo")
-				} else if(res.length == 0){
-					rechazar(404)
 				} else {
 					resolver(res[0])
 				}
@@ -146,14 +143,14 @@ module.exports = class LogicaUsuario {
 	}
 
 	async _insertarUsuario( data ){
-		let textoSQL = "insert into Usuarios values($nombreApellidos, $correo, $pass,$dni)";
-		let valoresParaSQL = { $nombreApellidos: data.nombreApellidos, $correo: data.correo, $pass: data.pass,$dni: data.dni }
+		let textoSQL = "insert into Usuarios values($nombreApellidos, $correo, $telefono, $pass,$dni)";
+		let valoresParaSQL = { $nombreApellidos: data.nombre, $correo: data.correo, $telefono: data.telefono, $pass: data.pass,$dni: data.dni }
 		
 		return new Promise( (resolver, rechazar) => {
 			this.laConexion.all( textoSQL, valoresParaSQL,
 			( err, res ) => {
 				if(err){
-					rechazar("ERROR: mas de 1 usuario comparte correo")
+					rechazar(err)
 				} else {
 					resolver()
 				}
