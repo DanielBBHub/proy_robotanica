@@ -36,7 +36,7 @@ module.exports.cargar = function( servidorExpress, laLogicaUsuario ) {
 			// si el array de resultados no tiene una casilla ...
 			if (error != null) {
 				if (error == 404) {
-					respuesta.status(404).send("No encontré usuario con email " + email + " y contrasenya " + contrasenya)
+					respuesta.status(404).send("No encontré usuario ")
 				} else {
 					//500: internal server error
 					console.log(error)

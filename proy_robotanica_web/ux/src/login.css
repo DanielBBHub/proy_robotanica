@@ -69,9 +69,6 @@ body{
     color: var(--textoverde);
 }
 
-#ini.active{
-}
-
 .registro{
     font-family: 'Inconsolata', monospace;
     font-size: 27px;
