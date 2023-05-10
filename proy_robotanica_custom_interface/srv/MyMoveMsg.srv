@@ -5,7 +5,7 @@ string move # Define el tipo de movimiento
             # "derecha"
             # "parar"
             # "waypoints"
-
+            # "waypoints_sim"
             
 ---
 bool success #respuesta

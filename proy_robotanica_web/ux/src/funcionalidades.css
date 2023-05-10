@@ -1,0 +1,154 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@300;400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300&display=swap');
+
+:root{
+    --negro: #141414;
+    --grisNegro: #2d2d2d;
+    --verdeOscuro: #475d39;
+    --verde: #7C9969;
+    --blanco: #ffffff;
+}
+
+
+.titulo{
+    font-size: 56px;
+    text-align: center;
+    color: var(--verde);
+    padding-top: 2em;
+    font-family: 'Comfortaa', cursive;
+    font-weight: bold;
+}
+
+.subtirulo{
+    font-family: 'Comfortaa', cursive;
+    font-size: 20px;
+    text-align: center;
+    padding-top: 1rem ;
+    margin-bottom: -1rem;
+    font-weight: bold;
+    color: var(--verde);
+}
+
+.informacion_usuario{
+    padding-top: 5rem ;
+    display: flex;
+    margin: 0 auto;
+    height: 100vh;
+    background-size: cover;
+    padding-bottom: 1rem ;
+
+}
+
+.contenedor_izq{
+    background: rgba(174, 174, 174, 0.3);
+    width: 80%;
+    border-radius: 30px;
+    min-height: 100%;
+    display: block;
+    margin-left: 1em;
+    margin-right: 1em;
+
+}
+
+.contenedor_der{
+    width: 80%;
+    border-radius: 30px;
+    min-height: 100%;
+    display: block;
+    margin-left: 1em;
+    margin-right: 1em;
+}
+
+.subcontenedor_izquierda{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.subcontenedor_derecha{
+    display: flex;
+    justify-content: center;
+}
+
+.escaneo{
+    width: 400px;
+	height: 200px;
+	background-color: #f0f0f0;
+	border: 1px solid #ccc;
+	padding: 20px;
+	position: relative;
+    margin-top: 2em;
+    margin-bottom: 2em;
+}
+
+.camara{
+    width: 400px;
+	height: 200px;
+	background-color: #f0f0f0;
+	border: 1px solid #ccc;
+	padding: 20px;
+	position: relative;
+    margin-top: 2em;
+    margin-bottom: 2em;
+
+}
+
+.flecha_arriba{
+    width: 75%;
+    height: 75%;
+    transform: rotate(180deg);
+}
+
+.flecha_abajo{
+    width: 75%;
+    height: 75%;
+}
+
+.flecha_derecha{
+    width: 75%;
+    height: 75%;
+    transform: rotate(90deg);
+}
+
+.flecha_izquierda{
+    width: 75%;
+    height: 75%;
+    transform: rotate(-90deg);
+
+}
+
+.botones_mover{
+    margin: 1em 3em;
+    background-color: var(--verdeOscuro);
+}
+
+.botonCTA {
+    margin-top: 3.5em;
+    margin-bottom: 2em;
+    background: var(--verdeOscuro);
+    color: whitesmoke;
+}
+
+.botonCTA:hover{
+    background: var(--verde);
+    box-shadow: 0 0 6px #363636
+}
+
+.waypoints{
+    padding-left: 1em;
+    padding-right: 1em;
+}
+
+.contenedor_escaneo{
+    background: rgba(174, 174, 174, 0.3);
+    border-radius: 30px;
+}
+
+.contenedor_foto{
+    background: rgba(174, 174, 174, 0.3);
+    border-radius: 30px;
+}
+

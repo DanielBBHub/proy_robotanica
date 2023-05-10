@@ -1,7 +1,7 @@
 # Importar mensajes
 from geometry_msgs.msg import Twist
-from custom_interface.srv import MyMoveMsg
-from custom_interface.srv import CircularMovementMsg
+from proy_robotanica_custom_interface.srv import MyMoveMsg
+#from custom_interface.srv import CircularMovementMsg
 
 #importar  biblioteca Python ROS2
 import rclpy
@@ -15,8 +15,8 @@ class Service(Node):
         # tipo de mensaje
         # nombre del servicio
         # callback del servicio
-        #self.srv = self.create_service(MyMoveMsg, 'movement', self.my_first_service_callback)
-        self.srv = self.create_service(CircularMovementMsg, 'movement', self.my_first_service_callback)
+        self.srv = self.create_service(MyMoveMsg, 'movement', self.my_first_service_callback)
+        #self.srv = self.create_service(CircularMovementMsg, 'movement', self.my_first_service_callback)
 
         #declara el objeto publisher pasando como parametros
         # tipo de mensaje

@@ -4,7 +4,7 @@ from launch_ros.actions import Node
 def generate_launch_description():
     return LaunchDescription([
         Node(
-            package='my_first_service',
+            package='proy_robotanica_service',
             executable='movement_server',
             output='screen'
         ),
