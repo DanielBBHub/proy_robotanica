@@ -7,5 +7,5 @@ create table Usuarios(
     dni    varchar(9)    not null PRIMARY KEY
 );
 
-insert into Usuarios values('Carlos Ipiens', 111111111,'cipiqui@epsg.upv.es','123456', '12345678A');
-insert into Usuarios values('Daniel Benavides', 222222222, 'dabebel@epsg.upv.es','25432184', '87654321A');
+insert into Usuarios values('Carlos Ipiens', 'cipiqui@epsg.upv.es',111111111, '123456', '12345678A');
+insert into Usuarios values('Daniel Benavides', 'dabebel@epsg.upv.es', 222222222,'25432184', '87654321A');
