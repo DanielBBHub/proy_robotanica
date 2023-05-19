@@ -28,6 +28,7 @@ class Service(Node):
         self.srv = self.create_service(MyMoveMsg, 'waypoint_server', self.my_first_service_callback)
 
         self._action_client = ActionClient(self, NavigateToPose, 'navigate_to_pose')
+        self._action_client_sim = ActionClient(self, NavigateToPose, 'navigate_to_pose')
 
     def my_first_service_callback(self, request, response):
 

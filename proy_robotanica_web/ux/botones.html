@@ -15,6 +15,9 @@
     <link href="/dist/output.css" rel="stylesheet">
     <link rel="stylesheet" href="./src/menu.css">
     <link rel="stylesheet" href="./src/funcionalidades.css">
+    <!--Funcionamiento de la camara desde la web-->
+    <script src="mjpegcanvas.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/eventemitter2@5.0.1/lib/eventemitter2.min.js"></script>
 </head>
 </head>
 
@@ -60,11 +63,11 @@
                     </div>
 
                     <div class=" fila_2">
-                        <button class="btn botones_mover" id="moverDerecha">
-                            <img src="src/img/flecha.png" alt="Derecha" class="flecha_derecha">
-                        </button>
                         <button class="btn botones_mover" id="moverIzquierda">
-                            <img src="src/img/flecha.png" alt="Izquierda" class="flecha_izquierda">
+                            <img src="src/img/flecha.png" alt="Izquierda" class="flecha_derecha">
+                        </button>
+                        <button class="btn botones_mover" id="moverDerecha">
+                            <img src="src/img/flecha.png" alt="Derecha" class="flecha_izquierda">
                         </button>
                     </div>
                     <div class="fila_3">
@@ -112,6 +115,9 @@
                     <div class="subcontenedor_derecha flex items-center flex justify-around">
 
                         <div class="camara">
+                            <div id="contenido_camara">
+                                
+                            </div>
                         </div>
                         <button class="btn botonCTA" id="btn_foto">Tomar foto</button>
                     </div>

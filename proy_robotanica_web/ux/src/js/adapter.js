@@ -4,11 +4,23 @@ document.addEventListener('DOMContentLoaded', event => {
         call_delante_service("delante")
     })
     document.getElementById("parar").addEventListener("click", stop)
-    document.getElementById("moverAtras").addEventListener("click", reverse)
+    //document.getElementById("moverAtras").addEventListener("click", reverse)
+
+    document.getElementById("moverAtras").addEventListener("click", () => {
+        call_delante_service("atras")
+    })
+
+    document.getElementById("moverDerecha").addEventListener("click", () => {
+        call_delante_service("derecha")
+    })
+
+    document.getElementById("moverIzquierda").addEventListener("click", () => {
+        call_delante_service("izquierda")
+    })
 
     // Navegacion a un punto
     document.getElementById("navTomates").addEventListener("click", () => {
-        call_nav_service("tomate")
+        setCamera()
     })
     document.getElementById("waypoint_berenjena").addEventListener("click", () => {
         call_nav_waypoints_service("waypoints_sim")
@@ -52,6 +64,8 @@ document.addEventListener('DOMContentLoaded', event => {
         //Al des/conectarnos sacamos por pantalla el estaado de la conexion 
         data.ros.on("connection", () => {
             data.connected = true
+
+
             console.log("Conexion con ROSBridge correcta") 
         })
         data.ros.on("error", (error) => {
@@ -60,9 +74,11 @@ document.addEventListener('DOMContentLoaded', event => {
         })
         data.ros.on("close", () => {
             data.connected = false
-            console.log("Conexion con ROSBridge cerrada")	    	 
+            console.log("Conexion con ROSBridge cerrada")
+            console.log('Connection to ROSBridge was closed!')
+	        document.getElementById("camara").innerHTML = ""	    	 
         })
-    }
+    }//connect
 
     //Se cierra la conexion
     function disconnect(){
@@ -227,6 +243,19 @@ document.addEventListener('DOMContentLoaded', event => {
             data.service_busy = false
             console.error(error)
         })	
+    }
+
+    //Servicio de camara
+    function setCamera(){
+        console.log("setting the camera")
+        new MJPEGCANVAS.Viewer({
+            divID: "contenido_camara", //elemento del html donde mostraremos la cámara
+            host: "127.0.0.1:8080", //dirección del servidor de vídeo
+            width: 320, //no pongas un tamaño mucho mayor porque puede dar error
+            height: 240,
+            topic: "/camera/image_raw",
+            ssl: false,
+        })
     }
 
     // Servicio de navegacion por una ruta
