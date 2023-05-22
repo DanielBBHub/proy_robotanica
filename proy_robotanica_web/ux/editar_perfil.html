@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Editar Perfil</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@2.51.6/dist/full.css" rel="stylesheet" type="text/css"/>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="/dist/output.css" rel="stylesheet">
+    <link rel="stylesheet" href="./src/editar.css">
+    <link rel="stylesheet" href="./src/menu.css">
+</head>
+<body>
+
+<header style="position: fixed; width: 100%; z-index: 1"> <!-- style="position: fixed; width: 100%" -->
+    <nav class="negro flex h-16">
+        <div class="imagen_header">
+            <a href="index.html"><img src="./src/img/Logo.png" /></a>
+        </div>
+
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8" >
+
+        </div>
+
+        <div class="cerrar_sesion_header" style="width: 2rem; margin-top: 1rem; margin-right: 3rem;">
+            <button id="logoutButton" type="button"><img src="./src/img/cerrar-sesionblanco.png" /></button>
+        </div>
+    </nav>
+</header>
+
+<!------------------------------------ Editar Perfil ------------------------------->
+<div class="centrar aa">
+    <div class="contenedor">
+        <div class="sm:mx-auto sm:w-full sm:max-w-sm">
+            <h2 class="mt-5 text-center leading-9 tracking-tight registro">EDITAR PERFIL</h2>
+        </div>
+        <div class="borde">
+
+            <div class="profile-img">
+                <img src="../img/usuario.png" id="imgUsuario" alt="" />
+                <div class="file btn">
+                    Cambiar foto
+                    <input type="file" id="image-input" accept="image/jpeg, image/png, image/jpg" name="file" />
+                </div>
+            </div>
+
+        </div>
+
+        <div class="mt-5 sm:mx-auto sm:max-w-sm">
+        <div>
+            <label for="cambiarNombreTXT" class="textos block leading-6">Ingrese tu nuevo nombre:</label>
+            <label id="nombreUsuarioTxt" class="textos"></label>
+            <div class="mt-2">
+                <input id="cambiarNombreTXT" name="n" type="text" required class="textos_imput block w-full rounded-md border-0 py-1.5 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset sm:leading-6">
+            </div>
+        </div>
+
+        <div>
+            <label for="cambiarCorreoTXT" class="textos block leading-6">Ingrese tu nuevo correo:</label>
+            <label id="correoUsuarioTxt" class="textos"></label>
+            <div class="mt-2">
+                <input id="cambiarCorreoTXT" name="n" type="text" required class="textos_imput block w-full rounded-md border-0 py-1.5 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset sm:leading-6">
+            </div>
+        </div>
+
+        <div class="text-sm">
+            <label for="my-modal-3" class="textos font-semibold hover:drop-shadow-xl cursor">¿Has olvidado tu contraseña? ¿Quieres cambiarla?</label>
+        </div>
+
+        <div>
+            <button id="editarPerfilBoton" class="botones botones2 bg-lime-800 hover:bg-lime-900 hover:drop-shadow-xl w-4em rounded-md px-3 py-1.5 leading-6 shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2">GUARDAR CAMBIOS</button>
+        </div>
+
+        <dialog id="modal1" class="modal">
+            <p class="texto_negro">Revise el correo para restablecer su contraseña.</p>
+            <button class="btn_cerrar" id="btn_cerrar">Cerrar</button>
+        </dialog>
+        <dialog id="modal2" class="modal">
+            <p class="texto_negro">La información ha sido guardada correctamente.</p>
+            <button class="btn_cerrar" id="btn_cerrar2">Cerrar</button>
+        </dialog>
+
+        <input type="checkbox" id="my-modal-3" class="modal-toggle" />
+        <div class="modal">
+            <div class="modal-box relative">
+                <label for="my-modal-3" style="cursor: pointer" class="btn-sm absolute right-2 top-2">✕</label>
+                <h3 class="text-lg font-bold">Cambio de contraseña</h3>
+                <p class="py-4">Introduce tu correo electrónico y te enviaremos un mensaje de confirmación.</p>
+                <input name="password" type="password" autocomplete="current-password" required class="textos_imput block w-full rounded-md border-0 py-1.5 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset sm:leading-6">
+                <div>
+                    <br>
+                    <button class="botones bg-lime-800 hover:bg-lime-900 hover:drop-shadow-xl w-4em rounded-md px-3 py-1.5 leading-6 shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2">ENVIAR</button>
+                </div>
+            </div>
+        </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

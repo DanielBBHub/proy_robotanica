@@ -1,0 +1,114 @@
+
+:root{
+    --negro: #141414;
+    --grisNegro: #2d2d2d;
+    --verdeOscuro: #475d39;
+    --textoverde: #213620;
+    --verde: #7c9969;
+    --blanco: #ffffff;
+}
+
+.white{
+    color: #c8c8c8;
+}
+
+body{
+    background: white;
+}
+
+.aa{
+    background: rgba(124,153,105,0.7);
+    width: 60%;
+    height: 25em;
+    align-self: center;
+    border-radius: 50px;
+}
+
+
+#ff{
+    position: relative;
+    display: none;
+    background: rgba(124,153,105,0.7);
+    width: 60%;
+    height: 25em;
+    align-self: center;
+    border-radius: 50px;
+
+}
+
+.centrar{
+    align-items: center;
+    justify-content: center;
+    align-self: center;
+}
+
+.cambio2{
+    margin-left: 2em;
+    display: flex;
+}
+
+.cambio3{
+    padding: 0 1em ;
+    font-weight: bold;
+    font-family: 'Inconsolata', monospace;
+}
+
+#ini{
+    color: var(--textoverde) ;
+}
+
+#ini.active{
+    color: #787878;
+}
+
+#res{
+    color: #787878;
+}
+
+#res.active{
+    color: var(--textoverde);
+}
+
+.registro{
+    font-family: 'Inconsolata', monospace;
+    font-size: 27px;
+    font-weight: bolder;
+}
+
+.subregistro{
+    font-family: 'Inconsolata', monospace;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.textos{
+    font-family: 'Inconsolata', monospace;
+    font-size: 16px;
+    padding-top: 5px;
+}
+
+.textos_imput{
+    font-family: 'Inconsolata', monospace;
+    padding: 0 1em;
+    font-size: 16px;
+}
+
+.borde{
+    padding: 0 6em;
+}
+
+.botones{
+    font-family: 'Inconsolata', monospace;
+    font-size: 18px;
+    align-self: center;
+    background-color: var(--verdeOscuro);
+    color: #ffffff;
+}
+
+.botones2{
+    margin-top: 2em;
+}
+
+.cursor{
+    cursor: pointer;
+}
