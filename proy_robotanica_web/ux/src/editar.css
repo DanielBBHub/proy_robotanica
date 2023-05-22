@@ -19,22 +19,13 @@ body{
 .aa{
     background: rgba(124,153,105,0.7);
     width: 60%;
-    height: 25em;
+    height: auto;
     align-self: center;
     border-radius: 50px;
+    margin-top: 2em;
 }
 
 
-#ff{
-    position: relative;
-    display: none;
-    background: rgba(124,153,105,0.7);
-    width: 60%;
-    height: 25em;
-    align-self: center;
-    border-radius: 50px;
-
-}
 
 .centrar{
     align-items: center;
@@ -42,32 +33,7 @@ body{
     align-self: center;
 }
 
-.cambio2{
-    margin-left: 2em;
-    display: flex;
-}
 
-.cambio3{
-    padding: 0 1em ;
-    font-weight: bold;
-    font-family: 'Inconsolata', monospace;
-}
-
-#ini{
-    color: var(--textoverde) ;
-}
-
-#ini.active{
-    color: #787878;
-}
-
-#res{
-    color: #787878;
-}
-
-#res.active{
-    color: var(--textoverde);
-}
 
 .registro{
     font-family: 'Inconsolata', monospace;
@@ -83,18 +49,22 @@ body{
 
 .textos{
     font-family: 'Inconsolata', monospace;
-    font-size: 16px;
+    font-size: 20px;
     padding-top: 5px;
 }
 
 .textos_imput{
     font-family: 'Inconsolata', monospace;
     padding: 0 1em;
-    font-size: 16px;
+    font-size: 20px;
 }
 
 .borde{
     padding: 0 6em;
+}
+
+.rojo{
+    margin-left: 37.5px;
 }
 
 .botones{
@@ -110,5 +80,48 @@ body{
 }
 
 .cursor{
+    cursor: pointer;
+}
+
+
+
+
+
+.profile-img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin: auto auto;
+    position: relative;
+}
+
+.profile-img img {
+    position: absolute;
+    width: 150%;
+    left: -25%;
+}
+
+.profile-img .file {
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    font-size: 15px;
+    background: rgba(33, 37, 41, 0.5);
+    color: #fff;
+    text-align: center;
+    padding: 10px 0 25px;
+    font-family: 'Inconsolata', monospace;
+
+}
+
+.profile-img .file input {
+    position: absolute;
+    display: block;
+    width: 100%;
+    opacity: 0;
+    top: 0;
+    left: 0;
+    bottom: 0;
     cursor: pointer;
 }

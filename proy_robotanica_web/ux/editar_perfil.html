@@ -19,25 +19,29 @@
         </div>
 
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8" >
-
+            <div class="flex h-16 items-center justify-center items-center " >
+                <div class="ml-10 flex items-baseline space-x-4">
+                    <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
+                    <a href="botones.html" class="menu2 text-gray-300 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Funcionalidades</a>
+                </div>
+            </div>
         </div>
 
-        <div class="cerrar_sesion_header" style="width: 2rem; margin-top: 1rem; margin-right: 3rem;">
-            <button id="logoutButton" type="button"><img src="./src/img/cerrar-sesionblanco.png" /></button>
+        <div class="login_header">
+            <a href="perfil.html"><img src="./src/img/persona.png" /></a>
         </div>
     </nav>
 </header>
-
+<div class="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
 <!------------------------------------ Editar Perfil ------------------------------->
 <div class="centrar aa">
     <div class="contenedor">
         <div class="sm:mx-auto sm:w-full sm:max-w-sm">
             <h2 class="mt-5 text-center leading-9 tracking-tight registro">EDITAR PERFIL</h2>
         </div>
-        <div class="borde">
-
+        <div>
             <div class="profile-img">
-                <img src="../img/usuario.png" id="imgUsuario" alt="" />
+                <img class="rojo" src="./src/img/persona.png" id="imgUsuario" alt="foto usuario" />
                 <div class="file btn">
                     Cambiar foto
                     <input type="file" id="image-input" accept="image/jpeg, image/png, image/jpg" name="file" />
@@ -45,7 +49,7 @@
             </div>
 
         </div>
-
+        <br>
         <div class="mt-5 sm:mx-auto sm:max-w-sm">
         <div>
             <label for="cambiarNombreTXT" class="textos block leading-6">Ingrese tu nuevo nombre:</label>
@@ -54,7 +58,7 @@
                 <input id="cambiarNombreTXT" name="n" type="text" required class="textos_imput block w-full rounded-md border-0 py-1.5 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset sm:leading-6">
             </div>
         </div>
-
+            <br>
         <div>
             <label for="cambiarCorreoTXT" class="textos block leading-6">Ingrese tu nuevo correo:</label>
             <label id="correoUsuarioTxt" class="textos"></label>
@@ -63,6 +67,7 @@
             </div>
         </div>
 
+            <br>
         <div class="text-sm">
             <label for="my-modal-3" class="textos font-semibold hover:drop-shadow-xl cursor">¿Has olvidado tu contraseña? ¿Quieres cambiarla?</label>
         </div>
@@ -70,6 +75,7 @@
         <div>
             <button id="editarPerfilBoton" class="botones botones2 bg-lime-800 hover:bg-lime-900 hover:drop-shadow-xl w-4em rounded-md px-3 py-1.5 leading-6 shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2">GUARDAR CAMBIOS</button>
         </div>
+            <br>
 
         <dialog id="modal1" class="modal">
             <p class="texto_negro">Revise el correo para restablecer su contraseña.</p>
@@ -96,6 +102,21 @@
         </div>
     </div>
 </div>
+</div>
+<script type="module">
+    document.getElementById("image-input").addEventListener("input", function() {
 
+
+        const reader = new FileReader();
+        reader.addEventListener("load", () => {
+            const uploaded_image = reader.result;
+            document.getElementById("imgUsuario").src = uploaded_image;
+
+        });
+        reader.readAsDataURL(this.files[0]);
+        imagen = this.files[0]
+
+    });
+</script>
 </body>
 </html>
