@@ -144,13 +144,15 @@ module.exports = class LogicaUsuario {
 	}
 
 	async _insertarUsuario( data ){
-		let textoSQL = "insert into Usuarios values($nombreApellidos, $correo, $telefono, $pass, $dni)";
+		let textoSQL = "insert into Usuarios values($nombreApellidos, $correo, $telefono, $pass, $dni, $token, $verify )";
 		let valoresParaSQL = { 
 			$nombreApellidos: data.nombreApellidos, 
 			$correo: data.correo, 
 			$telefono: data.telefono, 
 			$pass: data.pass,
-			$dni: data.dni }
+			$dni: data.dni,
+			$token: null,
+			$verify:0 }
 		
 		return new Promise( (resolver, rechazar) => {
 			this.laConexion.all( textoSQL, valoresParaSQL,
@@ -158,7 +160,7 @@ module.exports = class LogicaUsuario {
 				if(err){
 					rechazar(err)
 				} else {
-					resolver()
+					this._enviarCorreo(data)
 				}
 			})
 		})
