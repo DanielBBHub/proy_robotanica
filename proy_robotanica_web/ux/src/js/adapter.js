@@ -19,15 +19,19 @@ document.addEventListener('DOMContentLoaded', event => {
     })
 
     // Navegacion a un punto
-    document.getElementById("navTomates").addEventListener("click", () => {
-        setCamera()
+    document.getElementById("waypoint_pepino").addEventListener("click", () => {
     })
+    
     document.getElementById("waypoint_berenjena").addEventListener("click", () => {
         call_nav_waypoints_service("waypoints_sim")
     })
 
     document.getElementById("waypoint_tomate").addEventListener("click", () => {
         call_nav_waypoints_service("waypoints")
+    })
+
+    document.getElementById("btn_foto").addEventListener("click", () => {
+        setCamera()
     })
 
     /*
