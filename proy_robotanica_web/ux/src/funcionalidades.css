@@ -82,6 +82,13 @@
 	position: relative;
     margin-top: 2em;
     margin-bottom: 2em;
+    display: flex;
+    justify-content: center;
+}
+
+.escaneo .imagen{
+    width: 15em;
+    
 }
 
 .camara{
