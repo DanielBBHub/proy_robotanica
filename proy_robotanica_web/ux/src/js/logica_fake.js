@@ -56,7 +56,7 @@ export default class LogicaFake {
        
         var metodo = this;
         
-        var data = { nombre:nombre, correo:correo ,dni: dniUsuario, telefono: telefono,pass: passUsuario}
+        var data = { nombreApellidos:nombre, correo:correo ,dni: dniUsuario, telefono: telefono,pass: passUsuario}
         console.log(data)
         var res 
         let peticion = await fetch(IP_PUERTO + '/insertarU', {
@@ -74,7 +74,7 @@ export default class LogicaFake {
         }) 
         //Se recoge el JSON de la cabecera de la respuesta 
         .then(response =>  response.json())
-        .then(data => this.comprobarUsuario(data, passUsuario) ) 
+        window.alert("Usuario registrado correctamente")
 		
     }
 

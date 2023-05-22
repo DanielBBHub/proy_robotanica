@@ -105,6 +105,10 @@ body{
     color: #ffffff;
 }
 
+.botones2{
+    margin-top: 2em;
+}
+
 .cursor{
     cursor: pointer;
 }
