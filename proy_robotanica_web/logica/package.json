@@ -9,7 +9,9 @@
 		"test": "node ./node_modules/mocha/bin/mocha --timeout 60000"
 	},
 	"dependencies": {
-		"sqlite3": "^5.0.6"
+		"sqlite3": "^5.0.6",
+		"rand-token": "*",
+		"nodemailer": "*"
 	},
 	"devDependencies": {
 		"mocha": "*"
