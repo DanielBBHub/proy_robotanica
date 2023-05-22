@@ -214,9 +214,11 @@ module.exports = class LogicaUsuario {
 	}
 
 	async _enviarCorreo( data ){
+		var sent
+		var token
 		let textoSQL = "select * from Usuarios where correo=$correo";
 		let valoresParaSQL = {$correo:data.correo}
-		return new Promise( (resolver, rechazar) => {
+		var res = new Promise( (resolver, rechazar) => {
 			this.laConexion.all( textoSQL, valoresParaSQL,
 			async ( err, res ) => {
 				if (err) throw err;
@@ -224,45 +226,53 @@ module.exports = class LogicaUsuario {
 				var msg = "Email already verified"; */
 				console.log(res[0]);
 				if (res.length > 0) {
-					var token = randtoken.generate(20);
+					token = randtoken.generate(20);
 					console.log(token);
 					if (res[0].verify == 0) {
-					var sent = await this.sendEmail(data.correo, token);
-					
-					if (sent != 1) {
-
-						let textoSQL2 = "UPDATE Usuarios SET token=$token WHERE correo=$correo";
-						let valoresParaSQL2 = {$correo:data.correo, $token:data.token}
-						return new Promise( (resolver, rechazar) => {
-							this.laConexion.all( textoSQL2, valoresParaSQL2,
-							( err, res ) => {
-								if (err) throw err;
-								console.log("TOKEN INTRODUCIDO")
-								resolver()
-								/* type = "success";
-								msg = "The verification link has been sent to your email address";*/
-							})
-						})
-						resolver()
-						} else {
-							console.log("Que onda pasa aqui");
-						/* type = "error";
-						msg = "Something goes to wrong. Please try again"; */
-						}
-					}
+						sent = await this.sendEmail(data.correo, token);
+						resolver()	
+					}	
 				} else {
 					console.log("2");
 					/* type = "error";
 					msg = "The Email is not registered with us"; */
 				}
 			})
+		}).then( () => {
+			console.log(res);
+			if (sent != 1) {
+				let textoSQL2 = "UPDATE Usuarios SET token=$token WHERE correo=$correo";
+				let valoresParaSQL2 = {$correo:data.correo, $token:token}
+				console.log(valoresParaSQL2)
+				return new Promise( (resolver, rechazar) => {
+					this.laConexion.all( textoSQL2, valoresParaSQL2,
+					( err, res ) => {
+						if (err) throw err;
+						console.log("TOKEN INTRODUCIDO")
+						console.log(res)
+						resolver()
+						/* type = "success";
+						msg = "The verification link has been sent to your email address";*/
+					})
+				})
+				
+				} else {
+					console.log("Que onda pasa aqui");
+				/* type = "error";
+				msg = "Something goes to wrong. Please try again"; */
+			}
 		})
+			
+
+		
 	}
 
 	async _confirmarCorreo( data ){
 		let textoSQL = "select * from Usuarios where token=$token";
+		var token = data
 		let valoresParaSQL = {$token:data}
-		return new Promise( (resolver, rechazar) => {
+		var verificar = 1
+		var res = new Promise( (resolver, rechazar) => {
 			this.laConexion.all( textoSQL, valoresParaSQL,
 			async ( err, res ) => {
 				if (err) throw err;
@@ -270,31 +280,38 @@ module.exports = class LogicaUsuario {
 				var msg = "Email already verified"; */
 				console.log(res[0]);
 				if (res.length > 0) {
-					var token = randtoken.generate(20);
-					console.log(token);
-					if (res[0].verify == 0) {
-						let textoSQL2 = "UPDATE Usuarios SET verify=$verify WHERE token=$token";
-						let valoresParaSQL2 = {$verify:1, $token:data.token}
-						return new Promise( (resolver, rechazar) => {
-							this.laConexion.all( textoSQL2, valoresParaSQL2,
-							( err, res ) => {
-								if (err) throw err;
-								/* type = "success";
-								msg = "The verification link has been sent to your email address";*/
-							})
-						})
-						} else {
-							console.log("Que onda pasa aqui");
-						/* type = "error";
-						msg = "Something goes to wrong. Please try again"; */
-						
-					}
+					verificar = res[0].verify
+					resolver()
+					
 				} else {
 					console.log("2");
 					/* type = "error";
 					msg = "The Email is not registered with us"; */
 				}
 			})
+		}).then( () => {
+			console.log(res);
+			console.log(data);
+			if (verificar == 0) {
+				let textoSQL2 = "UPDATE Usuarios SET verify=$verify WHERE token=$token";
+				let valoresParaSQL2 = {$verify:1, $token:data}
+				console.log(valoresParaSQL2)
+				return new Promise( (resolver, rechazar) => {
+					this.laConexion.all( textoSQL2, valoresParaSQL2,
+					( err, res ) => {
+						if (err) throw err;
+						console.log("VALIDACION INTRODUCIDO")
+						resolver()
+						/* type = "success";
+						msg = "The verification link has been sent to your email address";*/
+					})
+				})
+				} else {
+					console.log("Que onda pasa aqui");
+				/* type = "error";
+				msg = "Something goes to wrong. Please try again"; */
+				
+			}
 		})
 	}
 

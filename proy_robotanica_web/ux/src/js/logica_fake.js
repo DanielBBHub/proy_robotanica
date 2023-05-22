@@ -125,9 +125,6 @@ export default class LogicaFake {
 
         }) 
         //Se recoge el JSON de la cabecera de la respuesta 
-        .then(response =>  response.json())
-        .then(data => console.log(data) ) 
-		
     }
 
 
