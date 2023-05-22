@@ -49,7 +49,6 @@ module.exports = class LogicaUsuario {
 				if(err){
 					rechazar(err)
 				} else {
-					console.log(res)
 					resolver(res[0])
 				}
 			})
@@ -143,8 +142,62 @@ module.exports = class LogicaUsuario {
 	}
 
 	async _insertarUsuario( data ){
-		let textoSQL = "insert into Usuarios values($nombreApellidos, $correo, $telefono, $pass,$dni)";
-		let valoresParaSQL = { $nombreApellidos: data.nombre, $correo: data.correo, $telefono: data.telefono, $pass: data.pass,$dni: data.dni }
+		let textoSQL = "insert into Usuarios values($nombreApellidos, $correo, $telefono, $pass, $dni)";
+		let valoresParaSQL = { 
+			$nombreApellidos: data.nombreApellidos, 
+			$correo: data.correo, 
+			$telefono: data.telefono, 
+			$pass: data.pass,
+			$dni: data.dni }
+		
+		return new Promise( (resolver, rechazar) => {
+			this.laConexion.all( textoSQL, valoresParaSQL,
+			( err, res ) => {
+				if(err){
+					rechazar(err)
+				} else {
+					resolver()
+				}
+			})
+		})
+	} 
+
+	
+	async _cambiarCorreoConDni( data ){
+		let textoSQL = "update Usuarios set correo=$correo where dni=$dni";
+		let valoresParaSQL = { $correo: data.correo,$dni: data.dni }
+		
+		return new Promise( (resolver, rechazar) => {
+			this.laConexion.all( textoSQL, valoresParaSQL,
+			( err, res ) => {
+				if(err){
+					rechazar(err)
+				} else {
+					resolver()
+				}
+			})
+		})
+	}
+
+	async _cambiarTlfConDni( data ){
+		let textoSQL = "update Usuarios set telefono=$tlf where dni=$dni";
+		let valoresParaSQL = { $tlf: data.tlf,$dni: data.dni }
+		
+		return new Promise( (resolver, rechazar) => {
+			this.laConexion.all( textoSQL, valoresParaSQL,
+			( err, res ) => {
+				if(err){
+					rechazar(err)
+				} else {
+					resolver()
+				}
+			})
+		})
+	}
+
+	async _cambiarPassConDni( data ){
+		let textoSQL = "update Usuarios set pass=$pass where dni=$dni";
+		let valoresParaSQL = {$pass: data.pass, $dni: data.dni}
 		
 		return new Promise( (resolver, rechazar) => {
 			this.laConexion.all( textoSQL, valoresParaSQL,
