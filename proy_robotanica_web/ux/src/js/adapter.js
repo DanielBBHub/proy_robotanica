@@ -9,11 +9,11 @@ document.addEventListener('DOMContentLoaded', event => {
         var pass =  document.getElementById("passUsuario").value
         logica.login(correo, pass)
     })
-    document.getElementById("pruebaMail").addEventListener("click", () => {
+    /* document.getElementById("pruebaMail").addEventListener("click", () => {
         console.log('pruebaMail')
         var correo =  "dabebel@epsg.upv.es"
         logica.enviarConfirmacionMail(correo)
-    })
+    }) */
     //Callback para el registro
     document.getElementById("registro").addEventListener("click", () => {
         console.log('registro')

@@ -6,7 +6,7 @@ create table Usuarios(
     pass    varchar(50)    not null,
     dni    varchar(9)    not null PRIMARY KEY,
     token varchar(250),
-    verify varchar(100) DEFAULT 0
+    verify INTEGER DEFAULT 0
 );
 
 insert into Usuarios values('Carlos Ipiens', 'cipiqui@epsg.upv.es',111111111, '123456', '12345678A', NULL, 0);
