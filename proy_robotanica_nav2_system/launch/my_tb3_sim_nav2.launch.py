@@ -5,6 +5,7 @@ import launch_ros.actions
 from ament_index_python.packages import get_package_share_directory
 from launch import LaunchDescription
 from launch.actions import IncludeLaunchDescription
+from launch.actions import TimerAction
 from launch.launch_description_sources import PythonLaunchDescriptionSource
 from launch_ros.actions import Node
 
@@ -73,12 +74,20 @@ def generate_launch_description():
                         {'node_names':['map_server', 'amcl', 'planner_server', 'controller_server', 'recoveries_server', 'bt_navigator']}]
         ),
 
-        Node(
-               package='rviz2',
-               executable='rviz2',
-               name='rviz2',
-               arguments=['-d', rviz_config_dir],
-               parameters=[{'use_sim_time': True}],
-               output='screen'
-        )
+        TimerAction(
+            period=5.0,
+            actions=[
+                launch_ros.actions.Node(
+                    package='rviz2',
+                    executable='rviz2',
+                    name='rviz2',
+                    arguments=['-d', rviz_config_dir],
+                    parameters=[{'use_sim_time': True}],
+                    output='screen'
+                )
+            ])
+
+        
+
+        
     ])

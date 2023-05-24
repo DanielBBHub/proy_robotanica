@@ -14,8 +14,11 @@
     <author email="dabebel@epsg.upv.es">Daniel Benavides Belmonte</author>
     <buildtool_depend>ament_cmake</buildtool_depend>
     <exec_depend>proy_robotanica_custom_interface</exec_depend>
+    <exec_depend>proy_robotanica_bringup</exec_depend>
     <exec_depend>proy_robotanica_nav2_system</exec_depend>
-    <exec_depend>proy_robotanica_nav2_system</exec_depend>
+    <exec_depend>proy_robotanica_provide_map</exec_depend>
+    <exec_depend>proy_robotanica_publisher</exec_depend>
+    <exec_depend>proy_robotanica_subscriber</exec_depend>
     <exec_depend>proy_robotanica_services</exec_depend>
     <exec_depend>proy_robotanica_slam</exec_depend>
     <exec_depend>ros_tcp_endpoint</exec_depend>
