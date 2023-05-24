@@ -10,12 +10,14 @@ toggle.onclick = function (){
     if(toggle.classList.toggle("active")){
         document.getElementById("ff").style.display = "block";
         document.getElementById("aa").style.display = "none";
+        document.getElementById("check").style.display = "block";
         login.disabled = true;
         registro.disabled = false;
     }
     else{
         document.getElementById("aa").style.display = "block";
         document.getElementById("ff").style.display = "none";
+        document.getElementById("check").style.display = "none";
         registro.disabled = true;
         login.disabled = false;
     }

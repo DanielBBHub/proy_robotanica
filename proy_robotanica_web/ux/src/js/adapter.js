@@ -14,20 +14,32 @@ document.addEventListener('DOMContentLoaded', event => {
         var correo =  "dabebel@epsg.upv.es"
         logica.enviarConfirmacionMail(correo)
     }) */
+
     //Callback para el registro
     document.getElementById("registro").addEventListener("click", () => {
         console.log('registro')
         var correo =   document.getElementById("correoUsuario").value 
         var pass =  document.getElementById("passwordUsuario").value
-        var passRe =  document.getElementById("passwordUsuario").value
+        var passRe =  document.getElementById("passwordUsuarioRe").value
         var tlf =   document.getElementById("telefonoUsuario").value 
         var dni =  document.getElementById("dniUsuario").value
         var nombreApellidos =  document.getElementById("nombreUsuario").value + ' ' + document.getElementById("apellidosUsuario").value
         
         //Hacer comprobacion antes de loggear al usuario
-        logica.registro(dni, pass, nombreApellidos, tlf, correo)
+        if (!document.getElementById("checkbox").checked) {
+            document.getElementById("error").innerHTML = "Acepta los términos."
+        }
+        
+        else{
+            if(pass == passRe){
+                logica.registro(dni, pass, nombreApellidos, tlf, correo)
+            }
+            else{
+                document.getElementById("error").innerHTML = "Las contraseñas no coinciden."
+            }
+        }        
+        
     })
-
 
     document.getElementById("parar").addEventListener("click", stop)
     document.getElementById("moverAtras").addEventListener("click", reverse)
