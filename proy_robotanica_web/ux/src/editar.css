@@ -1,0 +1,135 @@
+
+:root{
+    --negro: #141414;
+    --grisNegro: #2d2d2d;
+    --verdeOscuro: #475d39;
+    --textoverde: #213620;
+    --verde: #7c9969;
+    --blanco: #ffffff;
+}
+
+.white{
+    color: #c8c8c8;
+}
+
+body{
+    background: white;
+}
+
+.aa{
+    border: 1px solid var(--verdeOscuro);
+    width: 60%;
+    height: auto;
+    align-self: center;
+    border-radius: 50px;
+    margin-top: 2em;
+}
+
+
+
+.centrar{
+    align-items: center;
+    justify-content: center;
+    align-self: center;
+}
+
+.modal{
+    align-items: center;
+    text-align: center;
+    font-weight: bold;
+}
+
+.registro{
+    font-family: 'Inconsolata', monospace;
+    font-size: 27px;
+    font-weight: bolder;
+}
+
+.subregistro{
+    font-family: 'Inconsolata', monospace;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.textos{
+    font-family: 'Inconsolata', monospace;
+    font-size: 20px;
+    padding-top: 5px;
+}
+
+.contra{
+    color: var(--verde);
+}
+
+.textos_imput{
+    font-family: 'Inconsolata', monospace;
+    padding: 0 1em;
+    font-size: 20px;
+}
+
+.borde{
+    padding: 0 6em;
+}
+
+.rojo{
+    margin-left: 37.5px;
+}
+
+.botones{
+    font-family: 'Inconsolata', monospace;
+    font-size: 18px;
+    align-self: center;
+    background-color: var(--verdeOscuro);
+    color: #ffffff;
+}
+
+.botones2{
+    margin-top: 2em;
+}
+
+.cursor{
+    cursor: pointer;
+}
+
+
+
+
+
+.profile-img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin: auto auto;
+    position: relative;
+}
+
+.profile-img img {
+    position: absolute;
+    width: 150%;
+    left: -25%;
+}
+
+.profile-img .file {
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    font-size: 15px;
+    background: rgba(71, 93, 57, 0.5);
+    color: #fff;
+    text-align: center;
+    padding: 10px 0 25px;
+    font-family: 'Inconsolata', monospace;
+
+}
+
+.profile-img .file input {
+    position: absolute;
+    display: block;
+    width: 100%;
+    opacity: 0;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    cursor: pointer;
+}
