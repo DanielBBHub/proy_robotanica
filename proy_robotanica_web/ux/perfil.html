@@ -10,24 +10,31 @@
     <script src="https://cdn.tailwindcss.com"></script>
 
     <script type="module" src="src/js/adapter.js"></script>
+    <script type="module" src="src/js/logout.js"></script>
     <link href="/dist/output.css" rel="stylesheet">
     <link rel="stylesheet" href="./src/perfil.css">
     <link rel="stylesheet" href="./src/menu.css">
 </head>
 
 <body>
-<section class="landing" style="background:#FFFFF0;  height: 92.2vh">
+<section class="landing" style="background:#FFFFFF;  height: 100vh">
     <header style="position: fixed; width: 100%; z-index: 1"> <!-- style="position: fixed; width: 100%" -->
         <nav class="negro flex h-16">
             <div class="imagen_header">
-                <a href="index.html"><img src="./src/img/Logo.png" /></a>
+                <img src="./src/img/Logo.png" />
             </div>
 
             <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8" >
+                <div class="flex h-16 items-center justify-center items-center " >
+                    <div class="ml-10 flex items-baseline space-x-4">
+                        <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
+                        <a href="botones.html" class="menu2 text-gray-300 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Funcionalidades</a>
+                    </div>
+                </div>
             </div>
 
             <div class="cerrar_sesion_header" style="width: 2rem; margin-top: 1rem; margin-right: 3rem;">
-                <img src="./src/img/cerrar-sesionblanco.png" />
+                <button id="logoutButton" type="button"><img src="./src/img/cerrar-sesionblanco.png" /></button>
             </div>
         </nav>
     </header>
@@ -52,7 +59,7 @@
             <br>
             <h3 class="camposPerfil" style="margin: auto;">Fecha de creación: </h3>
             <h4 id="fechaUsuarioTxt" class="texto"></h4>
-            <button class="btn botonCTA" href="editar_perfil.html">EDITAR PERFIL</button>
+            <a href="editar_perfil.html"><button class="btn botonCTA">EDITAR PERFIL</button></a>
         </div>
     </div>
 

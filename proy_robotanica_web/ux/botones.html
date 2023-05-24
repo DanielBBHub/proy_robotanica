@@ -34,16 +34,13 @@
                     <div class="flex h-16 items-center justify-center items-center " >
                         <div class="ml-10 flex items-baseline space-x-4">
                             <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
-                            <a href="index.html" class="menu1 text-white rounded-md px-3 py-2 text-sm font-medium" aria-current="page">Inicio</a>
-                            <a href="contactanos.html" class="menu2 text-gray-300 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Contacto</a>
-                            <a href="acercade.html" class="menu2 text-gray-300 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Acerca de</a>
                         </div>
                     </div>
                 </div>
-        
-                <div class="login_header">
-                    <a href="login.html"><img src="./src/img/persona.png" /></a>
-                </div>
+
+        <!-- TODO: Poner el boton de cerrar sesion por favoooor Y QUE FUNCIONE
+        Te has follao un poquito el header no ruben? -->
+
             </nav>
         </header>
 
@@ -59,7 +56,7 @@
 
                     <iframe src="http://0.0.0.0:8080/stream?topic=/image" style="width: 350px; height: 250px; margin-left: 2.5em;"> </iframe>
                     <div class="fila_1">
-                        <button class="btn botones_mover" id="moverDelante">
+                        <button class="btn btn-circle botones_mover" id="moverDelante">
                             <img src="src/img/flecha.png" alt="Delante" class="flecha_arriba">
                         </button>
                     </div>
@@ -73,7 +70,7 @@
                         </button>
                     </div>
                     <div class="fila_3">
-                        <button class="btn botones_mover" id="moverAtras">
+                        <button class="btn btn-circle botones_mover" id="moverAtras">
                             <img src="src/img/flecha.png" alt="Atras" class="flecha_abajo">
                         </button>
                     </div>
@@ -103,6 +100,7 @@
                     <div class="subcontenedor_derecha flex items-center flex justify-around">
 
                         <div class="escaneo">
+                            <img class="imagen" src="./src/img/mapa.png"/>
                         </div>
                         <button class="btn botonCTA" id="btn_escaneo">Escanear</button>
                     </div>

@@ -32,9 +32,9 @@
 .titulo2{
     font-family: 'Inconsolata', monospace;
     color: var(--verde);
-    margin-right: 6em;
+    margin-right: 4em;
     font-weight: bold;
-
+    text-align: justify-all;
 }
 
 .centrar{
@@ -49,8 +49,14 @@
     justify-content: right;
 }
 
+.paragraph span {
+    display: block;
+    opacity: 0;
+    animation: reveal 2s forwards var(--d);
+}
+
 .botonCTA {
-    margin-top: 15.5em;
+    margin-top: 13em;
     margin-bottom: 2em;
     background: var(--verdeOscuro);
 }
@@ -74,7 +80,18 @@
 }
 
 .tamaño{
-    width: 50%;
+    width: 35%;
+
+}
+
+.tamaño2{
+    width: 30%;
+}
+
+.tamaño3{
+    width: 30%;
+    animation: imagenes-animacion 2s ease-in-out infinite;
+    padding-bottom: 10px ;
 }
 
 .seccion{
@@ -96,7 +113,6 @@
 /*TARJETTAS*/
 .tarjeta {
     position: relative;
-    width: 10em;
     height: 20em;
 }
 
@@ -138,6 +154,36 @@
     height: 20em;
 }
 
+.titulo_card_atras{
+    font-family: 'Inconsolata', monospace;
+    font-size: 20px;
+    font-weight: bold;
+    padding-bottom: 15px;
+}
+
+.titulo_card{
+    font-family: 'Inconsolata', monospace;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+
+.texto_card1{
+    font-family: 'Inconsolata', monospace;
+    font-size: 16px;
+    text-align: justify;
+
+}
+
+.texto_card{
+    font-family: 'Inconsolata', monospace;
+    font-size: 16px;
+    padding-top: 5px;
+    text-align: justify;
+
+}
+
+
 /*Animaciones*/
 
 @keyframes flecha-bajar-animacion {
@@ -151,4 +197,27 @@
     to{
         transform: translateY(0);
     }
+}
+
+@keyframes imagenes-animacion {
+
+    from{
+        transform: translateY(0);
+    }
+    50%{
+        transform: translateY(10px);
+    }
+    to{
+        transform: translateY(0);
+    }
+}
+
+@keyframes reveal {
+    from{
+        transform: translateY(20px);
+    }
+    to{
+        opacity: 1;
+        transform: none;
+    }   
 }

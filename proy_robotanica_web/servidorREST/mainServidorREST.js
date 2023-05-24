@@ -6,6 +6,8 @@
 const cors = require('cors')
 const express = require( 'express' )
 const bodyParser = require( 'body-parser' )
+const session = require('express-session');
+const cookieParser = require('cookie-parser');
 const LogicaUsuario = require( "../logica/LogicaUsuario.js" )
 const LogicaInvernaderos = require( "../logica/LogicaInvernadero.js" )
 const LogicaProducto = require( "../logica/LogicaProducto.js" )
@@ -57,6 +59,13 @@ async function main() {
 	var laLogicaProducto = await cargarLogicaProducto( "../bd/robotanica.bd" )
 	
 	var servidorExpress = express()
+	servidorExpress.use(cookieParser());
+	servidorExpress.use(session({ 
+		secret: '123458cat',
+		resave: false,
+		saveUninitialized: true,
+		cookie: { maxAge: 60000 }
+	}))
 	// CORS
 	servidorExpress.use(cors())
 	// para poder acceder a la carga de la petición http

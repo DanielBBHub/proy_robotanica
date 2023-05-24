@@ -10,8 +10,12 @@
 		"test": "node ./node_modules/mocha/bin/mocha"
 	},
 	"dependencies": {
+		"cookie-parser": "*",
 		"cors": "*",
 		"express": "*",
+		"express-flash": "*",
+		"express-session": "*",
+		"rand-token": "*",
 		"request": "*",
 		"sqlite3": "^5.0.6"
 	},
