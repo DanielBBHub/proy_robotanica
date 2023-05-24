@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', event => {
     })
 
     document.getElementById("btn_foto").addEventListener("click", () => {
-        setCamera()
+        //setCamera()
     })
 
     /*
@@ -250,6 +250,7 @@ document.addEventListener('DOMContentLoaded', event => {
     }
 
     //Servicio de camara
+    /*
     function setCamera(){
         console.log("setting the camera")
         new MJPEGCANVAS.Viewer({
@@ -261,7 +262,7 @@ document.addEventListener('DOMContentLoaded', event => {
             ssl: false,
         })
     }
-
+*/
     // Servicio de navegacion por una ruta
     function call_capture_image(valor){
         data.service_busy = true
