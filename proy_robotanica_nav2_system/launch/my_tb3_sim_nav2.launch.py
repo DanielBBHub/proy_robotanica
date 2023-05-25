@@ -12,19 +12,13 @@ from launch_ros.actions import Node
 def generate_launch_description():
 
     nav2_yaml = os.path.join(get_package_share_directory('proy_robotanica_nav2_system'), 'config', 'my_nav2_params.yaml')
-    map_file = os.path.join(get_package_share_directory('proy_robotanica_nav2_system'), 'config', 'my_map.yaml')
+    map_file = os.path.join(get_package_share_directory('proy_robotanica_nav2_system'), 'config', 'warehouse.yaml')
     rviz_config_dir = os.path.join(get_package_share_directory('proy_robotanica_nav2_system'), 'config', 'config_proyecto.rviz')
    # urdf = os.path.join(get_package_share_directory('turtlebot3_description'), 'urdf', 'turtlebot3_burger.urdf')
    # world = os.path.join(get_package_share_directory('turtlebot3_gazebo'), 'worlds', 'turtlebot3_worlds/burger.model')
 
     return LaunchDescription([
-        Node(
-            package = 'nav2_map_server',
-            executable = 'map_server',
-            name = 'map_server',
-            output = 'screen',
-            parameters=[{'use_sim_time': True}, {'yaml_filename':map_file}]
-        ),
+        
 
         Node(
             package='nav2_amcl',
@@ -85,9 +79,19 @@ def generate_launch_description():
                     parameters=[{'use_sim_time': True}],
                     output='screen'
                 )
-            ])
+            ]),
 
-        
+            TimerAction(
+                period=8.0,
+                actions=[
+                    Node(
+                    package = 'nav2_map_server',
+                    executable = 'map_server',
+                    name = 'map_server',
+                    output = 'screen',
+                    parameters=[{'use_sim_time': True}, {'yaml_filename':map_file}]
+                    )
+            ])
 
         
     ])

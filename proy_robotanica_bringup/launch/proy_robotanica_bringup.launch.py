@@ -25,10 +25,10 @@ def generate_launch_description():
     )      
     res.append(launch_robot_nav2)
 
-    launch_provide_map = IncludeLaunchDescription(
+    """ launch_provide_map = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(os.path.join(get_package_share_directory("proy_robotanica_provide_map"), 'launch/provide_map.launch.py'))
     )      
-    res.append(launch_provide_map) 
+    res.append(launch_provide_map) """
     
     launch_robot_movement_server = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(os.path.join(get_package_share_directory("proy_robotanica_service"), 'movement_server_launch.launch.py'))

@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', event => {
     // Navegacion por control manual
     let logica = new LogicaFake()
     //Callback para el inicio de sesion 
-    document.getElementById("login").addEventListener("click", () => {
+/*     document.getElementById("login").addEventListener("click", () => {
         console.log('login')
         var correo =   document.getElementById("dniUsuarioL").value 
         var pass =  document.getElementById("passUsuario").value
@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', event => {
         console.log('pruebaMail')
         var correo =  "dabebel@epsg.upv.es"
         logica.enviarConfirmacionMail(correo)
-    }) */
+    }) 
     //Callback para el registro
     document.getElementById("registro").addEventListener("click", () => {
         console.log('registro')
@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', event => {
         //Hacer comprobacion antes de loggear al usuario
         logica.registro(dni, pass, nombreApellidos, tlf, correo)
     })
-
+ */
 
     document.getElementById("parar").addEventListener("click", stop)
     //document.getElementById("moverAtras").addEventListener("click", reverse)
@@ -67,48 +67,7 @@ document.addEventListener('DOMContentLoaded', event => {
     })
     */
 
-    //Atributos para representar la info de la conexion
-    var data = {
-        // ros connection
-        ros: null,
-        rosbridge_address: 'ws://127.0.0.1:9090/',
-        connected: false,
-        //Infomracion del servicio
-        service_busy: false, 
-	    service_response: ''
-      }
-
-    connect()
-    //Se le pasa la direccion del rosbridge a ROSLIB y se crea 
-    //una nueva conexion. Esta es asincrona y se crean manejadores de 
-    //eventos 
-    function connect(){
-        
-
-        data.ros = new ROSLIB.Ros({
-        url: data.rosbridge_address
-        })
-
-        //suscribe()
-        // Define callbacks
-        //Al des/conectarnos sacamos por pantalla el estaado de la conexion 
-        data.ros.on("connection", () => {
-            data.connected = true
-
-
-            console.log("Conexion con ROSBridge correcta") 
-        })
-        data.ros.on("error", (error) => {
-            console.log("Se ha producido algun error mientras se intentaba realizar la conexion")
-            console.log(error)
-        })
-        data.ros.on("close", () => {
-            data.connected = false
-            console.log("Conexion con ROSBridge cerrada")
-            console.log('Connection to ROSBridge was closed!')
-	        document.getElementById("camara").innerHTML = ""	    	 
-        })
-    }//connect
+   
 
     //Se cierra la conexion
     function disconnect(){
