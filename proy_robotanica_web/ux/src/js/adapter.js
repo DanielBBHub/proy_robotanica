@@ -2,6 +2,7 @@ import LogicaFake from "./logica_fake.js";
 document.addEventListener('DOMContentLoaded', event => {
     // Navegacion por control manual
     let logica = new LogicaFake()
+    
     //Callback para el inicio de sesion 
     document.getElementById("login").addEventListener("click", () => {
         console.log('login')

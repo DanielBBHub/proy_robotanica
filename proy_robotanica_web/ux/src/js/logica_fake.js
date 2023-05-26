@@ -99,17 +99,20 @@ export default class LogicaFake {
     }
 
 
-    
-
     async comprobarUsuario(data,passUsuario) {
         console.log(data.pass)
         console.log(passUsuario)
 
-        if(data.pass.toString() == passUsuario){
-            window.location.replace("./perfil.html");
+        if(data.verify == 1){
+            if(data.pass.toString() == passUsuario){
+                window.location.replace("./perfil.html");
+            }
+            else{
+                document.getElementById("verificar").innerHTML = "Contraseña incorrecta."
+            }
         }
         else{
-
+            document.getElementById("verificar").innerHTML = "Verifica el correo primero."
         }
     }
 }
