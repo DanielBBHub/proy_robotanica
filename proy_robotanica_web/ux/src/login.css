@@ -19,18 +19,21 @@ body{
 #aa{
     background: rgba(124,153,105,0.7);
     width: 60%;
-    height: 25em;
+    height: 27em;
     align-self: center;
     border-radius: 50px;
 }
 
+#check{
+    display: none;
+}
 
 #ff{
     position: relative;
     display: none;
     background: rgba(124,153,105,0.7);
     width: 60%;
-    height: 25em;
+    height: 27em;
     align-self: center;
     border-radius: 50px;
 
@@ -69,6 +72,8 @@ body{
     color: var(--textoverde);
 }
 
+
+
 .registro{
     font-family: 'Inconsolata', monospace;
     font-size: 27px;
@@ -97,6 +102,22 @@ body{
     padding: 0 6em;
 }
 
+.textrojo{
+    color: red;
+    font-size: 16px;
+    font-family: 'Inconsolata', monospace;
+}
+
+.terminos{
+    font-size: 16px;
+    font-family: 'Inconsolata', monospace;
+    padding-left: 10px;
+}
+
+.terminos:hover{
+    color: red;
+}
+
 .botones{
     font-family: 'Inconsolata', monospace;
     font-size: 18px;
@@ -111,4 +132,16 @@ body{
 
 .cursor{
     cursor: pointer;
+}
+
+.rojo{
+    border: 1px solid red;
+}
+
+.margen{
+    margin: 0px 40px;
+}
+
+.ee{
+    width: 30em;
 }

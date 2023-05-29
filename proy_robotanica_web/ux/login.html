@@ -7,10 +7,10 @@
     <link href="https://cdn.jsdelivr.net/npm/daisyui@2.51.6/dist/full.css" rel="stylesheet" type="text/css"/>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="/dist/output.css" rel="stylesheet">
-    <script type="module" src="./src/js/adapter.js"></script> 
     <link rel="stylesheet" href="./src/login.css">
     <link rel="stylesheet" href="./src/menu.css">
     <script type="module" src="src/js/toggler.js"></script>
+    <script type="module" src="src/js/logica_fake.js"></script>
 
 </head>
 
@@ -81,7 +81,8 @@
                     <input id="passUsuario" name="password" type="password" autocomplete="current-password" required class="textos_imput block w-full rounded-md border-0 py-1.5 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset sm:leading-6">
                 </div>
             </div>
-
+            <br>
+            <h4 class="textrojo" id="verificar" ></h4>
             <div>
               <button id="login" class="botones botones2 bg-lime-800 hover:bg-lime-900 hover:drop-shadow-xl w-4em rounded-md px-3 py-1.5 leading-6 shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2">ENVIAR</button>
             </div>
@@ -108,14 +109,14 @@
     <!---------------------------------------------------------------------------------------->
 
     <!----------------------------------------- REGISTRO ------------------------------------->
-    <div id="ff">
+    <div id="ff" class=""> 
         <div class="sm:mx-auto sm:w-full sm:max-w-sm">
             <h2 class="registro mt-5 text-center leading-9 tracking-tight">CREA UNA NUEVA CUENTA</h2>
         </div>
 
         <div class="borde">
-                <div class="flex justify-between">
-                <div>
+                <div class="flex justify-around">
+                <div class="ee">
                     <h4 class="subregistro">Datos personales</h4>
                     <div>
                         <label for="nombreUsuario" class="block textos leading-6">Nombre:</label>
@@ -142,7 +143,8 @@
                         </div>
                     </div>
                 </div>
-                <div>
+                <div class="margen"></div>
+                <div class="ee">
                     <h4 class="subregistro">Detalles de la cuenta</h4>
                     <div>
                         <label for="correoUsuario" class="block textos leading-6">Email:</label>
@@ -163,17 +165,28 @@
                     <div class="mt-2">
                         <input id="passwordUsuarioRe" name="password" type="password" autocomplete="current-password" required class="textos_imput block w-full rounded-md border-0 py-1.5 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:leading-6">
                     </div>
-                    <br>
+                    <h4 class="textrojo" id="error" ></h4>
+
+                    <div id="check" class="form-control centrar condiciones">
+                        <label class="label cursor-pointer">
+                          <input type="checkbox" id="checkbox" class="checkbox" />
+                          <a href="" class="terminos">Términos y condiciones| Política de privacidad</a> 
+                        </label>
+                    </div>
+
                     <div class="items-center">
                         <button id="registro" class="botones bg-lime-800 hover:bg-lime-900 hover:drop-shadow-xl flex justify-center rounded-md px-3 py-1.5 leading-6 shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">ENVIAR</button>
                     </div>
 
                 </div>
+                
                 </div>
+                
 
 
         </div>
     </div>
+    
     <!---------------------------------------------------------------------------------------->
 </div>
 
@@ -192,5 +205,35 @@
         </div>
     </div>
 </footer>
+
+<script type="module">
+    import LogicaFake from "./src/js/logica_fake.js"
+    document.addEventListener('DOMContentLoaded', event => {
+        let logica = new LogicaFake()
+        //TODO: poner los botones aqui
+
+        document.getElementById("login").addEventListener("click", () => {
+        console.log('login')
+        var correo =   document.getElementById("dniUsuarioL").value 
+        var pass =  document.getElementById("passUsuario").value
+        logica.login(correo, pass)
+    })
+    //Callback para el registro
+    document.getElementById("registro").addEventListener("click", () => {
+        console.log('registro')
+        var correo =   document.getElementById("correoUsuario").value 
+        var pass =  document.getElementById("passwordUsuario").value
+        var passRe =  document.getElementById("passwordUsuario").value
+        var tlf =   document.getElementById("telefonoUsuario").value 
+        var dni =  document.getElementById("dniUsuario").value
+        var nombreApellidos =  document.getElementById("nombreUsuario").value + ' ' + document.getElementById("apellidosUsuario").value
+        
+        //Hacer comprobacion antes de loggear al usuario
+        logica.registro(dni, pass, nombreApellidos, tlf, correo)
+    })
+
+    });
+    
+    </script>
 </body>
 </html>
