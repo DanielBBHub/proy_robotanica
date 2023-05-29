@@ -35,7 +35,7 @@ def generate_launch_description():
             executable='lifecycle_manager',
             name='lifecycle_manager_localization',
             output='screen',
-            parameters=[{'use_sim_time': True},
+            parameters=[{'use_sim_time': False},
                         {'autostart': True},
                         {'node_names': ['map_server', 'amcl']}]
         ),
@@ -53,21 +53,21 @@ def generate_launch_description():
             executable='controller_server',
             name='controller_server',
             output='screen',
-            parameters=[nav2_yaml, {'use_sim_time': True}]
+            parameters=[nav2_yaml, {'use_sim_time': False}]
         ),
         Node(
             package='nav2_bt_navigator',
             executable='bt_navigator',
             name='bt_navigator',
             output='screen',
-            parameters=[nav2_yaml, {'use_sim_time': True}]
+            parameters=[nav2_yaml, {'use_sim_time': False}]
         ),
         Node(
             package='nav2_recoveries',
             executable='recoveries_server',
             name='recoveries_server',
             output='screen',
-            parameters=[nav2_yaml, {'use_sim_time': True}]
+            parameters=[nav2_yaml, {'use_sim_time': False}]
         ),
          
         Node(
@@ -75,7 +75,7 @@ def generate_launch_description():
             executable='waypoint_follower',
             name='waypoint_follower',
             output='screen',
-            parameters=[nav2_yaml, {'use_sim_time': True}]
+            parameters=[nav2_yaml, {'use_sim_time': False}]
         ),
         
         Node(
@@ -83,7 +83,7 @@ def generate_launch_description():
             executable='lifecycle_manager',
             name='lifecycle_manager_pathplanner',
             output='screen',
-            parameters=[nav2_yaml,{'use_sim_time': True},
+            parameters=[nav2_yaml,{'use_sim_time': False},
                         {'autostart': True},
                         {'node_names':['map_server', 'amcl', 'planner_server', 'controller_server', 'recoveries_server', 'bt_navigator', 'waypoint_follower']}]
         ),
@@ -92,7 +92,7 @@ def generate_launch_description():
             executable='rviz2',
             name='rviz2',
             arguments=['-d', rviz_config_dir],
-            parameters=[{'use_sim_time': True}],
+            parameters=[{'use_sim_time': False}],
             output='screen'
         ),
     ])
