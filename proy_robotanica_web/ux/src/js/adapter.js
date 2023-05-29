@@ -1,36 +1,11 @@
-import LogicaFake from "./logica_fake.js";
 document.addEventListener('DOMContentLoaded', event => {
     // Navegacion por control manual
-    let logica = new LogicaFake()
-    //Callback para el inicio de sesion 
-/*     document.getElementById("login").addEventListener("click", () => {
-        console.log('login')
-        var correo =   document.getElementById("dniUsuarioL").value 
-        var pass =  document.getElementById("passUsuario").value
-        logica.login(correo, pass)
-    })
-    /* document.getElementById("pruebaMail").addEventListener("click", () => {
-        console.log('pruebaMail')
-        var correo =  "dabebel@epsg.upv.es"
-        logica.enviarConfirmacionMail(correo)
-    }) 
-    //Callback para el registro
-    document.getElementById("registro").addEventListener("click", () => {
-        console.log('registro')
-        var correo =   document.getElementById("correoUsuario").value 
-        var pass =  document.getElementById("passwordUsuario").value
-        var passRe =  document.getElementById("passwordUsuario").value
-        var tlf =   document.getElementById("telefonoUsuario").value 
-        var dni =  document.getElementById("dniUsuario").value
-        var nombreApellidos =  document.getElementById("nombreUsuario").value + ' ' + document.getElementById("apellidosUsuario").value
-        
-        //Hacer comprobacion antes de loggear al usuario
-        logica.registro(dni, pass, nombreApellidos, tlf, correo)
-    })
- */
+    
 
+    document.getElementById("moverDelante").addEventListener("click", () => {
+        call_delante_service("delante")
+    })
     document.getElementById("parar").addEventListener("click", stop)
-    //document.getElementById("moverAtras").addEventListener("click", reverse)
 
     document.getElementById("moverAtras").addEventListener("click", () => {
         call_delante_service("atras")
@@ -67,7 +42,47 @@ document.addEventListener('DOMContentLoaded', event => {
     })
     */
 
-   
+    var data = {
+        // ros connection
+        ros: null,
+        rosbridge_address: 'ws://127.0.0.1:9090/',
+        connected: false,
+        //Infomracion del servicio
+        service_busy: false, 
+        service_response: ''
+    }
+
+    connect()
+    //Se le pasa la direccion del rosbridge a ROSLIB y se crea 
+    //una nueva conexion. Esta es asincrona y se crean manejadores de 
+    //eventos 
+    function connect(){
+        
+
+        data.ros = new ROSLIB.Ros({
+        url: data.rosbridge_address
+        })
+
+        //suscribe()
+        // Define callbacks
+        //Al des/conectarnos sacamos por pantalla el estaado de la conexion 
+        data.ros.on("connection", () => {
+            data.connected = true
+
+
+            console.log("Conexion con ROSBridge correcta") 
+        })
+        data.ros.on("error", (error) => {
+            console.log("Se ha producido algun error mientras se intentaba realizar la conexion")
+            console.log(error)
+        })
+        data.ros.on("close", () => {
+            data.connected = false
+            console.log("Conexion con ROSBridge cerrada")
+            console.log('Connection to ROSBridge was closed!')
+            document.getElementById("camara").innerHTML = ""	    	 
+        })
+    }//connect
 
     //Se cierra la conexion
     function disconnect(){
@@ -106,6 +121,7 @@ document.addEventListener('DOMContentLoaded', event => {
     }
 
     function stop() {
+        console.log("parar")
         let topic = new ROSLIB.Topic({
             ros: data.ros,
             name: '/cmd_vel',

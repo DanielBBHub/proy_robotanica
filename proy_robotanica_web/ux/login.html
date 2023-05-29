@@ -192,5 +192,35 @@
         </div>
     </div>
 </footer>
+
+<script>
+    import LogicaFake from "./logica_fake.js";
+    document.addEventListener('DOMContentLoaded', event => {
+        let logica = new LogicaFake()
+        //TODO: poner los botones aqui
+
+        document.getElementById("login").addEventListener("click", () => {
+        console.log('login')
+        var correo =   document.getElementById("dniUsuarioL").value 
+        var pass =  document.getElementById("passUsuario").value
+        logica.login(correo, pass)
+    })
+    //Callback para el registro
+    document.getElementById("registro").addEventListener("click", () => {
+        console.log('registro')
+        var correo =   document.getElementById("correoUsuario").value 
+        var pass =  document.getElementById("passwordUsuario").value
+        var passRe =  document.getElementById("passwordUsuario").value
+        var tlf =   document.getElementById("telefonoUsuario").value 
+        var dni =  document.getElementById("dniUsuario").value
+        var nombreApellidos =  document.getElementById("nombreUsuario").value + ' ' + document.getElementById("apellidosUsuario").value
+        
+        //Hacer comprobacion antes de loggear al usuario
+        logica.registro(dni, pass, nombreApellidos, tlf, correo)
+    })
+
+    });
+    
+    </script>
 </body>
 </html>

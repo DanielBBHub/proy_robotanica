@@ -54,7 +54,7 @@
                     <h2 class="subtirulo" style="padding-bottom: 2em;">Movimiento manual</h2>
                     
 
-                    <iframe src="http://0.0.0.0:8080/stream?topic=/image" style="width: 350px; height: 250px; margin-left: 2.5em;"> </iframe>
+                    <iframe id="camara" src="http://0.0.0.0:8080/stream?topic=/image" style="width: 350px; height: 250px; margin-left: 2.5em;"> </iframe>
                     <div class="fila_1">
                         <button class="btn btn-circle botones_mover" id="moverDelante">
                             <img src="src/img/flecha.png" alt="Delante" class="flecha_arriba">
@@ -162,53 +162,7 @@
             </div>
         </div>
     </footer>
-    <script>
-
-            //TODO: poner los botones aqui
-
-         //Atributos para representar la info de la conexion
-    var data = {
-        // ros connection
-        ros: null,
-        rosbridge_address: 'ws://127.0.0.1:9090/',
-        connected: false,
-        //Infomracion del servicio
-        service_busy: false, 
-	    service_response: ''
-      }
-
-    connect()
-    //Se le pasa la direccion del rosbridge a ROSLIB y se crea 
-    //una nueva conexion. Esta es asincrona y se crean manejadores de 
-    //eventos 
-    function connect(){
-        
-
-        data.ros = new ROSLIB.Ros({
-        url: data.rosbridge_address
-        })
-
-        //suscribe()
-        // Define callbacks
-        //Al des/conectarnos sacamos por pantalla el estaado de la conexion 
-        data.ros.on("connection", () => {
-            data.connected = true
-
-
-            console.log("Conexion con ROSBridge correcta") 
-        })
-        data.ros.on("error", (error) => {
-            console.log("Se ha producido algun error mientras se intentaba realizar la conexion")
-            console.log(error)
-        })
-        data.ros.on("close", () => {
-            data.connected = false
-            console.log("Conexion con ROSBridge cerrada")
-            console.log('Connection to ROSBridge was closed!')
-	        document.getElementById("camara").innerHTML = ""	    	 
-        })
-    }//connect
-    </script>
+    
 </body>
 
 </html>
