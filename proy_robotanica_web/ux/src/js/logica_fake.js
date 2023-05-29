@@ -91,7 +91,7 @@ export default class LogicaFake {
 		
     }
 
-    async guardarImagen(imagenUrl) {
+    async guardarImagen(dniU, imagenUrl) {
        
         var data = {dni:dniU, imagen:imagenUrl}
         console.log(data)
@@ -182,7 +182,7 @@ export default class LogicaFake {
         () => {
             getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
                 console.log('File available at', downloadURL);
-                this.guardarImagen(downloadURL)
+                this.guardarImagen(dniU, downloadURL)
             });
         }
         );
