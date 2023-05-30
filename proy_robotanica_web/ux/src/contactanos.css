@@ -17,9 +17,6 @@ body{
 
 .titulo{
     padding-top: 2em;
-    font-family: 'Comfortaa', cursive;
-    color: var(--verde);
-    font-weight: bold;
     font-size: 56px;
 }
 
@@ -85,4 +82,11 @@ body{
 .botonCTA:hover{
     background: var(--verde);
     box-shadow: 0 0 6px #363636
+}
+
+.seccion{
+    font-family: 'Inconsolata', monospace;
+    text-align: center;
+    font-size: 56px;
+    color: var(--verdeOscuro);
 }

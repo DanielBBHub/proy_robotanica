@@ -15,24 +15,23 @@
 .titulo{
     font-size: 56px;
     text-align: center;
-    color: var(--verde);
-    padding-top: 2em;
-    font-family: 'Comfortaa', cursive;
-    font-weight: bold;
+    color: var(--verdeOscuro);
+    padding-top: 1.5em;
+    font-family: 'Inconsolata', monospace;
 }
 
 .subtirulo{
-    font-family: 'Comfortaa', cursive;
+    text-decoration: underline;
+    font-family: 'Inconsolata', monospace;
     font-size: 20px;
-    text-align: center;
-    padding-top: 1rem ;
-    margin-bottom: -1rem;
+    text-align: justify;
     font-weight: bold;
-    color: white;
+    margin-left: 4.5em;
+    color: var(--verde);
 }
 
 .imagenes {
-    width: 25%;
+    width: 50%;
     border-radius: 10%;
 }
 
@@ -40,7 +39,7 @@
     display: flex;
     justify-content: space-around;
     width: 80%;
-    margin: 1rem auto;
+    margin: auto auto;
     padding: 0 .5rem;
     flex: 1 1 0;
     align-items: center;
@@ -48,16 +47,9 @@
 
 .texto{
     font-size: 16px;
-    margin: 1.5em;
+    margin: 0.5em;
     font-family: 'Inconsolata', monospace;
     color: white;
-}
-
-.contenedor{
-    background: rgba(71,93,57,0.7);
-    width: 80%;
-    margin: 2em auto;
-    border-radius: 30px;
 }
 
 body{
@@ -66,4 +58,79 @@ body{
 
 .white{
     color: white;
+}
+
+
+/*TARJETTAS*/
+.tarjeta {
+    position: relative;
+    height: 20em;
+}
+
+
+.duo{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    backface-visibility: hidden;
+    transition: 1s;
+}
+
+.tarjeta .front {
+    transform: perspective(500px) rotateY(0deg);
+    background: rgba(71, 93, 57, 0.3);
+    border-radius: 30px;
+}
+
+.tarjeta .back {
+    transform: perspective(500px) rotateY(180deg);
+    background: rgba(174, 174, 174, 0.3);
+    border-radius: 30px;
+}
+
+.tarjeta:hover .front {
+    transform: perspective(500px) rotateY(180deg);
+}
+
+.tarjeta:hover .back {
+    transform: perspective(500px) rotateY(360deg);
+}
+
+.white{
+    color: #c8c8c8;
+}
+
+.titulo_card_atras{
+    font-family: 'Inconsolata', monospace;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.titulo_card{
+    font-family: 'Inconsolata', monospace;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+
+.texto_card1{
+    font-family: 'Inconsolata', monospace;
+    font-size: 16px;
+    text-align: justify;
+
+}
+
+.texto_card{
+    font-family: 'Inconsolata', monospace;
+    font-size: 16px;
+    text-align: justify;
+}
+
+.logos{
+    margin: 0 1em;
+    color: black;
+}
+
+.logos:hover{
+    color: var(--verde);
 }

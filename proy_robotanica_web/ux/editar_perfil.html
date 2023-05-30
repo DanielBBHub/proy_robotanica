@@ -6,6 +6,8 @@
 
     <link href="https://cdn.jsdelivr.net/npm/daisyui@2.51.6/dist/full.css" rel="stylesheet" type="text/css"/>
     <script src="https://cdn.tailwindcss.com"></script>
+
+    <script type="module" src="src/js/logout.js"></script>
     <link href="/dist/output.css" rel="stylesheet">
     <link rel="stylesheet" href="./src/editar.css">
     <link rel="stylesheet" href="./src/menu.css">
@@ -15,7 +17,7 @@
 <header style="position: fixed; width: 100%; z-index: 1"> <!-- style="position: fixed; width: 100%" -->
     <nav class="negro flex h-16">
         <div class="imagen_header">
-            <a href="index.html"><img src="./src/img/Logo.png" /></a>
+            <button href="index.html"><img src="./src/img/Logo.png" /></button>
         </div>
 
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8" >
@@ -28,7 +30,7 @@
         </div>
 
         <div class="login_header">
-            <a href="perfil.html"><img src="./src/img/persona.png" /></a>
+            <button id="logoutButton"  href="perfil.html"><img src="./src/img/persona.png" /></button>
         </div>
     </nav>
 </header>
