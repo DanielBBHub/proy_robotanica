@@ -34,6 +34,15 @@
     border-radius: 10%;
 }
 
+.contenedor{
+    margin: 2em 4em;
+    width: 50%;
+}
+
+.imagen{
+    width: 30%;
+}
+
 .ajustar {
     display: flex;
     justify-content: space-around;
@@ -134,4 +143,20 @@ body{
 
 .logos:hover{
     color: var(--verde);
+}
+
+.subtitulo{
+    font-family: 'Inconsolata', monospace;
+    font-size: 20px;
+    text-align: center;
+    font-weight: bold;
+    color: var(--verde);
+}
+
+.texto{
+    color: black;
+    text-align: justify;
+    margin: 0.5em 0;
+    font-size: 16px;
+    font-family: 'Inconsolata', monospace;
 }
