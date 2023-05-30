@@ -1,0 +1,36 @@
+{
+    "python.autoComplete.extraPaths": [
+        "/home/jorge/jorge/turtlebot3_ws/install/unity_robotics_demo_msgs/lib/python3.8/site-packages",
+        "/home/jorge/jorge/turtlebot3_ws/install/unity_robotics_demo/lib/python3.8/site-packages",
+        "/home/jorge/jorge/turtlebot3_ws/install/ros_tcp_endpoint/lib/python3.8/site-packages",
+        "/home/jorge/jorge/turtlebot3_ws/install/robot_gandia_deep_learning/lib/python3.8/site-packages",
+        "/home/jorge/jorge/turtlebot3_ws/install/proy_jomdec_nav2_system/lib/python3.8/site-packages",
+        "/home/jorge/jorge/turtlebot3_ws/install/provide_map/lib/python3.8/site-packages",
+        "/home/jorge/jorge/turtlebot3_ws/install/my_slam/lib/python3.8/site-packages",
+        "/home/jorge/jorge/turtlebot3_ws/install/my_nav2_system/lib/python3.8/site-packages",
+        "/home/jorge/jorge/turtlebot3_ws/install/my_first_service/lib/python3.8/site-packages",
+        "/home/jorge/jorge/turtlebot3_ws/install/my_first_publisher/lib/python3.8/site-packages",
+        "/home/jorge/jorge/turtlebot3_ws/install/my_first_node/lib/python3.8/site-packages",
+        "/home/jorge/jorge/turtlebot3_ws/install/larrosa_quesada_ex_my_nav2_system/lib/python3.8/site-packages",
+        "/home/jorge/jorge/turtlebot3_ws/install/custom_interface/lib/python3.8/site-packages",
+        "/home/jorge/install/my_nav2_system/lib/python3.8/site-packages",
+        "/opt/ros/galactic/lib/python3.8/site-packages"
+    ],
+    "python.analysis.extraPaths": [
+        "/home/jorge/jorge/turtlebot3_ws/install/unity_robotics_demo_msgs/lib/python3.8/site-packages",
+        "/home/jorge/jorge/turtlebot3_ws/install/unity_robotics_demo/lib/python3.8/site-packages",
+        "/home/jorge/jorge/turtlebot3_ws/install/ros_tcp_endpoint/lib/python3.8/site-packages",
+        "/home/jorge/jorge/turtlebot3_ws/install/robot_gandia_deep_learning/lib/python3.8/site-packages",
+        "/home/jorge/jorge/turtlebot3_ws/install/proy_jomdec_nav2_system/lib/python3.8/site-packages",
+        "/home/jorge/jorge/turtlebot3_ws/install/provide_map/lib/python3.8/site-packages",
+        "/home/jorge/jorge/turtlebot3_ws/install/my_slam/lib/python3.8/site-packages",
+        "/home/jorge/jorge/turtlebot3_ws/install/my_nav2_system/lib/python3.8/site-packages",
+        "/home/jorge/jorge/turtlebot3_ws/install/my_first_service/lib/python3.8/site-packages",
+        "/home/jorge/jorge/turtlebot3_ws/install/my_first_publisher/lib/python3.8/site-packages",
+        "/home/jorge/jorge/turtlebot3_ws/install/my_first_node/lib/python3.8/site-packages",
+        "/home/jorge/jorge/turtlebot3_ws/install/larrosa_quesada_ex_my_nav2_system/lib/python3.8/site-packages",
+        "/home/jorge/jorge/turtlebot3_ws/install/custom_interface/lib/python3.8/site-packages",
+        "/home/jorge/install/my_nav2_system/lib/python3.8/site-packages",
+        "/opt/ros/galactic/lib/python3.8/site-packages"
+    ]
+}

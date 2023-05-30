@@ -12,7 +12,9 @@ def generate_launch_description():
                  Node(
                     package='proy_robotanica_service',
                     executable='movement_server',
-                    output='screen'
+                    output='screen',
+                    parameters=[{'use_sim_time': False}]
+
                 ),
             ]),
 

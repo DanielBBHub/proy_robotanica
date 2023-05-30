@@ -1,0 +1,38 @@
+{
+  "configurations": [
+    {
+      "browse": {
+        "databaseFilename": "${default}",
+        "limitSymbolsToIncludedHeaders": false
+      },
+      "includePath": [
+        "/home/jorge/jorge/turtlebot3_ws/install/web_video_server/include/**",
+        "/home/jorge/jorge/turtlebot3_ws/install/unity_robotics_demo_msgs/include/**",
+        "/home/jorge/jorge/turtlebot3_ws/install/turtlebot3_gazebo/include/**",
+        "/home/jorge/jorge/turtlebot3_ws/install/turtlebot3_fake_node/include/**",
+        "/home/jorge/jorge/turtlebot3_ws/install/proy_jomdec_my_world/include/**",
+        "/home/jorge/jorge/turtlebot3_ws/install/my_world/include/**",
+        "/home/jorge/jorge/turtlebot3_ws/install/larrosa_quesada_ex_23/include/**",
+        "/home/jorge/jorge/turtlebot3_ws/install/custom_interface/include/**",
+        "/opt/ros/galactic/include/**",
+        "/home/jorge/jorge/turtlebot3_ws/src/async_web_server_cpp/include/**",
+        "/home/jorge/jorge/turtlebot3_ws/src/custom_interface/include/**",
+        "/home/jorge/jorge/turtlebot3_ws/src/jorge/include/**",
+        "/home/jorge/jorge/turtlebot3_ws/src/larrosa_quesada_ex_23/include/**",
+        "/home/jorge/jorge/turtlebot3_ws/src/my_world/include/**",
+        "/home/jorge/jorge/turtlebot3_ws/src/proy_jomdec/proy_jomdec_my_world/include/**",
+        "/home/jorge/jorge/turtlebot3_ws/src/proy_jomdec/proy_jomdec_nav2_system/include/**",
+        "/home/jorge/jorge/turtlebot3_ws/src/turtlebot3_simulations/turtlebot3_fake_node/include/**",
+        "/home/jorge/jorge/turtlebot3_ws/src/turtlebot3_simulations/turtlebot3_gazebo/include/**",
+        "/home/jorge/jorge/turtlebot3_ws/src/web_video_server/include/**",
+        "/usr/include/**"
+      ],
+      "name": "ROS",
+      "intelliSenseMode": "gcc-x64",
+      "compilerPath": "/usr/bin/gcc",
+      "cStandard": "gnu11",
+      "cppStandard": "c++14"
+    }
+  ],
+  "version": 4
+}
