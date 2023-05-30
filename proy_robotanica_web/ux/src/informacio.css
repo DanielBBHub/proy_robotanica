@@ -19,7 +19,6 @@
 }
 
 .subtitulo{
-    text-decoration: underline;
     font-family: 'Inconsolata', monospace;
     font-size: 20px;
     text-align: center;
@@ -36,7 +35,7 @@
 
 .contenedor{
     margin: 2em 4em;
-    width: 30%;
+    width: 50%;
 }
 
 .imagen{
@@ -66,5 +65,4 @@
 .tamaño3{
     width: 30%;
     animation: imagenes-animacion 2s ease-in-out infinite;
-    padding-bottom: 10px ;
 }
