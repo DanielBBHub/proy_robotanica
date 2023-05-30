@@ -21,7 +21,6 @@
 }
 
 .subtirulo{
-    text-decoration: underline;
     font-family: 'Inconsolata', monospace;
     font-size: 20px;
     text-align: justify;
@@ -78,13 +77,15 @@ body{
 
 .tarjeta .front {
     transform: perspective(500px) rotateY(0deg);
-    background: rgba(71, 93, 57, 0.3);
+    border: 1px solid var(--verdeOscuro);
+    /*background: rgba(71, 93, 57, 0.3);*/
     border-radius: 30px;
 }
 
 .tarjeta .back {
     transform: perspective(500px) rotateY(180deg);
-    background: rgba(174, 174, 174, 0.3);
+    border: 1px solid #424242;
+    /*background: rgba(174, 174, 174, 0.3);*/
     border-radius: 30px;
 }
 
