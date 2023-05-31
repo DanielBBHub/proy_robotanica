@@ -1,0 +1,55 @@
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@300;400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300&display=swap');
+
+:root{
+    --negro: #141414;
+    --grisNegro: #2d2d2d;
+    --verdeOscuro: #475d39;
+    --verde: #7C9969;
+    --blanco: #ffffff;
+}
+
+.titulo{
+    font-size: 56px;
+    text-align: center;
+    color: var(--verdeOscuro);
+    padding-top: 1.5em;
+    font-family: 'Inconsolata', monospace;
+}
+
+.subtitulo{
+    font-family: 'Inconsolata', monospace;
+    font-size: 20px;
+    text-align: center;
+    font-weight: bold;
+    color: var(--verde);
+}
+
+.texto{
+    text-align: justify;
+    margin: 0.5em 0;
+    font-size: 16px;
+    font-family: 'Inconsolata', monospace;
+}
+
+.contenedor{
+    margin: 2em 4em;
+    width: 50%;
+}
+
+.imagen{
+    width: 30%;
+}
+
+
+.tarjeta {
+    position: relative;
+    height: 20em;
+}
+
+
+.tamaño3{
+    width: 30%;
+    animation: imagenes-animacion 2s ease-in-out infinite;
+}

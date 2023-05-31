@@ -215,6 +215,22 @@ module.exports = class LogicaUsuario {
 		})
 	}
 
+	async _guardarImagenUsuario(data){
+		let textoSQL = "update Usuarios set imagen=$imagen where dni=$dni";
+		let valoresParaSQL = {$imagen: data.imagen, $dni: data.dni}
+		
+		return new Promise( (resolver, rechazar) => {
+			this.laConexion.all( textoSQL, valoresParaSQL,
+			( err, res ) => {
+				if(err){
+					rechazar(err)
+				} else {
+					resolver()
+				}
+			})
+		})
+	}
+
 	async _enviarCorreo( data ){
 		var sent
 		var token
