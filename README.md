@@ -36,3 +36,7 @@ Una vez esten los paquetes instalados abrimos los puertos para los servicios:
   
 ## DOCUMENTACION API  
 La documentacion de la api REST se puede encontrar [aqui](https://app.swaggerhub.com/apis-docs/RUXZFLY_1/Robotanica/1.0.0-oas3.1#/)
+
+## DOCUMENTACION DEEP LEARNING
+Para la implementacion del DepoLearning, hemos utilizado un dataset de 200 imagenes de cada tipo (berenjenas, calabazas blancas, tomates maduros y tomates verdes).
+Utilizando la herramienta web "Edge Impulse", se ha clasificado imagen a imagen el tipo de verdura y posteriormente se ha realizado un procesamiento y entrenamiento.
