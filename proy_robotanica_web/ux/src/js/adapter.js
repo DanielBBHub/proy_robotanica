@@ -1,43 +1,38 @@
-import LogicaFake from "./logica_fake.js";
 document.addEventListener('DOMContentLoaded', event => {
     // Navegacion por control manual
-    let logica = new LogicaFake()
-    //Callback para el inicio de sesion 
-    document.getElementById("login").addEventListener("click", () => {
-        console.log('login')
-        var correo =   document.getElementById("dniUsuarioL").value 
-        var pass =  document.getElementById("passUsuario").value
-        logica.login(correo, pass)
-    })
     
-    //Callback para el registro
-    document.getElementById("registro").addEventListener("click", () => {
-        console.log('registro')
-        var correo =   document.getElementById("correoUsuario").value 
-        var pass =  document.getElementById("passwordUsuario").value
-        var passRe =  document.getElementById("passwordUsuario").value
-        var tlf =   document.getElementById("telefonoUsuario").value 
-        var dni =  document.getElementById("dniUsuario").value
-        var nombreApellidos =  document.getElementById("nombreUsuario").value + ' ' + document.getElementById("apellidosUsuario").value
-        
-        //Hacer comprobacion antes de loggear al usuario
-        logica.registro(dni, pass, nombreApellidos, tlf, correo)
+
+    document.getElementById("moverDelante").addEventListener("click", () => {
+        call_delante_service("delante")
+    })
+    document.getElementById("parar").addEventListener("click", stop)
+
+    document.getElementById("moverAtras").addEventListener("click", () => {
+        call_delante_service("atras")
     })
 
+    document.getElementById("moverDerecha").addEventListener("click", () => {
+        call_delante_service("derecha")
+    })
 
-    document.getElementById("parar").addEventListener("click", stop)
-    document.getElementById("moverAtras").addEventListener("click", reverse)
+    document.getElementById("moverIzquierda").addEventListener("click", () => {
+        call_delante_service("izquierda")
+    })
 
     // Navegacion a un punto
-    document.getElementById("navTomates").addEventListener("click", () => {
-        call_nav_service("tomate")
+    document.getElementById("waypoint_pepino").addEventListener("click", () => {
     })
+    
     document.getElementById("waypoint_berenjena").addEventListener("click", () => {
         call_nav_waypoints_service("waypoints_sim")
     })
 
     document.getElementById("waypoint_tomate").addEventListener("click", () => {
         call_nav_waypoints_service("waypoints")
+    })
+
+    document.getElementById("btn_foto").addEventListener("click", () => {
+        //setCamera()
     })
 
     /*
@@ -47,7 +42,6 @@ document.addEventListener('DOMContentLoaded', event => {
     })
     */
 
-    //Atributos para representar la info de la conexion
     var data = {
         // ros connection
         ros: null,
@@ -55,8 +49,8 @@ document.addEventListener('DOMContentLoaded', event => {
         connected: false,
         //Infomracion del servicio
         service_busy: false, 
-	    service_response: ''
-      }
+        service_response: ''
+    }
 
     connect()
     //Se le pasa la direccion del rosbridge a ROSLIB y se crea 
@@ -74,6 +68,8 @@ document.addEventListener('DOMContentLoaded', event => {
         //Al des/conectarnos sacamos por pantalla el estaado de la conexion 
         data.ros.on("connection", () => {
             data.connected = true
+
+
             console.log("Conexion con ROSBridge correcta") 
         })
         data.ros.on("error", (error) => {
@@ -82,9 +78,11 @@ document.addEventListener('DOMContentLoaded', event => {
         })
         data.ros.on("close", () => {
             data.connected = false
-            console.log("Conexion con ROSBridge cerrada")	    	 
+            console.log("Conexion con ROSBridge cerrada")
+            console.log('Connection to ROSBridge was closed!')
+            document.getElementById("camara").innerHTML = ""	    	 
         })
-    }
+    }//connect
 
     //Se cierra la conexion
     function disconnect(){
@@ -123,6 +121,7 @@ document.addEventListener('DOMContentLoaded', event => {
     }
 
     function stop() {
+        console.log("parar")
         let topic = new ROSLIB.Topic({
             ros: data.ros,
             name: '/cmd_vel',
@@ -251,6 +250,20 @@ document.addEventListener('DOMContentLoaded', event => {
         })	
     }
 
+    //Servicio de camara
+    /*
+    function setCamera(){
+        console.log("setting the camera")
+        new MJPEGCANVAS.Viewer({
+            divID: "contenido_camara", //elemento del html donde mostraremos la cámara
+            host: "127.0.0.1:8080", //dirección del servidor de vídeo
+            width: 320, //no pongas un tamaño mucho mayor porque puede dar error
+            height: 240,
+            topic: "/camera/image_raw",
+            ssl: false,
+        })
+    }
+*/
     // Servicio de navegacion por una ruta
     function call_capture_image(valor){
         data.service_busy = true

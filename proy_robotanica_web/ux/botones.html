@@ -15,6 +15,9 @@
     <link href="/dist/output.css" rel="stylesheet">
     <link rel="stylesheet" href="./src/menu.css">
     <link rel="stylesheet" href="./src/funcionalidades.css">
+    <!--Funcionamiento de la camara desde la web-->
+    <script src="mjpegcanvas.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/eventemitter2@5.0.1/lib/eventemitter2.min.js"></script>
 </head>
 </head>
 
@@ -35,8 +38,6 @@
                     </div>
                 </div>
 
-        <!-- TODO: Poner el boton de cerrar sesion por favoooor Y QUE FUNCIONE
-        Te has follao un poquito el header no ruben? -->
 
             </nav>
         </header>
@@ -50,22 +51,25 @@
                 <div class="subcontenedor_izquierda">
                     <h2 class="subtirulo" style="padding-bottom: 2em;">Movimiento manual</h2>
                     
+
+                    <iframe src="http://0.0.0.0:8080/stream?topic=/fomo_image" style=" width: 96px; height: 96px;"> </iframe>
+                    
                     <div class="fila_1">
-                        <button class="btn btn-circle botones_mover" id="moverDelante">
+                        <button class="btn botones_mover" id="moverDelante">
                             <img src="src/img/flecha.png" alt="Delante" class="flecha_arriba">
                         </button>
                     </div>
 
-                    <div class=" fila_2">
-                        <button class="btn btn-circle botones_mover" id="moverDerecha">
-                            <img src="src/img/flecha.png" alt="Derecha" class="flecha_derecha">
+                    <div class="fila_2">
+                        <button class="btn botones_mover" id="moverIzquierda">
+                            <img src="src/img/flecha.png" alt="Izquierda" class="flecha_derecha">
                         </button>
-                        <button class="btn btn-circle botones_mover" id="moverIzquierda">
-                            <img src="src/img/flecha.png" alt="Izquierda" class="flecha_izquierda">
+                        <button class="btn botones_mover" id="moverDerecha">
+                            <img src="src/img/flecha.png" alt="Derecha" class="flecha_izquierda">
                         </button>
                     </div>
                     <div class="fila_3">
-                        <button class="btn btn-circle botones_mover" id="moverAtras">
+                        <button class="btn botones_mover" id="moverAtras">
                             <img src="src/img/flecha.png" alt="Atras" class="flecha_abajo">
                         </button>
                     </div>
@@ -75,9 +79,9 @@
                     
                 </div>
                 <div class="h56 content-center">
-                    <h2 class="subtirulo" style="padding-top: 5em;">Puntos de referencia</h2>
+                    <h2 class="subtirulo">Puntos de referencia</h2>
                     <div class="h-56 grid grid-cols-3 gap-4 content-evenly waypoints">
-                        <button class="btn" id="navTomates">Tomate</button>
+                        <button class="btn" id="waypoint_pepino">Pepinos</button>
                         <button class="btn" id="waypoint_berenjena">Berenjenas</button>
                         <button class="btn" id="waypoint_tomate">Tomates</button>
                     </div>
@@ -157,6 +161,7 @@
             </div>
         </div>
     </footer>
+    
 </body>
 
 </html>

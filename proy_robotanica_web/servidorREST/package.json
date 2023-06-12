@@ -15,6 +15,7 @@
 		"express": "*",
 		"express-flash": "*",
 		"express-session": "*",
+		"nodemailer": "*",
 		"rand-token": "*",
 		"request": "*",
 		"sqlite3": "^5.0.6"

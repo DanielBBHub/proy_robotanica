@@ -1,5 +1,5 @@
 #importamos el mensaje
-from custom_interface.srv import MyMoveMsg
+from proy_robotanica_custom_interface.srv import MyMoveMsg
 #importamos la bib ROS2 para python
 import rclpy
 from rclpy.node import Node

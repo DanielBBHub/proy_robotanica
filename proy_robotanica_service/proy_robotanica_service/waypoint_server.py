@@ -33,18 +33,23 @@ class Service(Node):
 
         if request.move == "waypoints":
             # imprime mensaje informando del movimiento
+            self.get_logger().info('-----------------------------------------------------------------------------------------')
             self.get_logger().info('Ejecutando waypoints...')
+            self.get_logger().info('-----------------------------------------------------------------------------------------')
             action_client = Service()
             action_client.send_goal(0)
             rclpy.spin(action_client)
             # devuelve la respuesta
             response.success = True
+
         elif request.move == "waypoints_sim":
             # imprime mensaje informando del movimiento
+            self.get_logger().info('-----------------------------------------------------------------------------------------')
             self.get_logger().info('Ejecutando waypoints en simulacion...')
-            action_client_sim = Service()
-            action_client_sim.send_goal_sim(0)
-            rclpy.spin(action_client_sim)
+            self.get_logger().info('-----------------------------------------------------------------------------------------')
+            action_client = Service()
+            action_client.send_goal_sim(0)
+            rclpy.spin(action_client)
             # devuelve la respuesta
             response.success = True
         
@@ -112,7 +117,7 @@ class Service(Node):
 
     def send_goal_sim(self,punto):
         
-        goal_poses = []
+        goal_poses_sim = []
 
         goal_pose = NavigateToPose.Goal()
 
@@ -125,7 +130,7 @@ class Service(Node):
         goal_pose.pose.pose.orientation.z = 0.0
         goal_pose.pose.pose.orientation.w = 1.0
 
-        goal_poses.append(goal_pose)
+        goal_poses_sim.append(goal_pose)
 
         goal_pose2 = NavigateToPose.Goal()
 
@@ -138,7 +143,7 @@ class Service(Node):
         goal_pose2.pose.pose.orientation.z = 0.0
         goal_pose2.pose.pose.orientation.w = 1.0
 
-        goal_poses.append(goal_pose2)
+        goal_poses_sim.append(goal_pose2)
 
         goal_pose3 = NavigateToPose.Goal()
 
@@ -151,7 +156,7 @@ class Service(Node):
         goal_pose3.pose.pose.orientation.z = 0.0
         goal_pose3.pose.pose.orientation.w = 1.0
 
-        goal_poses.append(goal_pose3)
+        goal_poses_sim.append(goal_pose3)
 
         self.get_logger().info('Goal creado')
 
@@ -159,9 +164,9 @@ class Service(Node):
 
         self.get_logger().info('Acción activa')
 
-        self._send_goal_future = self._action_client.send_goal_async(goal_poses[punto],feedback_callback=self.feedback_callback)
+        self._send_goal_future = self._action_client.send_goal_async(goal_poses_sim[punto],feedback_callback=self.feedback_callback)
 
-        self._send_goal_future.add_done_callback(self.goal_response_callback)
+        self._send_goal_future.add_done_callback(self.goal_response_callback_sim)
         self.get_logger().info('Goal lanzado')
 
     def goal_response_callback(self, future):
@@ -177,20 +182,62 @@ class Service(Node):
 
         self._get_result_future.add_done_callback(self.get_result_callback)
 
+    def goal_response_callback_sim(self, future):
+        goal_handle = future.result()
+
+        if not goal_handle.accepted:
+            self.get_logger().info('Goal no aceptado')
+            return
+            
+        self.get_logger().info('Goal aceptado')
+
+        self._get_result_future = goal_handle.get_result_async()
+
+        self._get_result_future.add_done_callback(self.get_result_callback_sim)
+
      #definimos la funcion de respuesta al resultado
     def get_result_callback(self, future):
         result = future.result().result
         status = future.result().status
         
         if status == GoalStatus.STATUS_SUCCEEDED:
+            self.get_logger().info('-----------------------------------------------------------------------------------------')
             self.get_logger().info('Navigation succeeded! ')
+            self.get_logger().info('-----------------------------------------------------------------------------------------')
             self.puntos_recorridos = self.puntos_recorridos + 1
 
             if self.puntos_recorridos < 3:
                 self.send_goal(self.puntos_recorridos)
+                self.get_logger().info('-----------------------------------------------------------------------------------------')
                 self.get_logger().info('Comenzamos con el siguiente punto')
+                self.get_logger().info('-----------------------------------------------------------------------------------------')
             else:
                 rclpy.shutdown()
+                self.puntos_recorridos = 0
+
+        else:
+            self.get_logger().info('Navigation failed with status: {0}'.format(status))
+        #self.get_logger().info('Result: {0}'.format(result))
+        #rclpy.shutdown()
+
+    def get_result_callback_sim(self, future):
+        result = future.result().result
+        status = future.result().status
+        
+        if status == GoalStatus.STATUS_SUCCEEDED:
+            self.get_logger().info('-----------------------------------------------------------------------------------------')
+            self.get_logger().info('Navigation succeeded! ')
+            self.get_logger().info('-----------------------------------------------------------------------------------------')
+            self.puntos_recorridos = self.puntos_recorridos + 1
+
+            if self.puntos_recorridos < 3:
+                self.send_goal_sim(self.puntos_recorridos)
+                self.get_logger().info('-----------------------------------------------------------------------------------------')
+                self.get_logger().info('Comenzamos con el siguiente punto')
+                self.get_logger().info('-----------------------------------------------------------------------------------------')
+            else:
+                rclpy.shutdown()
+                self.puntos_recorridos = 0
         else:
             self.get_logger().info('Navigation failed with status: {0}'.format(status))
         #self.get_logger().info('Result: {0}'.format(result))

@@ -11,6 +11,14 @@
     --blanco: #ffffff;
 }
 
+.borde{
+    border: 1px solid red;
+}
+
+.streaming{
+    width: 350px;
+    height: 200px;
+}
 
 .titulo{
     font-size: 56px;
@@ -130,6 +138,7 @@
 .botones_mover{
     margin: 1em 3em;
     background-color: var(--verdeOscuro);
+    border-radius: 50%;
 }
 
 .botonCTA {
@@ -157,5 +166,6 @@
 .contenedor_foto{
     background: rgba(174, 174, 174, 0.3);
     border-radius: 30px;
+    margin-top: 2em;
 }
 

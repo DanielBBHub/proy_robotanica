@@ -11,6 +11,14 @@
     --fondo: #FFFFF0;
 }
 
+.linea {
+    border-top: 1.5px solid var(--verde);
+    height: 2px;
+    max-width: 200px;
+    padding-top: 1em;
+    margin: 20px auto 0 auto;
+}
+
 .negro{
     background: var(--negro);
 }
@@ -42,3 +50,7 @@
 .footer{
     background: var(--negro);
 }
+
+
+
+
