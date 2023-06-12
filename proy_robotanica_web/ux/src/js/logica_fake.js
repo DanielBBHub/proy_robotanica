@@ -74,6 +74,30 @@ export default class LogicaFake {
 		
     }
 
+    async mostrar_datos(){
+        var metodo = this;
+        //aqui va el dni del ususario "dniU"
+        var data = {dni:"12345678A"}
+        var res 
+        let peticion = await fetch(IP_PUERTO + '/usuarioxdni', {
+            method: 'POST',
+            headers: new Headers(
+            //Partes del header que se han añadido para 
+            //posibilitar la comunicacion con el servidor REST
+            { 'Users-Agent' : 'Daniel',
+            'Access-Control-Allow-Origin': '*',
+            'Content-type': 'application/json'}),
+            mode: "cors",
+            body: JSON.stringify(data),
+            
+
+        }).then(response => response.json())
+        //Una vez recogida se pasa la muestra y la fecha de esta a la funcion cargar_muestra()
+        .then(data => 
+            this.cargarDatosUsuario(data)
+            )
+    }
+
 
     async enviarConfirmacionMail(correoU) {
        
@@ -99,7 +123,12 @@ export default class LogicaFake {
     }
 
 
-    
+    cargarDatosUsuario(data){
+        //console.log(data)
+		document.getElementById("nombreUsuarioTxt").textContent =  data.nombreApellidos;
+        document.getElementById("correoUsuarioTxt").textContent =  data.correo;
+        document.getElementById("tlfUsuarioTxt").textContent =  data.telefono;
+    }
 
     async comprobarUsuario(data,passUsuario) {
         console.log(data.pass)

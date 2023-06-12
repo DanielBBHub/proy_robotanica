@@ -50,15 +50,15 @@
             <br>
             <br>
             <h4 class="camposPerfil" style="margin: auto;">Nombre completo: </h4>
-            <h4 id="nombreUsuarioTxt" class="texto"></h4>
+            <h4 id="nombreUsuarioTxt" class="texto">Robotánica</h4>
         </div>
         <div class="contenedor" style="margin-right: 10rem;">
             <h3 class="camposPerfil" style="margin: auto;">Correo electrónico: </h3>
-            <h4 id="correoUsuarioTxt" class="texto"></h4>
+            <h4 id="correoUsuarioTxt" class="texto">robotanica@support.com</h4>
             <br>
             <br>
-            <h3 class="camposPerfil" style="margin: auto;">Fecha de creación: </h3>
-            <h4 id="fechaUsuarioTxt" class="texto"></h4>
+            <h3 class="camposPerfil" style="margin: auto;">Teléfono: </h3>
+            <h4 id="tlfUsuarioTxt" class="texto">961 234 567</h4>
             <a href="editar_perfil.html"><button class="btn botonCTA">EDITAR PERFIL</button></a>
         </div>
     </div>
@@ -87,6 +87,15 @@
     </div>
 </footer>
 -->
+
+
+<script type="module">
+    import LogicaFake from "./src/js/logica_fake.js"
+
+    const logica = new LogicaFake()
+    logica.mostrar_datos()
+</script>
+
 
 </body>
 </html>

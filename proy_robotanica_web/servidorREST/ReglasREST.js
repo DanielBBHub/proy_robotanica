@@ -29,6 +29,7 @@ module.exports.cargar = function( servidorExpress, laLogicaUsuario ) {
 
 			try {
 				// llamo a la función adecuada de la lógica
+				console.log(data.dni)
 				res = await laLogicaUsuario._getUsuarioConDni(data.dni)
 			} catch (e) {
 				error = e
