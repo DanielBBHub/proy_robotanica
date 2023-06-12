@@ -90,6 +90,7 @@ export default class LogicaFake {
         }) 
 		
     }
+    
 
     async mostrar_datos(){
         var metodo = this;
@@ -106,6 +107,12 @@ export default class LogicaFake {
             'Content-type': 'application/json'}),
             mode: "cors",
             body: JSON.stringify(data),
+        }).then(response => response.json())
+        //Una vez recogida se pasa la muestra y la fecha de esta a la funcion cargar_muestra()
+        .then(data => 
+            this.cargarDatosUsuario(data)
+        )
+    }
             
     async guardarImagen(dniU, imagenUrl) {
        
@@ -126,14 +133,8 @@ export default class LogicaFake {
 
         }).then(response => response.json())
         //Una vez recogida se pasa la muestra y la fecha de esta a la funcion cargar_muestra()
-        .then(data => 
-            this.cargarDatosUsuario(data)
-            )
-    }
+        .then(data => this.cargarDatosUsuario(data))
 
-
-        }) 
-        //Se recoge el JSON de la cabecera de la respuesta 
     }
 
     async enviarConfirmacionMail(correoU) {
@@ -153,15 +154,13 @@ export default class LogicaFake {
             'Content-type': 'application/json'}),
             mode: "cors",
             body: JSON.stringify(data),
-            
-
         }) 
         //Se recoge el JSON de la cabecera de la respuesta 
     }
 
 
     cargarDatosUsuario(data){
-        //console.log(data)
+        console.log(data)
 		document.getElementById("nombreUsuarioTxt").textContent =  data.nombreApellidos;
         document.getElementById("correoUsuarioTxt").textContent =  data.correo;
         document.getElementById("tlfUsuarioTxt").textContent =  data.telefono;
@@ -220,6 +219,24 @@ export default class LogicaFake {
 
 
     async comprobarUsuario(data,passUsuario) {
+        console.log(data.pass)
+        console.log(passUsuario)
+
+        if(data.verify == 1){
+            if(data.pass.toString() == passUsuario){
+                window.location.replace("./perfil.html");
+            }
+            else{
+                document.getElementById("verificar").innerHTML = "Contraseña incorrecta."
+            }
+        }
+        else{
+            document.getElementById("verificar").innerHTML = "Verifica el correo primero."
+        }
+    }
+
+
+    async cargarUsuario(data,passUsuario) {
         console.log(data.pass)
         console.log(passUsuario)
 

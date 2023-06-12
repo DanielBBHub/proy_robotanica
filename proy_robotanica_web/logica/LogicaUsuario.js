@@ -144,7 +144,7 @@ module.exports = class LogicaUsuario {
 	}
 
 	async _insertarUsuario( data ){
-		let textoSQL = "insert into Usuarios values($nombreApellidos, $correo, $telefono, $pass, $dni, $token, $verify )";
+		let textoSQL = "insert into Usuarios values($nombreApellidos, $correo, $telefono, $pass, $dni, $token, $verify, $imagen  )";
 		let valoresParaSQL = { 
 			$nombreApellidos: data.nombreApellidos, 
 			$correo: data.correo, 
@@ -152,7 +152,8 @@ module.exports = class LogicaUsuario {
 			$pass: data.pass,
 			$dni: data.dni,
 			$token: null,
-			$verify:0 }
+			$verify:0,
+			$imagen:"" }
 		
 		return new Promise( (resolver, rechazar) => {
 			this.laConexion.all( textoSQL, valoresParaSQL,
