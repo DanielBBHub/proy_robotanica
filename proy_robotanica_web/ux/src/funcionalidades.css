@@ -24,19 +24,17 @@
     font-size: 56px;
     text-align: center;
     color: var(--verde);
-    padding-top: 2em;
     font-family: 'Comfortaa', cursive;
     font-weight: bold;
 }
 
 .subtirulo{
-    font-family: 'Comfortaa', cursive;
-    font-size: 20px;
+    font-family: 'Inconsolata', monospace;
+    font-size: 30px;
     text-align: center;
-    padding-top: 1rem ;
-    margin-bottom: -1rem;
-    font-weight: bold;
-    color: var(--verde);
+    color: var(--verdeOscuro);
+    text-transform: uppercase;
+
 }
 
 .informacion_usuario{
@@ -45,31 +43,27 @@
     margin: 0 auto;
     height: 100vh;
     background-size: cover;
-    padding-bottom: 1rem ;
 
 }
 
 .contenedor_izq{
-    background: rgba(174, 174, 174, 0.3);
     width: 80%;
-    border-radius: 30px;
-    min-height: 100%;
-    display: block;
-    margin-left: 1em;
+    margin-left: 2em;
     margin-right: 1em;
-
 }
 
 .contenedor_der{
     width: 80%;
     border-radius: 30px;
-    min-height: 100%;
-    display: block;
+    margin-right: 2em;
     margin-left: 1em;
-    margin-right: 1em;
+
 }
 
 .subcontenedor_izquierda{
+    /*background: rgba(174, 174, 174, 0.3);*/
+    border: 1px solid var(--verdeOscuro);
+    border-radius: 30px;
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -81,91 +75,86 @@
     justify-content: center;
 }
 
+.imagen_camara{
+    width: 100%;
+    border: 1px solid red;
+}
+
 .escaneo{
     width: 400px;
-	height: 200px;
-	background-color: #f0f0f0;
-	border: 1px solid #ccc;
-	padding: 20px;
-	position: relative;
-    margin-top: 2em;
-    margin-bottom: 2em;
+    height: 200px;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
     display: flex;
     justify-content: center;
+    margin: 1em 0;
 }
 
 .escaneo .imagen{
     width: 15em;
-    
 }
 
 .camara{
     width: 400px;
-	height: 200px;
-	background-color: #f0f0f0;
-	border: 1px solid #ccc;
-	padding: 20px;
-	position: relative;
-    margin-top: 2em;
-    margin-bottom: 2em;
-
+    height: 200px;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    margin: 1em 0;
 }
 
 .flecha_arriba{
-    width: 75%;
-    height: 75%;
+    background: white;
+    border-radius: 50%;
     transform: rotate(180deg);
-}
-
-.flecha_abajo{
-    width: 75%;
-    height: 75%;
+    cursor: pointer;
+    margin: -1em 1em;
 }
 
 .flecha_derecha{
-    width: 75%;
-    height: 75%;
+    cursor: pointer;
+    margin: 0 1em;
     transform: rotate(90deg);
 }
 
 .flecha_izquierda{
-    width: 75%;
-    height: 75%;
+    margin: 0 1em;
+    cursor: pointer;
     transform: rotate(-90deg);
+}
 
+.flecha_abajo{
+    cursor: pointer;
+    margin: -1em 1em;
 }
 
 .botones_mover{
-    margin: 1em 3em;
+    margin: 0 1em;
     background-color: var(--verdeOscuro);
     border-radius: 50%;
 }
 
 .botonCTA {
-    margin-top: 3.5em;
-    margin-bottom: 2em;
-    background: var(--verdeOscuro);
-    color: whitesmoke;
+    background: white;
+    font-weight: bold;
+    border: 3px solid var(--verdeOscuro);
+    color: var(--verdeOscuro);
+    margin: 1em 0;
 }
 
 .botonCTA:hover{
-    background: var(--verde);
+    background: white;
     box-shadow: 0 0 6px #363636
 }
 
-.waypoints{
-    padding-left: 1em;
-    padding-right: 1em;
-}
-
 .contenedor_escaneo{
-    background: rgba(174, 174, 174, 0.3);
+    border: 1px solid var(--verdeOscuro);
     border-radius: 30px;
+    margin-bottom: 1.5em;
 }
 
 .contenedor_foto{
-    background: rgba(174, 174, 174, 0.3);
+    border: 1px solid var(--verdeOscuro);
     border-radius: 30px;
-    margin-top: 2em;
+    margin-top: 1.5em;
 }
 

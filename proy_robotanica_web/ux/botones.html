@@ -15,6 +15,9 @@
     <link href="/dist/output.css" rel="stylesheet">
     <link rel="stylesheet" href="./src/menu.css">
     <link rel="stylesheet" href="./src/funcionalidades.css">
+
+    <script src="https://cdn.lordicon.com/bhenfmcm.js"></script>
+
     <!--Funcionamiento de la camara desde la web-->
     <script src="mjpegcanvas.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/eventemitter2@5.0.1/lib/eventemitter2.min.js"></script>
@@ -23,54 +26,84 @@
 
 <body>
 
-    <section class="landing" style="background:#FFFFFF;  height: 100vh">
-        <header style="position: fixed; width: 100%; z-index: 1"> <!-- style="position: fixed; width: 100%" -->
-            <nav class="negro flex h-16">
-                <div class="imagen_header">
-                    <a href="index.html"><img src="./src/img/Logo.png" /></a>
+<header style="position: fixed; width: 100%; z-index: 1"> <!-- style="position: fixed; width: 100%" -->
+    <nav class="negro flex h-16">
+        <div class="imagen_header">
+            <img src="./src/img/Logo.png" />
+        </div>
+
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8" >
+            <div class="flex h-16 items-center justify-center items-center " >
+                <div class="ml-10 flex items-baseline space-x-4">
+                    <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
+                    <a href="botones.html" class="menu1 text-white rounded-md px-3 py-2 text-sm font-medium">Funcionalidades</a>
                 </div>
-        
-                <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8" >
-                    <div class="flex h-16 items-center justify-center items-center " >
-                        <div class="ml-10 flex items-baseline space-x-4">
-                            <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
-                        </div>
-                    </div>
-                </div>
+            </div>
+        </div>
 
+        <div class="login_header">
+            <a href="perfil.html"><img src="./src/img/persona.png" /></a>
+        </div>
+    </nav>
+</header>
 
-            </nav>
-        </header>
-
-
+        <div>
 
         <div class="informacion_usuario centro">
 
             <div class="contenedor_izq">
 
                 <div class="subcontenedor_izquierda">
-                    <h2 class="subtirulo" style="padding-bottom: 2em;">Movimiento manual</h2>
+                    <h2 class="subtirulo">Movimiento manual</h2>
                     
 
                     <iframe src="http://0.0.0.0:8080/stream?topic=/fomo_image" style=" width: 96px; height: 96px;"> </iframe>
-                    
+                    <br>
                     <div class="fila_1">
-                        <button class="btn botones_mover" id="moverDelante">
-                            <img src="src/img/flecha.png" alt="Delante" class="flecha_arriba">
+                        <button id="moverDelante">
+                            <lord-icon
+                                    src="https://cdn.lordicon.com/rxufjlal.json"
+                                    trigger="hover"
+                                    colors="primary:#475d39"
+                                    state="hover-2"
+                                    style="width:60px;height:60px"
+                                    class="flecha_arriba">
+                            </lord-icon>
                         </button>
                     </div>
 
                     <div class="fila_2">
-                        <button class="btn botones_mover" id="moverIzquierda">
-                            <img src="src/img/flecha.png" alt="Izquierda" class="flecha_derecha">
+                        <button id="moverIzquierda">
+                            <lord-icon
+                                    src="https://cdn.lordicon.com/rxufjlal.json"
+                                    trigger="hover"
+                                    colors="primary:#475d39"
+                                    state="hover-2"
+                                    style="width:60px;height:60px"
+                                    class="flecha_derecha">
+                            </lord-icon>
                         </button>
-                        <button class="btn botones_mover" id="moverDerecha">
-                            <img src="src/img/flecha.png" alt="Derecha" class="flecha_izquierda">
+                        <button id="moverDerecha">
+                            <lord-icon
+                                    src="https://cdn.lordicon.com/rxufjlal.json"
+                                    trigger="hover"
+                                    colors="primary:#475d39"
+                                    state="hover-2"
+                                    style="width:60px;height:60px"
+                                    class="flecha_izquierda">
+                            </lord-icon>
                         </button>
                     </div>
                     <div class="fila_3">
-                        <button class="btn botones_mover" id="moverAtras">
-                            <img src="src/img/flecha.png" alt="Atras" class="flecha_abajo">
+                        <button id="moverAtras">
+                            <lord-icon
+                                    src="https://cdn.lordicon.com/rxufjlal.json"
+                                    trigger="hover"
+                                    colors="primary:#475d39"
+                                    state="hover-2"
+                                    style="width:60px;height:60px"
+                                    class="flecha_abajo">
+                            </lord-icon>
                         </button>
                     </div>
                     <div class="fila_4"> 
@@ -78,19 +111,21 @@
                     </div>
                     
                 </div>
-                <div class="h56 content-center">
+                <br>
+
+                <div class="content-center subcontenedor_izquierda">
                     <h2 class="subtirulo">Puntos de referencia</h2>
-                    <div class="h-56 grid grid-cols-3 gap-4 content-evenly waypoints">
-                        <button class="btn" id="waypoint_pepino">Pepinos</button>
-                        <button class="btn" id="waypoint_berenjena">Berenjenas</button>
-                        <button class="btn" id="waypoint_tomate">Tomates</button>
+                    <div>
+                        <button class="btn botonCTA" id="waypoint_pepino">Pepinos</button>
+                        <button class="btn botonCTA" id="waypoint_berenjena">Berenjenas</button>
+                        <button class="btn botonCTA" id="waypoint_tomate">Tomates</button>
                     </div>
                 </div>
                 
 
             </div> <!--Fin contenedor izq-->
 
-            <div class="contenedor_der h-56 grid grid-cols-1 gap-4 content-stretch" >
+            <div class="contenedor_der" >
 
                 <div class="contenedor_escaneo">
 
@@ -124,8 +159,7 @@
       
         </div>
 
-    </section>
-
+        </div>
     <footer class="white footer px-10 py-4 border-t bg-base-100 text-base-content border-base-300">
         <div class="items-center grid-flow-col">
             <a href="index.html"><svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"
