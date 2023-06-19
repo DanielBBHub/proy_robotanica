@@ -30,7 +30,7 @@
         </div>
 
         <div class="login_header">
-            <button id="logoutButton"  href="perfil.html"><img src="./src/img/persona.png" /></button>
+            <button id="volverPerfilbtn" ><img src="./src/img/persona.png" /></button>
         </div>
     </nav>
 </header>
@@ -131,9 +131,14 @@
         let logica = new LogicaFake()
         document.getElementById("editarPerfilBoton").addEventListener("click", () => {
             console.log('guardando imagen')
-            
+            const logica = new LogicaFake()
+            const queryString = window.location.search;
+            console.log(queryString);
+            var dni = queryString.split("?")
+            dni = dni[1].split("=")[1]
+            console.log(dni)
             //Hacer comprobacion antes de loggear al usuario
-            logica.subirImagen("23862090" ,imagen)
+            logica.subirImagen(dni,imagen)
         })
 
     });

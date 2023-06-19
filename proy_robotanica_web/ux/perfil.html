@@ -58,7 +58,7 @@
             <br>
             <h3 class="camposPerfil" style="margin: auto;">Teléfono: </h3>
             <h4 id="tlfUsuarioTxt" class="texto">961 234 567</h4>
-            <a href="editar_perfil.html"><button class="btn botonCTA">EDITAR PERFIL</button></a>
+            <button id="editarPerfilBoton" class="btn botonCTA">EDITAR PERFIL</button>
         </div>
     </div>
 
@@ -92,7 +92,16 @@
     import LogicaFake from "./src/js/logica_fake.js"
 
     const logica = new LogicaFake()
-    logica.mostrar_datos()
+    const queryString = window.location.search;
+    console.log(queryString);
+    var dni = queryString.split("?")
+    dni = dni[1].split("=")[1]
+    console.log(dni)
+    logica.mostrar_datos(dni)
+    document.getElementById("editarPerfilBoton").addEventListener("click", function() {
+        window.location.replace("./editar_perfil.html?dni=" + dni);
+    });
+    
 </script>
 
 

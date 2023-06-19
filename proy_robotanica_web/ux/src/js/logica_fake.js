@@ -92,10 +92,10 @@ export default class LogicaFake {
     }
     
 
-    async mostrar_datos(){
+    async mostrar_datos(dniU){
         var metodo = this;
         //aqui va el dni del ususario "dniU"
-        var data = {dni:"12345678A"}
+        var data = {dni: dniU}
         var res 
         let peticion = await fetch(IP_PUERTO + '/usuarioxdni', {
             method: 'POST',
@@ -164,6 +164,7 @@ export default class LogicaFake {
 		document.getElementById("nombreUsuarioTxt").textContent =  data.nombreApellidos;
         document.getElementById("correoUsuarioTxt").textContent =  data.correo;
         document.getElementById("tlfUsuarioTxt").textContent =  data.telefono;
+        document.getElementById("imgUsuario").src =  data.imagen;
     }
     async subirImagen(dniU, imagen) {
         const imageRef = ref(storage, 'images/'+ dniU)
@@ -224,7 +225,7 @@ export default class LogicaFake {
 
         if(data.verify == 1){
             if(data.pass.toString() == passUsuario){
-                window.location.replace("./perfil.html");
+                window.location.replace("./perfil.html?dni=" + data.dni);
             }
             else{
                 document.getElementById("verificar").innerHTML = "Contraseña incorrecta."
@@ -236,22 +237,7 @@ export default class LogicaFake {
     }
 
 
-    async cargarUsuario(data,passUsuario) {
-        console.log(data.pass)
-        console.log(passUsuario)
-
-        if(data.verify == 1){
-            if(data.pass.toString() == passUsuario){
-                window.location.replace("./perfil.html");
-            }
-            else{
-                document.getElementById("verificar").innerHTML = "Contraseña incorrecta."
-            }
-        }
-        else{
-            document.getElementById("verificar").innerHTML = "Verifica el correo primero."
-        }
-    }
+    
 }
 // ---------------------------------------------------------------------
 // ---------------------------------------------------------------------
